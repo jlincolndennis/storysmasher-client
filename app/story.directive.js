@@ -7,8 +7,8 @@
   function storyDirective() {
     return {
       restrict: 'E',
-      scrope: {},
-      templateUrl: '/story.html',
+      scope: {},
+      templateUrl: '/partials/story.html',
       controller: storyController,
       controllerAs: 'vm'
     }
