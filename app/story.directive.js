@@ -8,7 +8,7 @@
     return {
       restrict: 'E',
       scrope: {},
-      templateUrl: '/app/story.html',
+      templateUrl: '/story.html',
       controller: storyController,
       controllerAs: 'vm'
     }
