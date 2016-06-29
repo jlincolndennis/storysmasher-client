@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
   <meta charset="UTF-8">
   <!-- jQuery -->
@@ -17,6 +17,7 @@
 
   <!-- build:js js/main.min.js -->
   <script src="/app.module.js"></script>
+  <script src="/story.directive.js"></script>
   <script src="/tracery.min.js"></script>
   <script src="/grammar.js"></script>
   <!-- endbuild -->
@@ -25,58 +26,25 @@
   <link rel="stylesheet" href="/css/style.css">
   <title>StorySmasher</title>
 <base href="/"></head>
-<body>
-  <div class='holder'>
-    <h1>Welcome To App Smasher!</h1>
-    <h3>Awesome Stories Powered by Tracery and YOU!</h3>
+<body ng-cloak>
+  <div class="row header"  ng-hide="vm.getstarted">
+  <div class='holder col-md-8 col-md-offset-2'>
+    <h1>Welcome To Story Smasher!</h1>
+    <h3>Unexpected Stories Powered by Tracery and YOU!</h3>
 
     <div id="sample">
       <p class="lead">Create unique prose like this gem...</p>
     </div>
 
-    <h3>What is your Main Character's Name?</h3>
-    <select class="" name="">
-      <option value="">Their</option>
-      <option value="">His</option>
-      <option value="">Her</option>
-    </select>
-    <p>name is </p>
-    <input type="text" name="name" value="">
-
-  <div class="setting">
-    <h2>Where does your story take place?</h2>
-
-    <div class="setting-choice">
-      <h3>The Kingdom of Magic</h3>
-      <p>It is a Kingdom, you guessed it, full of magic.</p>
-    </div>
-    <div class="setting-choice">
-      <h3>Space Station X-99</h3>
-      <p>In the future, the goverment will actually fund space travel, and those lucky peeps will live... IN SPACE!</p>
-    </div>
+    <button class='start-butt btn-success btn' ng-click="vm.getstarted=true">Let's Smash A Story!</button>
   </div>
-
-  <div class="ingredient-x-choice">
-    <h2>What is the Ingredient X that kicks your story up to AWESOME LEVEL 9000 (or more!)??</h2>
-    <div class="ingredient-choice">
-      <h3>Dinosaurs!</h3>
-      <p>Their name means 'terribly lizards', but more accurately they are 'Super Rad Bird Monsters!'</p>
-    </div>
-    <div class="ingredient-choice">
-      <h3>Ninjas!</h3>
-      <p>Just who are those silent assassins under their masks? Hopefully not problematic Asian stereotypes, I can tell you that!</p>
-    </div>
   </div>
+  <div class="row">
+  <div class='holder col-md-8 col-md-offset-2'>
+  <ss-story ng-show="vm.getstarted"></ss-story>
+</div></div>
 
-  <div class='confirm'>
-    <h2>Ready to Smash This Story???</h2>
-    <p>Okay, so, our hero {{hero}} lives in {{world}}, with {{xfactor}} all up in its biz</p>
-    <p>Is this the story you want to tell?</p>
-    <button type="button" name="button">Nope!</button>
-    <button type="button" name="button">HECK YES IT IS!</button>
-  </div>
 
-</div>
 
 
 

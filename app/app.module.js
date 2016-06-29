@@ -6,6 +6,8 @@
   ]
 
   angular.module('app', dependencies)
-  console.log('hello from app module');
+  // console.log('hello from app module');
+
+
 
 }());
