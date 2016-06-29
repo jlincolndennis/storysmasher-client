@@ -4,10 +4,10 @@ var grammar = {
   name: namesArr,
   go: ['traveled', 'journeyed', 'went'],
   place: ['the store', 'France', 'HELL'],
-  sidekick: ['squirrel', 'goat', 'ghost'],
-  sidekickMod: ['talking', 'farting', 'invisible'],
+  sidekick: ['squirrel', 'goat', 'child'],
+  sidekickMod: ['talking', 'glowing', 'invisible'],
   story: ['#[hero:#name#][friend:#sidekickMod# #sidekick#]plot#'],
-  plot: ['#hero# #go# to #place#. Along the way, #hero# found #friend.a#! "What a strange #friend#!" #hero# said.']
+  plot: ['#hero# #go# to #place#. Along the way, #hero# found #friend.a#! "What a strange #friend#!" #hero# cried.']
 }
 
 console.log("hello from grammar");
