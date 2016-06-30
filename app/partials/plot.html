@@ -31,4 +31,16 @@
 
 <h3>Intro</h3>
 <button ng-click="vm.rollPara1()">Roll Intro</button>
-<p>{{vm.paragraph1}}</p>
+<p ng-bind-html="vm.paragraph1"></p>
+
+<h3>Inciting Incident</h3>
+<button ng-click="vm.rollPara2()">Roll paragraph</button>
+<p ng-bind-html="vm.paragraph2"></p>
+
+<h3>Accepting The Call To Adventure</h3>
+<button ng-click="vm.rollPara3()">Roll paragraph</button>
+<p ng-bind-html="vm.paragraph3"></p>
+
+<h3>The Journey</h3>
+<button ng-click="vm.rollPara4()">Roll paragraph</button>
+<p ng-bind-html="vm.paragraph4"></p>
