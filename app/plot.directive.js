@@ -2,99 +2,88 @@
   'use strict';
 
   angular.module('app')
-  .directive('ssPlot', storyDirective)
+  .directive('ssPlot', plotDirective)
 
-  function storyDirective() {
+  function plotDirective() {
+
     return {
       restrict: 'E',
       scope: {},
-      templateUrl: '/partials/story.html',
-      controller: storyController,
+      templateUrl: '/partials/plot.html',
+      controller: plotController,
       controllerAs: 'vm'
     }
   }
 
-  storyController.$inject = ['$log']
-  function storyController($log) {
-
-    var kingdom = {
-      settingMaster: ['The Kingdom of Magic'],
-      settingHome: ['The Royal City of Magic-Tania', 'The Village of Forest Glenn', 'The Blight Lands of Rhahguhn'],
-      settingLand: ['realm', 'countryside', 'land'],
-      lamejob: ['stable mucker', 'royal silver polisher', 'poopsmith'],
-      cooljob: ['Knight of the Realm', 'Mighty Wizard', 'Dashing Outlaw']
-    }
-
-    var space = {
-      settingMaster: ['Space Station X-99'],
-      settingHome: ['Habitation Module 1138', 'LifePod Alpha', 'HomeNode BL33T'],
-      settingLand: ['galaxy', 'interstellar seas','stars'],
-      lamejob: ['Space Janitor', 'HyperDrive Waste Collector', 'Viewport Washer'],
-      cooljob: ['Star Pilot', 'Space Marine', 'Quaser Jumper']
-    }
-
-
-
+  plotController.$inject = ['$log', 'storyFactory']
+  function plotController($log, storyFactory) {
     var vm = this;
-    vm.hero = 'Lincoln';
-    vm.pronoun = 'their';
-    vm.setting = 'Lame Town';
-    vm.xfactor = 'Republican';
-    vm.settingPicker = settingPicker;
-    vm.xfactorPicker = xfactorPicker;
-    vm.smash = smash;
-    vm.smashedStory = "";
-    vm.world = kingdom;
+    vm.setting = {};
+    vm.xFactor = {};
+    vm.pronouns = {};
+    vm.setPronouns = setPronouns;
+    vm.chooseSetting = chooseSetting;
+    vm.choosexFactor = choosexFactor;
+    vm.rollPara1 = rollPara1;
 
-    function settingPicker(setting) {
-      if (setting === 'space'){
-        vm.setting = 'Space Station X-99';
-        vm.world = space;
-        console.log(vm.world.settingMaster);
-        return
-      } else if (setting ==='kingdom'){
-        vm.setting = 'The Kingom of Magic';
-        vm.world = kingdom;
-        console.log(vm.world.settingMaster);
-        return
+    function setPronouns() {
+      switch (vm.pronouns.their) {
+        case 'their':
+          vm.pronouns.them = 'them';
+          vm.pronouns.they = 'they';
+          break;
+        case 'his':
+          vm.pronouns.them = 'him';
+          vm.pronouns.they = 'he';
+          break;
+        case 'her':
+          vm.pronouns.them = 'her';
+          vm.pronouns.they = 'she';
+          break;
+        default:
+
       }
+
     }
 
-      function xfactorPicker(x) {
-        if (x === 'dinos'){
-          vm.xfactor = 'Dinosaur'
-          console.log(vm.xfactor);
-          return
-        } else if (x ==='ninjas'){
-          vm.xfactor = 'Ninja'
-          console.log(vm.xfactor);
-          return
-        }
+    function chooseSetting(setting) {
+      vm.settingDisplay = setting
+      vm.setting = storyFactory.getSetting(setting)
+      console.log('vm.setting is', vm.setting);
     }
 
-    var testGram = {
-
-
-      story: ['#name# lived in #settingHome#, part of #settingMaster#, but it wasn\'t as exciting as one would think. #name# was but a lowly #lamejob#. In #pronoun# dreams, however, #name# was a #cooljob# and traveled across the #settingLand#. But those were just dreams. #name# would never leave #settingHome#, and probably never even see a fabled #xfactor#.']
+    function choosexFactor(xfactor) {
+      vm.xFactorDisplay = xfactor
+      vm.xFactor = storyFactory.getxFactor(xfactor)
+      console.log('vm.xFactor is', vm.xFactor);
     }
 
-    function smash() {
-      testGram.name = [vm.hero];
-      testGram.settingMaster = vm.world.settingMaster;
-      testGram.pronoun = vm.pronoun;
-      testGram.settingHome = vm.world.settingHome;
-      testGram.settingLand = vm.world.settingLand;
-      testGram.lamejob = vm.world.lamejob;
-      testGram.cooljob = vm.world.cooljob;
-      testGram.xfactor = [vm.xfactor];
-      var smashedGram = tracery.createGrammar(testGram);
-      var smashedStory = smashedGram.flatten('#story#')
-      console.log(smashedStory);
-      vm.buhbye = true;
-      vm.storytime = true;
-      return vm.smashedStory = smashedStory;
-    }
+    function rollPara1() {
+      var sugar = storyFactory.getSugar();
+      setPronouns();
+      var para1Gram = {
+        name: [vm.name],
+        pronounThey: [vm.pronouns.they],
+        pronounTheir: [vm.pronouns.their],
+        settingMaster: vm.setting.settingMaster,
+        lameJob: vm.setting.lameJob,
+        sugarMighty: sugar.sugarMighty,
+        coolJob: vm.setting.coolJob,
+        sugarWent: sugar.sugarWent,
+        settingLand: vm.setting.settingLand,
+        settingHome: vm.setting.settingHome,
+        xFactor: vm.xFactor.xFactor,
+        origin: ['#[home:#settingHome#]paragraph#'],
+        paragraph: storyFactory.getPara('para1')
+      }
 
+      var smashedPara1Grammar = tracery.createGrammar(para1Gram)
+      var smashedPara1 = smashedPara1Grammar.flatten('#origin#')
+      console.log(smashedPara1);
+      vm.paragraph1 = smashedPara1
+
+
+    }
   }
 
 

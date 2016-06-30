@@ -4,7 +4,7 @@ var kingdom = {
   settingHome: ['The Royal City of Magic-Tania', 'The Village of Forest Glenn', 'The Blight Lands of Rhahguhn', 'Hag\'s Bay, a fishing village'],
   settingLand: ['realm', 'countryside', 'land', 'country'],
   lameJob: ['stable mucker', 'royal silver polisher', 'poopsmith', 'bustle stuffer'],
-  lameWeapon: ['pitchfork', 'broom', 'poop shovel', 'bustle stuffing device']
+  lameWeapon: ['pitchfork', 'broom', 'poop shovel', 'bustle stuffing device'],
   coolJob: ['Knight of the Realm', 'Mighty Wizard', 'Dashing Outlaw'],
   coolWeapon: ['broadsward', 'staff', 'cutlass'],
   settingTransport: ['on a majestic steed', 'on a brand spankin\' new horse', 'on their journey', 'without looking back', 'with haste'],
@@ -58,14 +58,14 @@ var lovecraft = {
 }
 
 // hero
-name: [] //
-pronounTheir: [], // his/her/their
-pronounThey: [],// he/she/they
-pronounThem: [],
-heroWins: [],
-heroWinsEnding: [],
-heroLoses: [],
-heroLosesEnding: []
+// name: [],
+// pronounTheir: [], // his/her/their
+// pronounThey: [],// he/she/they
+// pronounThem: [],
+// heroWins: [],
+// heroWinsEnding: [],
+// heroLoses: [],
+// heroLosesEnding: []
 
 // sugar
 var sugar = {

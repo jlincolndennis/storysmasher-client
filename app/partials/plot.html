@@ -1,0 +1,34 @@
+<h2>Hero: {{vm.name}}</h2>
+
+<form class="form-inline">
+  <div class="form-group">
+    <p>
+      <select class="form-controll" ng-model='vm.pronouns.their'>
+        <option value="their">Their</option>
+        <option value="his">His</option>
+        <option value="her">Her</option>
+      </select>
+      name is
+      <input class="form-control" ng-model="vm.name" type="text">
+    </p>
+  </div>
+</form>
+
+
+<h2>Setting: {{vm.settingDisplay}}</h2>
+<button ng-click="vm.chooseSetting('space')">Space</button>
+<button ng-click="vm.chooseSetting('kingdom')">Kingdom</button>
+<button ng-click="vm.chooseSetting('western')">Western</button>
+
+<h2>xFactor: {{vm.xFactorDisplay}}</h2>
+<button ng-click="vm.choosexFactor('dinosaurs')">Dinosaurs</button>
+<button ng-click="vm.choosexFactor('ninjas')">Ninjas</button>
+<button ng-click="vm.choosexFactor('lovecraft')">Cthulhu</button>
+
+<h2>Ending: {{vm.Ending}}</h2>
+<button>Happy</button>
+<button>Sad</button>
+
+<h3>Intro</h3>
+<button ng-click="vm.rollPara1()">Roll Intro</button>
+<p>{{vm.paragraph1}}</p>
