@@ -30,6 +30,8 @@
     vm.rollPara3 = rollPara3;
     vm.rollPara4 = rollPara4;
     vm.rollPara5 = rollPara5;
+    vm.rollPara6 = rollPara6;
+    vm.rollPara7 = rollPara7;
 
     function setPronouns() {
       switch (vm.pronouns.their) {
@@ -198,6 +200,41 @@
       var smashedPara5Grammar = tracery.createGrammar(para5Gram)
       var smashedPara5 = smashedPara5Grammar.flatten('#origin#')
       vm.paragraph5 = smashedPara5
+    }
+
+    function rollPara6() {
+      var sugar = storyFactory.getSugar();
+      var plot = storyFactory.getPlot();
+      vm.plotDeets.evilLeader = [
+        document.getElementsByClassName('pd-xfactorleader')[0].innerHTML
+      ];
+      vm.plotDeets.weapon = [
+        document.getElementsByClassName('pd-coolweapon')[0].innerHTML
+      ]
+
+      var para6Gram = {
+        evilLeader: vm.plotDeets.evilLeader,
+        name: [vm.name],
+        sugarCried: sugar.sugarCried,
+        pronounTheir: [vm.pronouns.their],
+        coolWeapon: vm.plotDeets.weapon,
+        sugarYelled: sugar.sugarYelled,
+        sugarSinister: sugar.sugarSinister,
+        plotFight1: plot.plotFight1,
+        plotFight2: plot.plotFight2,
+        plotFight3: plot.plotFight3,
+        pronounThey: [vm.pronouns.they],
+        sugarDodged: sugar.sugarDodged,
+        paragraph: storyFactory.getPara('para6'),
+        origin: ['#paragraph#']
+      }
+      var smashedPara6Grammar = tracery.createGrammar(para6Gram)
+      var smashedPara6 = smashedPara6Grammar.flatten('#origin#')
+      vm.paragraph6 = smashedPara6
+    }
+
+    function rollPara7() {
+
     }
 
     }

@@ -80,15 +80,18 @@
         sugarLair: ['lair', 'hideout', 'stronghold', 'base'],
         sugarCried: ['cried', 'yelled', 'said', 'commanded', 'shouted'],
         sugarYelled: ['bellowed', 'roared', 'said', 'answered', 'replied'],
-        sugarSinister: ['sinister', 'evil', 'dark', 'nightmare', 'feasome', 'loathsome', 'ornate']
+        sugarSinister: ['sinister', 'evil', 'dark', 'nightmare', 'feasome', 'loathsome', 'ornate'],
+        sugarDodged: ['doged', 'evaded','narrowly avoided', 'just escaped', 'easily sidestepped', 'struggled to evade']
       }
 
       var plot = {
         plotMotivation: ['a desire for vengance!','a heart full of rage!', 'a need for justice!', 'a burning thirst for revenge!', 'the memories of his lost home.', 'dreams of glory.', 'sadness over the fate of #pronounTheir# home.', 'wonder.'],
         plotJourneyChallenge: ['Partway into #pronounTheir# trek, #name# became hoplessly lost! For days, #name# wandered in circles, ruing the time wasted. Finally, #name# was able to use the stars to navigate, and find #pronounTheir# way again.', 'About halway through #pronounTheir# journey, #name# was ambushed by #xFactorThreat#! It was only #name#\'s quick thinking and steady hand that allowed #pronounThem# to defeat the #xFactorThreatShort# quickly and without injury.'],
         plotJourney: ['#plotJourneyChallenge# #name# rested just long enough to regain #pronounTheir# focus, then #pronounThey# continued on!','Luckily the journey was without incident.'],
-        plotTwist: ['<br>"Let\'s get right to it! The fighting, I mean," #name# said.<br>', '<br>#name# felt #pronounTheir# anger boiling inside #pronounThem#. #evilLeader# didn\'t deserve to live! #name# would put and end to the #xFactor# and to anyone else who got in #pronounTheir#\'s way. In fact, #name# wouldn\'t stop until the whole world submitted to #pronounTheir# rule!', '<br>"Your coming was foretold by the Prophecy," #evilLeader# said, "It states only the greatest #coolJob# in the #settingLand# would come to face me."<br><br>"So, I <em>am</em> a #coolJob#!" #name# whispered.']
-
+        plotTwist: ['<br>"Let\'s get right to it! The fighting, I mean," #name# said.<br>', '<br>#name# felt #pronounTheir# anger boiling inside #pronounThem#. #evilLeader# didn\'t deserve to live! #name# would put and end to the #xFactor# and to anyone else who got in #pronounTheir#\'s way. In fact, #name# wouldn\'t stop until the whole world submitted to #pronounTheir# rule!', '<br>"Your coming was foretold by the Prophecy," #evilLeader# said, "It states only the greatest #coolJob# in the #settingLand# would come to face me."<br><br>"So, I <em>am</em> a #coolJob#!" #name# whispered.'],
+        plotFight1: ['#evilLeader# lunged at #name#, but #name# was faster. Spinning around, #name# attacked with #pronounTheir# #coolWeapon#. #evilLeader# staggered back.', '#name# and #evilLeader# were locked in combat, two warriors at their best. Who would make the fatal mistake and award their foe the victory?', '#name# attacked with their #coolWeapon# but #evilLeader# #sugarDodged# the attack.' ],
+        plotFight2: ['#evilLeader# was fast, but #name# was faster.', '#name# fought relentlessly, but #evilLeader# never seemed to tire. #name# did not know how much longer #pronounThey# could hold out.', '#name# landed attack after attack. It was as if #coolWeapon# was an extension of #pronounTheir# body. The #coolWeapon# sang a deadly song.', 'The battle dragged on, neither foe willing to yeild!', 'It was a battle that would do down in the annals of history!', 'Had their ever been two more fearsome warriors than #name# and #evilLeader#?'],
+        plotFight3: ['#name# gained the upper hand! #evilLeader# was weak and #name# readied #pronounTheir# final strike!',' <br><br>#evilLeader# laughed,"You can never defeat me!"<br><br>"Watch me!" #name# cried.', '#name# could barely hold up #pronounTheir# #coolWeapon#. Defeat seemed unavoildable. Exhausted, #name# summoned all #pronounTheir# strength for one, final attack.']
       }
 
       // paragraphs
@@ -105,8 +108,12 @@
       var para4 = ['Armed with #pronounTheir# new #coolWeapon#, #name# #sugarTraveled# #settingTransport#. #pronounTheir# destination? The #xFactor# <span class="pd-lair">#sugarLair#</span>, <span class="pd-evillocation">#settingEvilLocation#</span>. It would be a long journey, farther than #name# had ever ventured, but #pronounThey# was filled with #plotMotivation# #plotJourney#'];
 
       var para5 = [
-        'It was a long journey, but finally, #name# arrived at the #xFactor# #lair# #evilLocation#. #evilLeader# was waiting for #pronounThem#!\n "Soon all of #settingMaster# will be mine!" #evilLeader# said, #xFactorTaunt#<br>#plotTwist#'
+        'It was a long journey, but finally, #name# arrived at the #xFactor# #lair# #evilLocation#. #evilLeader# was waiting for #pronounThem#!<br><br> "Soon all of #settingMaster# will be mine!" #evilLeader# said, #xFactorTaunt#<br><br>#plotTwist#'
       ]
+
+      var para6 = ['"#evilLeader#!", #name# #sugarCried# drawing #pronounTheir# #coolWeapon#, "Let us end this now."<br><br>"My thoughts exactly!" #evilLeader# #sugarYelled#, drawing their own, #sugarSinister# #coolWeapon#. <br><br>#plotFight1# #plotFight2# #plotFight3#'];
+
+      var para7 = []
 
       return {
         getSetting, getxFactor, getSugar, getPlot, getPara,
@@ -171,6 +178,14 @@
 
           case 'para5':
           return para5
+          break;
+
+          case 'para6':
+          return para6
+          break;
+
+          case 'para7':
+          return para7
           break;
 
           default:
