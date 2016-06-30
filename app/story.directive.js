@@ -36,7 +36,6 @@
 
 
     var vm = this;
-    vm.coolWord = 'Butt';
     vm.hero = 'Lincoln';
     vm.pronoun = 'their';
     vm.setting = 'Lame Town';
