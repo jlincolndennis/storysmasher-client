@@ -234,6 +234,21 @@
     }
 
     function rollPara7() {
+      var plot = storyFactory.getPlot();
+      vm.plotDeets.evilLeader = [
+        document.getElementsByClassName('pd-xfactorleader')[0].innerHTML
+      ];
+      vm.plotDeets.corrupt =
+        document.getElementsByClassName('pd-corrupt')[0]
+      ;
+      // console.log('corrupt?', vm.plotDeets.corrupt);
+      if(vm.plotDeets.corrupt) {
+        console.log('Bad Guy');
+      } else {
+        console.log('Good Guy');
+      }
+
+
 
     }
 
