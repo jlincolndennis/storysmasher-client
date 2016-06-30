@@ -29,6 +29,7 @@
     vm.rollPara2 = rollPara2;
     vm.rollPara3 = rollPara3;
     vm.rollPara4 = rollPara4;
+    vm.rollPara5 = rollPara5;
 
     function setPronouns() {
       switch (vm.pronouns.their) {
@@ -109,13 +110,16 @@
 
     function rollPara3() {
       var sugar = storyFactory.getSugar();
+      vm.plotDeets.coolJob = [
+        document.getElementsByClassName('pd-herojob')[0].innerHTML
+      ]
 
       var para3Gram = {
         name: [vm.name],
         xFactor: vm.xFactor.xFactor,
         pronounThem: [vm.pronouns.them],
         pronounThey: [vm.pronouns.they],
-        coolJob: vm.setting.coolJob,
+        coolJob: vm.plotDeets.coolJob,
         coolWeapon: vm.setting.coolWeapon,
         pronounTheir: [vm.pronouns.their],
         xFactorLeader: vm.xFactor.xFactorLeader,
@@ -158,6 +162,42 @@
       var smashedPara4Grammar = tracery.createGrammar(para4Gram)
       var smashedPara4 = smashedPara4Grammar.flatten('#origin#')
       vm.paragraph4 = smashedPara4
+    }
+
+    function rollPara5() {
+      vm.plotDeets.lair = [
+        document.getElementsByClassName('pd-lair')[0].innerHTML
+      ];
+      vm.plotDeets.evilLocation = [
+        document.getElementsByClassName('pd-evillocation')[0].innerHTML
+      ];
+      vm.plotDeets.evilLeader = [
+        document.getElementsByClassName('pd-xfactorleader')[0].innerHTML
+      ];
+      vm.plotDeets.coolJob = [
+        document.getElementsByClassName('pd-herojob')[0].innerHTML
+      ]
+      var plot = storyFactory.getPlot();
+
+      var para5Gram = {
+        name: [vm.name],
+        pronounTheir: [vm.pronouns.their],
+        xFactor: vm.xFactor.xFactor,
+        lair: vm.plotDeets.lair,
+        evilLocation: vm.plotDeets.evilLocation,
+        evilLeader: vm.plotDeets.evilLeader,
+        pronounThem: [vm.pronouns.them],
+        settingMaster: vm.setting.settingMaster,
+        xFactorTaunt: vm.xFactor.xFactorTaunt,
+        plotTwist: plot.plotTwist,
+        coolJob: vm.plotDeets.coolJob,
+        settingLand: vm.setting.settingLand,
+        paragraph: storyFactory.getPara('para5'),
+        origin: ['#paragraph#']
+      }
+      var smashedPara5Grammar = tracery.createGrammar(para5Gram)
+      var smashedPara5 = smashedPara5Grammar.flatten('#origin#')
+      vm.paragraph5 = smashedPara5
     }
 
     }

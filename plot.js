@@ -26,7 +26,7 @@ plotJourneyChallenge // lost, attack, none
 // 5 Confrontation!
 'It was a long journey, but finally, #name# arrived at the #xFactor# #sugarLair# #settingEvilLocation#. #xFactorLeader# was waiting for #pronounThem#!\n "Soon all of #settingMaster# will be mine!" #xFactorLeader# said, #xFactorTaunt#'
 
-// Plot Twist!
+
 '#plotTwist#'
 
 //plot

@@ -14,7 +14,7 @@
         settingLand: ['realm', 'countryside', 'land', 'country'],
         lameJob: ['stable mucker', 'royal silver polisher', 'poopsmith', 'bustle stuffer'],
         lameWeapon: ['pitchfork', 'broom', 'poop shovel', 'bustle stuffing device'],
-        coolJob: ['Knight of the Realm', 'Mighty Wizard', 'Dashing Outlaw'],
+        coolJob: ['Knight of the Realm', 'Wizard Supreme', 'Dashing Outlaw'],
         coolWeapon: ['broadsward', 'staff', 'cutlass'],
         settingLeader: ['Richard The Wise', 'Greta The Great', 'Hawk Lord', 'The Lady of the Stars', 'Greenback Morgan', 'Tristram the Great', 'The Black Jay', 'Duke Grayhound', 'Lady Jessica'],
         settingTransport: ['on a majestic steed', 'on a brand spankin\' new horse', 'on their journey', 'without looking back', 'with haste'],
@@ -86,12 +86,13 @@
       var plot = {
         plotMotivation: ['a desire for vengance!','a heart full of rage!', 'a need for justice!', 'a burning thirst for revenge!', 'the memories of his lost home.', 'dreams of glory.', 'sadness over the fate of #pronounTheir# home.', 'wonder.'],
         plotJourneyChallenge: ['Partway into #pronounTheir# trek, #name# became hoplessly lost! For days, #name# wandered in circles, ruing the time wasted. Finally, #name# was able to use the stars to navigate, and find #pronounTheir# way again.', 'About halway through #pronounTheir# journey, #name# was ambushed by #xFactorThreat#! It was only #name#\'s quick thinking and steady hand that allowed #pronounThem# to defeat the #xFactorThreatShort# quickly and without injury.'],
-        plotJourney: ['#plotJourneyChallenge# #name# rested just long enough to regain #pronounTheir# focus, then #pronounThey# continued on!','Luckily the journey was without incident.']
+        plotJourney: ['#plotJourneyChallenge# #name# rested just long enough to regain #pronounTheir# focus, then #pronounThey# continued on!','Luckily the journey was without incident.'],
+        plotTwist: ['<br>"Let\'s get right to it! The fighting, I mean," #name# said.<br>', '<br>#name# felt #pronounTheir# anger boiling inside #pronounThem#. #evilLeader# didn\'t deserve to live! #name# would put and end to the #xFactor# and to anyone else who got in #pronounTheir#\'s way. In fact, #name# wouldn\'t stop until the whole world submitted to #pronounTheir# rule!', '<br>"Your coming was foretold by the Prophecy," #evilLeader# said, "It states only the greatest #coolJob# in the #settingLand# would come to face me."<br><br>"So, I <em>am</em> a #coolJob#!" #name# whispered.']
 
       }
 
       // paragraphs
-      var para1 = ['#name# lived in <span class="pd-home">#home#</span>, in #settingMaster#, but it wasn\'t as exciting as one would think. #name# was but a lowly <span class="pd-lamejob">#lameJob#</span>. In #pronounTheir# dreams, however, #name# was a #sugarMighty# #coolJob# and #sugarWent# across the #settingLand#. But those were just dreams. #name# feared #pronounThey# would never leave #home#, and probably never even see a fabled #xFactor#.'];
+      var para1 = ['#name# lived in <span class="pd-home">#home#</span>, in #settingMaster#, but it wasn\'t as exciting as one would think. #name# was but a lowly <span class="pd-lamejob">#lameJob#</span>. In #pronounTheir# dreams, however, #name# was a #sugarMighty# <span class="pd-herojob">#coolJob#</span> and #sugarWent# across the #settingLand#. But those were just dreams. #name# feared #pronounThey# would never leave #home#, and probably never even see a fabled #xFactor#.'];
 
       var para2 =['But adventure, as it often does, came to #name#! The #xFactor# <span class="pd-xfactorgroup">#xFactorGroup#</span> was attacking #home#! Despite being just a #lameJob#, #name# picked up #pronounTheir# #lameWeapon# and fought back! #name# fought #sugarBravely#, but it wasn\'t enough, and sadly #home# was pillaged and left in ruins.'];
 
@@ -101,7 +102,11 @@
         'When the smoke cleared, #name# saw nothing but destruction all around #pronounThem#. Sticking out of the rubble, #name# saw a <span class="pd-coolweapon">#heroWeapon#</span>, the weapon of a <span class="pd-cooljob">#heroJob#</span>! #pronounThey# picked it up. As #pronounThey# did, a survivor came towards #pronounThem#.<br><br>"You are a #heroJob#?" they asked #name#.<br><br>"Well... I..." #name# said.<br><br>"Please, good hero, avenge our people. Confront <span class="pd-xfactorleader">#xFactorLeader#</span>, leader of the #xFactor#!"<br><br>#name# looked into the eyes of the survivor. "I will make the #xFactor# pay!" #name# said.'
       ];
 
-      var para4 = ['Armed with #pronounTheir# new #coolWeapon#, #name# #sugarTraveled# #settingTransport#. #pronounTheir# destination? The #xFactor# #sugarLair#, #settingEvilLocation#. It would be a long journey, farther than #name# had ever ventured, but #pronounThey# was filled with #plotMotivation# #plotJourney#']
+      var para4 = ['Armed with #pronounTheir# new #coolWeapon#, #name# #sugarTraveled# #settingTransport#. #pronounTheir# destination? The #xFactor# <span class="pd-lair">#sugarLair#</span>, <span class="pd-evillocation">#settingEvilLocation#</span>. It would be a long journey, farther than #name# had ever ventured, but #pronounThey# was filled with #plotMotivation# #plotJourney#'];
+
+      var para5 = [
+        'It was a long journey, but finally, #name# arrived at the #xFactor# #lair# #evilLocation#. #evilLeader# was waiting for #pronounThem#!\n "Soon all of #settingMaster# will be mine!" #evilLeader# said, #xFactorTaunt#<br>#plotTwist#'
+      ]
 
       return {
         getSetting, getxFactor, getSugar, getPlot, getPara,
@@ -162,6 +167,10 @@
 
           case 'para4':
           return para4
+          break;
+
+          case 'para5':
+          return para5
           break;
 
           default:
