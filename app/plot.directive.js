@@ -245,7 +245,6 @@
       vm.plotDeets.corrupt =
         document.getElementsByClassName('pd-corrupt')[0]
       ;
-      // console.log('corrupt?', vm.plotDeets.corrupt);
       if(vm.plotDeets.corrupt) {
         paragraph = storyFactory.getPara('para7good');
       } else {
@@ -272,15 +271,7 @@
       var smashedPara7Grammar = tracery.createGrammar(para7Gram)
       var smashedPara7 = smashedPara7Grammar.flatten('#origin#')
       vm.paragraph7 = smashedPara7;
-
     }
-
-    }
-
-
-
-
-
-
+  }
 
 }());

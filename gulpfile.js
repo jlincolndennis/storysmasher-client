@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var superstatic = require('superstatic');
 var browserSync = require('browser-sync').create();
+var historyApiFallback = require('connect-history-api-fallback')
 var useref = require('gulp-useref')
 
 gulp.task('sass', function () {
@@ -17,13 +18,13 @@ gulp.task('browserSync', function () {
   browserSync.init({
     server: {
       baseDir: 'app',
-      middleware: [superstatic({stack: 'strict'})]
-    },
+      middleware: [  historyApiFallback()]
+    }
   })
 });
 
 gulp.task('watch', ['browserSync', 'sass'], function() {
-  gulp.watch('app/scss/style.scss', ['sass']);
+  gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/**/*.html', browserSync.reload);
   gulp.watch('app/**/*.js', browserSync.reload);
 });
