@@ -1,0 +1,14 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/6.2.1/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.0.3
+[debug] Platform:     darwin
+[debug] Node Version: v6.2.1
+[debug] Time:         Fri Jul 01 2016 16:34:16 GMT-0600 (MDT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/lincolndennis/projects/storysmasher/client
+[info] Public Directory: app
+[info] 
+[info] Server listening at: http://localhost:5000
