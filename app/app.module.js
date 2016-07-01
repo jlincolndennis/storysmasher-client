@@ -3,6 +3,7 @@
 
   var dependencies = [
     'ui.router',
+    'ngAnimate',
     'ngSanitize',
   ]
 

@@ -1,54 +1,89 @@
-<h2>Hero: {{vm.name}}</h2>
+<div class="prompt prompt-1" ng-show="vm.prompt1">
+<p class="ui-text">Who is the hero of the Story?</p>
+</div>
 
+<div class="response prompt-1" ng-show="vm.prompt1">
 <form class="form-inline">
   <div class="form-group">
-    <p>
-      <select class="form-controll" ng-model='vm.pronouns.their'>
+      <select class="form-control" class="pronoun-dropdown" ng-init='vm.hero.pronoun' ng-model='vm.hero.pronoun'>
         <option value="their">Their</option>
         <option value="his">His</option>
         <option value="her">Her</option>
       </select>
-      name is
-      <input class="form-control" ng-model="vm.name" type="text">
-    </p>
+      <span class="ui-text"> name is </span>
+      <input class="name-input" ng-model="vm.name" type="text">
+      <button class='btn' ng-click="vm.prompt1 = false; vm.prompt2 = true">>></button>
   </div>
 </form>
+</div>
 
+<div class="prompt prompt-2 ng-hide" ng-show="vm.prompt2">
+<p class="ui-text">Where does your story take place?</p>
+</div>
 
-<h2>Setting: {{vm.settingDisplay}}</h2>
-<button ng-click="vm.chooseSetting('space')">Space</button>
-<button ng-click="vm.chooseSetting('kingdom')">Kingdom</button>
-<button ng-click="vm.chooseSetting('western')">Western</button>
+<div class="response prompt-2 ng-hide" ng-show="vm.prompt2">
+  <p class="ui-text">It takes place...</p>
+  <h2>Setting: {{vm.settingDisplay}}</h2>
+  <button class='btn' ng-click="vm.chooseSetting('space')">Space</button>
+  <button class='btn' ng-click="vm.chooseSetting('kingdom')">Kingdom</button>
+  <button class='btn' ng-click="vm.chooseSetting('western')">Western</button>
+  <button class='btn' ng-click="vm.prompt1 = true; vm.prompt2 = false"><<</button>
+  <button class='btn' ng-click="vm.prompt2 = false; vm.prompt3 = true">>></button>
 
-<h2>xFactor: {{vm.xFactorDisplay}}</h2>
-<button ng-click="vm.choosexFactor('dinosaurs')">Dinosaurs</button>
-<button ng-click="vm.choosexFactor('ninjas')">Ninjas</button>
-<button ng-click="vm.choosexFactor('lovecraft')">Cthulhu</button>
+</div>
+
+<div class="prompt prompt-3 ng-hide" ng-show="vm.prompt3">
+<p class="ui-text">What is the X-Factor that kicks your story up to Awesome Level 9000?</p>
+</div>
+<div class="response prompt-3 ng-hide" ng-show="vm.prompt3">
+  <p class="ui-text">The X-Factor is...</p>
+  <h2>xFactor: {{vm.xFactorDisplay}}</h2>
+  <button class='btn' ng-click="vm.choosexFactor('dinosaurs')">Dinosaurs</button>
+  <button class='btn' ng-click="vm.choosexFactor('ninjas')">Ninjas</button>
+  <button class='btn' ng-click="vm.choosexFactor('lovecraft')">Cthulhu</button>
+  <button class='btn' ng-click="vm.prompt2 = true; vm.prompt3 = false"><<</button>
+  <button class='btn' ng-click="vm.prompt3 = false; vm.prompt4 = true">>></button>
+</div>
+
+<div class="response prompt-4 ng-hide" ng-show="vm.prompt4">
 
 <h3>Intro</h3>
-<button ng-click="vm.rollPara1()">Roll Intro</button>
-<p ng-bind-html="vm.paragraph1"></p>
+<button class='btn' ng-click="vm.rollPara1()">Roll Intro</button>
 
 <h3>Inciting Incident</h3>
-<button ng-click="vm.rollPara2()">Roll paragraph</button>
-<p ng-bind-html="vm.paragraph2"></p>
+<button class='btn' ng-click="vm.rollPara2()">Roll paragraph</button>
+
 
 <h3>Accepting The Call To Adventure</h3>
-<button ng-click="vm.rollPara3()">Roll paragraph</button>
-<p ng-bind-html="vm.paragraph3"></p>
+<button class='btn' ng-click="vm.rollPara3()">Roll paragraph</button>
+
 
 <h3>The Journey</h3>
-<button ng-click="vm.rollPara4()">Roll paragraph</button>
-<p ng-bind-html="vm.paragraph4"></p>
+<button class='btn' ng-click="vm.rollPara4()">Roll paragraph</button>
+
 
 <h3>Confrontation!</h3>
-<button ng-click="vm.rollPara5()">Roll paragraph</button>
-<p ng-bind-html="vm.paragraph5"></p>
+<button class='btn' ng-click="vm.rollPara5()">Roll paragraph</button>
+
 
 <h3>An Epic Battle!</h3>
-<button ng-click="vm.rollPara6()">Roll paragraph</button>
-<p ng-bind-html="vm.paragraph6"></p>
+<button class='btn' ng-click="vm.rollPara6()">Roll paragraph</button>
+
 
 <h3>The Dramatic Conclusion!</h3>
-<button ng-click="vm.rollPara7()">Roll paragraph</button>
-<p ng-bind-html="vm.paragraph7"></p>
+<button class='btn' ng-click="vm.rollPara7()">Roll paragraph</button>
+</div>
+
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 paper">
+    <p ng-bind-html="vm.paragraph1"></p>
+    <p ng-bind-html="vm.paragraph2"></p>
+    <p ng-bind-html="vm.paragraph3"></p>
+    <p ng-bind-html="vm.paragraph4"></p>
+    <p ng-bind-html="vm.paragraph5"></p>
+    <p ng-bind-html="vm.paragraph6"></p>
+    <p ng-bind-html="vm.paragraph7"></p>
+
+</div>
+</div>

@@ -18,8 +18,11 @@
   plotController.$inject = ['$log', 'storyFactory']
   function plotController($log, storyFactory) {
     var vm = this;
+    vm.prompt1 = true;
     vm.setting = {};
     vm.xFactor = {};
+    vm.hero = {};
+    vm.hero.pronoun = 'their'
     vm.pronouns = {};
     vm.plotDeets = {};
     vm.setPronouns = setPronouns;
@@ -34,16 +37,20 @@
     vm.rollPara7 = rollPara7;
 
     function setPronouns() {
-      switch (vm.pronouns.their) {
+      // console.log(vm.hero.pronoun);
+      switch (vm.hero.pronoun) {
         case 'their':
+          vm.pronouns.their = 'their';
           vm.pronouns.them = 'them';
           vm.pronouns.they = 'they';
           break;
         case 'his':
+          vm.pronouns.their = 'his';
           vm.pronouns.them = 'him';
           vm.pronouns.they = 'he';
           break;
         case 'her':
+          vm.pronouns.their = 'hers';
           vm.pronouns.them = 'her';
           vm.pronouns.they = 'she';
           break;

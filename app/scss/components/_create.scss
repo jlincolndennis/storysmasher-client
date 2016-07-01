@@ -1,41 +1,35 @@
-html {
-  height: 100%; }
-
-body {
-  height: 100%;
-  background: #eeeeee;
-  font-family: 'Roboto', sans-serif; }
-
-header {
-  background: purple;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  margin-bottom: 20px; }
-  header h1 {
-    margin-left: 50px;
-    color: white;
-    font-weight: 300; }
-
 .paper {
   background: white;
   margin-top: 100px;
   padding: 100px;
-  min-height: 80vh; }
-  .paper p {
+  // position: static;
+  // bottom: 0;
+  min-height: 80vh;
+  p {
     font-size: 1.5em;
-    font-family: serif; }
+    font-family: serif;;
+
+  }
+}
 
 .prompt {
   z-index: 50;
   margin-left: 20px;
   background: purple;
   padding: 20px;
+  // width: 450px;
   border-radius: 15px;
   position: fixed;
   margin-top: 10vh;
-  margin-right: 40px; }
-
+  margin-right: 40px;
+}
 .response {
+  button {
+    background-color: white;
+    color: gray;
+    border-radius: 10px;
+
+  }
   color: white;
   z-index: 50;
   margin-top: 30vh;
@@ -44,37 +38,50 @@ header {
   padding: 15px;
   border-radius: 15px;
   position: fixed;
-  right: 20px; }
-  .response button {
-    background-color: white;
-    color: gray;
-    border-radius: 10px; }
+  right: 20px
+}
 
 .prompt-4 {
-  margin-top: 0; }
-
+  margin-top: 0;
+}
 .ng-hide-add {
-  animation: .8s ease 0s bounceOutUp; }
+  animation: .8s ease 0s bounceOutUp ;
+}
 
 .ng-hide-remove {
   animation-duration: .8s;
   animation-timing-function: ease;
   animation-delay: .5s;
   animation-name: bounceInUp;
-  animation-fill-mode: backwards; }
+  animation-fill-mode: backwards;
+}
+//
+// .ng-hide-add {
+//   animation: .8s ease 0s bounceOutDown ;
+// }
+//
+// .ng-hide-remove {
+//   animation-duration: .8s;
+//   animation-timing-function: ease;
+//   animation-delay: .5s;
+//   animation-name: bounceInDown;
+//   animation-fill-mode: backwards;
+// }
 
 .ui-text {
   color: white;
   font-size: 1.7em;
   padding: 0;
-  margin: 0; }
-
+  margin: 0;
+}
 .pronoun-dropdown {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 select {
   margin-right: 15px;
-  width: 80px !important; }
+  width: 80px !important;
+}
 
 input.name-input {
   background-color: transparent;
@@ -86,14 +93,18 @@ input.name-input {
   transition: .4s ease;
   width: 175px;
   text-align: center;
+
   border-bottom: 2px solid white;
   color: white;
   font-size: 1.7em;
   margin-left: 15px;
-  margin-right: 40px; }
-  input.name-input:focus {
+  margin-right: 40px;
+
+  &:focus{
     outline: 0;
     border-bottom: 5px solid white;
     box-shadow: none;
     width: 225px;
-    transition: .4s ease; }
+    transition: .4s ease;
+  }
+}
