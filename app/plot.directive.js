@@ -235,20 +235,43 @@
 
     function rollPara7() {
       var plot = storyFactory.getPlot();
+      var paragraph =[]
       vm.plotDeets.evilLeader = [
         document.getElementsByClassName('pd-xfactorleader')[0].innerHTML
+      ];
+      vm.plotDeets.weapon = [
+        document.getElementsByClassName('pd-coolweapon')[0].innerHTML
       ];
       vm.plotDeets.corrupt =
         document.getElementsByClassName('pd-corrupt')[0]
       ;
       // console.log('corrupt?', vm.plotDeets.corrupt);
       if(vm.plotDeets.corrupt) {
-        console.log('Bad Guy');
+        paragraph = storyFactory.getPara('para7good');
       } else {
-        console.log('Good Guy');
+        paragraph = storyFactory.getPara('para7evil');
       }
 
-
+      var para7Gram = {
+        pronounThey: [vm.pronouns.they],
+        pronounTheir: [vm.pronouns.their],
+        pronounThem: [vm.pronouns.them],
+        settingMaster: vm.setting.settingMaster,
+        plotHeroWins: plot.plotHeroWins,
+        plotHappyEndingGood: plot.plotHappyEndingGood,
+        plotHappyEndingEvil: plot.plotHappyEndingEvil,
+        plotHeroLoses: plot.plotHeroLoses,
+        plotTragicEnding: plot.plotTragicEnding,
+        evilLeader: vm.plotDeets.evilLeader,
+        name: [vm.name],
+        coolWeapon: vm.plotDeets.weapon,
+        xFactor: vm.xFactor.xFactor,
+        paragraph: paragraph,
+        origin: ['#paragraph#']
+      }
+      var smashedPara7Grammar = tracery.createGrammar(para7Gram)
+      var smashedPara7 = smashedPara7Grammar.flatten('#origin#')
+      vm.paragraph7 = smashedPara7;
 
     }
 
