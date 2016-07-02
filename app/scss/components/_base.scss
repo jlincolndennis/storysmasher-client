@@ -3,20 +3,67 @@ html {
 }
 
 body {
-  height: 100%;
   background: rgb(238, 238, 238);
-font-family: 'Roboto', sans-serif;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 header {
-  background: purple;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  background: rgb(145, 0, 230);
+  // padding-top: 5px;
+  // padding-bottom: 100px;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 3;
+  border-bottom: 1px solid rgba(209,209,209,1);
 
   h1 {
+    display: inline-block;
+    padding-top: 0;
+    margin-top: 10px;
     margin-left: 50px;
     color: white;
     font-weight: 300;
   }
+}
+
+.navbar-button {
+  color: rgb(145, 0, 230);
+  background: white;
+  font-weight: 300;
+  float: right;
+  margin-top: 12px;
+  margin-right: 25px;
+  border-radius: 20px;
+}
+.btn:focus {
+  color: rgb(145, 0, 230);
+  outline: none;
+}
+
+.btn:hover {
+  color: rgb(145, 0, 230);
+  // -webkit-box-shadow: 0px 0px 2px 2px rgba(209,209,209,1);
+  // -moz-box-shadow: 0px 0px 2px 2px rgba(209,209,209,1);
+  // box-shadow: 0px 0px 2px 2px rgba(209,209,209,1);
+}
+
+.modal-backdrop {
+   background-color: rgba(255, 255, 255, 0)
+}
+
+.modal-dialog {
+  margin-top: 30vh;
+}
+
+.modal-header {
+  background: rgb(145, 0, 230);
+  color: white;
+  font-weight: 300;
+}
+
+.modal-footer {
+  position: relative;
+  margin-top: 30px;
 }

@@ -2,109 +2,62 @@
   background: white;
   margin-top: 100px;
   padding: 100px;
-  // position: static;
-  // bottom: 0;
-  min-height: 80vh;
+  min-height: 90vh;
   p {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-family: serif;;
 
   }
+  -webkit-box-shadow: 0px 0px 2px 2px rgba(209,209,209,1);
+  -moz-box-shadow: 0px 0px 2px 2px rgba(209,209,209,1);
+  box-shadow: 0px 0px 2px 2px rgba(209,209,209,1);
 }
 
-.prompt {
-  z-index: 50;
-  margin-left: 20px;
-  background: purple;
-  padding: 20px;
-  // width: 450px;
-  border-radius: 15px;
-  position: fixed;
-  margin-top: 10vh;
-  margin-right: 40px;
-}
-.response {
-  button {
-    background-color: white;
-    color: gray;
-    border-radius: 10px;
+.setup-button-next {
 
+    background: rgb(145, 0, 230);
+    color: white;
+    font-weight: 300;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.setup-button-prev {
+  color: rgb(145, 0, 230);
+  border: 1px solid rgb(145, 0, 230);
+  background: white;
+  font-weight: 300;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+}
+
+.progress-indicator {
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 10px;
+  width:115px;
+  li {
+  font-size: 2em;
+  color: rgb(145, 0, 230);
+  width: 0px;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+  list-style-type: circle;
+  &:first-child {
+    margin-left: 15px !important;
   }
-  color: white;
-  z-index: 50;
-  margin-top: 30vh;
-  margin-left: 40px;
-  background: gray;
-  padding: 15px;
-  border-radius: 15px;
-  position: fixed;
-  right: 20px
+
+}
 }
 
-.prompt-4 {
-  margin-top: 0;
-}
-.ng-hide-add {
-  animation: .8s ease 0s bounceOutUp ;
-}
+.progress-indicator li.current-step {
+  color: rgb(145, 0, 230);
+  list-style-type: disc;
 
-.ng-hide-remove {
-  animation-duration: .8s;
-  animation-timing-function: ease;
-  animation-delay: .5s;
-  animation-name: bounceInUp;
-  animation-fill-mode: backwards;
-}
-//
-// .ng-hide-add {
-//   animation: .8s ease 0s bounceOutDown ;
-// }
-//
-// .ng-hide-remove {
-//   animation-duration: .8s;
-//   animation-timing-function: ease;
-//   animation-delay: .5s;
-//   animation-name: bounceInDown;
-//   animation-fill-mode: backwards;
-// }
-
-.ui-text {
-  color: white;
-  font-size: 1.7em;
-  padding: 0;
-  margin: 0;
-}
-.pronoun-dropdown {
-  background-color: transparent;
-}
-
-select {
-  margin-right: 15px;
-  width: 80px !important;
-}
-
-input.name-input {
-  background-color: transparent;
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
-  border-radius: 0;
-  box-shadow: none;
-  transition: .4s ease;
-  width: 175px;
-  text-align: center;
-
-  border-bottom: 2px solid white;
-  color: white;
-  font-size: 1.7em;
-  margin-left: 15px;
-  margin-right: 40px;
-
-  &:focus{
-    outline: 0;
-    border-bottom: 5px solid white;
-    box-shadow: none;
-    width: 225px;
-    transition: .4s ease;
-  }
 }

@@ -21,17 +21,19 @@
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('landing',{
-        url: '/',
-        templateUrl: '/partials/landing.html',
-      })
+      // .state('landing',{
+      //   url: '/',
+      //   templateUrl: '/partials/landing.html',
+      // })
       .state('app',{
         abstract: true,
         templateUrl: '/partials/app.html',
       })
       .state('create',{
         parent: 'app',
-        url: '/create',
+        // url: '/create',
+        url: '/',
+
         templateUrl: '/partials/create.html'
       })
       .state('review',{

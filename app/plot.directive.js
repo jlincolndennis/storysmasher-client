@@ -18,7 +18,7 @@
   plotController.$inject = ['$log', 'storyFactory']
   function plotController($log, storyFactory) {
     var vm = this;
-    vm.prompt1 = true;
+    vm.menu = false;
     vm.setting = {};
     vm.xFactor = {};
     vm.hero = {};
@@ -35,6 +35,9 @@
     vm.rollPara5 = rollPara5;
     vm.rollPara6 = rollPara6;
     vm.rollPara7 = rollPara7;
+    $(window).load(function(){
+        $('#storySetup').modal('show');
+    });
 
     function setPronouns() {
       // console.log(vm.hero.pronoun);
