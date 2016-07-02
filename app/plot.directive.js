@@ -35,7 +35,8 @@
     vm.rollPara5 = rollPara5;
     vm.rollPara6 = rollPara6;
     vm.rollPara7 = rollPara7;
-    $(window).load(function(){
+
+    $(document).ready(function(){
         $('#storySetup').modal('show');
     });
 
