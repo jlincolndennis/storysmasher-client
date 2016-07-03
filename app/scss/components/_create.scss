@@ -1,6 +1,6 @@
 .paper {
   background: white;
-  color: rgb(200, 200, 200);
+  // color: rgb(200, 200, 200);
   margin-top: 100px;
   padding: 100px;
   min-height: 125vh;
@@ -15,55 +15,10 @@
   box-shadow: 0px 0px 2px 2px rgba(209,209,209,1);
 }
 
-.setup-button-next {
-    background: rgb(145, 0, 230);
-    color: white;
-    font-weight: 300;
-    border-radius: 20px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
 
-.setup-button-prev {
-  color: rgb(145, 0, 230);
-  border: 1px solid rgb(145, 0, 230);
-  background: white;
-  font-weight: 300;
-  border-radius: 20px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-}
-
-.progress-indicator {
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 10px;
-  width:115px;
-  li {
-  font-size: 2em;
-  color: rgb(145, 0, 230);
-  width: 0px;
-  float: left;
-  margin-right: 10px;
-  margin-left: 10px;
-  list-style-type: circle;
-  &:first-child {
-    margin-left: 15px !important;
-  }
-
-}
-}
-
-.progress-indicator li.current-step {
-  color: rgb(145, 0, 230);
-  list-style-type: disc;
-}
 
 .roller-popout {
-  width: 272px;
+  width: 284px;
   // display: inline-block;
   padding: 10px;
   margin-bottom: 15px;
@@ -71,7 +26,6 @@
   margin-right: auto;
   margin-left: auto;
    background: rgb(145, 0, 230);
-  // border: 1px solid rgb(145, 0, 230);
   border: 1px solid white;
   border-radius: 30px;
 
@@ -80,14 +34,13 @@
     color: black;
     font-size: 1em;
   }
-  // padding: 20px;
-  // background: white;
-  // z-index: 1;
-  // top: 200px;
-  // right: -50px;
-  // position: absolute;;
+
 }
+
+
+
  .smash-button {
+   width: 144px;
   //  background: rgb(145, 0, 230);
    background: white;
    color: rgb(145, 0, 230);

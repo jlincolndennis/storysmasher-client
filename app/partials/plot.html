@@ -1,50 +1,42 @@
-
-<div class="modal" id="storySetup" tabindex="-1" role="dialog" aria-labelledby="storySetup">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="storySetup">Welcome to StorySmash!</h4>
-      </div>
-      <div class="modal-body">
-        <p>Let's Smash a Story!</p>
-        <p>To begin, tell me about the Hero of the Story:</p>
-
-        <form class="form-inline">
-          <div class="form-group">
-            <select class="form-control" ng-init='vm.hero.pronoun' ng-model='vm.hero.pronoun'>
-              <option value="their">Their</option>
-              <option value="her">Her</option>
-              <option value="his">His</option>
-            </select>
-            name is
-            <input ng-model="vm.name" type="text">
-          </div>
-        </form>
-        <div class="modal-footer">
-          <ul class="progress-indicator">
-            <li class="progress-dot current-step"></li>
-            <li class="progress-dot"></li>
-            <li class="progress-dot"></li>
-          </ul>
-          <button type="button" class="btn setup-button-next" ng-click="vm.advance = false" data-dismiss="modal" data-toggle="modal" data-target=".bs-example-modal-lg">NEXT >></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal fade" id="storySetup" aria-labelledby="storySetup" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="storySetup">Welcome to StorySmash!</h4>
+        <h4 class="modal-title text-center">Welcome to StorySmash!</h4>
       </div>
-      <div class="modal-body">
-        <div class="setting-menu" ng-hide="vm.advance">
+      <div class="modal-body" ng-switch="vm.menu.step">
+        <div ng-switch-default>
+        <h5 class="text-center">Unique Stories created by Tracery and YOU!</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Who Are You?</h3>
+            <form>
+              <div class="form-group">
+                <p>My Pen Name is...
+                <input ng-model="vm.user.username" type="text">
+                </p>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <form class="form-inline">
+              <div class="form-group">
+                <h3>Who Is The Hero Of The Story?</h3>
+                <select class="form-control" ng-init='vm.hero.pronoun' ng-model='vm.hero.pronoun'>
+                  <option value="their">Their</option>
+                  <option value="her">Her</option>
+                  <option value="his">His</option>
+                </select>
+                name is
+                <input ng-model="vm.name" type="text">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 
+      <div ng-switch-when="2">
         <p class="">Where does your story take place?</p>
 
         <p class="ui-text">It takes place...</p>
@@ -52,19 +44,9 @@
         <button class='btn' ng-click="vm.chooseSetting('space')">Space</button>
         <button class='btn' ng-click="vm.chooseSetting('kingdom')">Kingdom</button>
         <button class='btn' ng-click="vm.chooseSetting('western')">Western</button>
-
-      <div class="modal-footer">
-        <button type="button" class="btn setup-button-prev" data-dismiss="modal" data-toggle="modal" data-target="#storySetup"><< <span class="glyphicon glyphicon-align-left" aria-hidden="true"></button>
-        <ul class="progress-indicator">
-          <li class="progress-dot"></li>
-          <li class="progress-dot current-step"></li>
-          <li class="progress-dot"></li>
-        </ul>
-        <button type="button" class="btn setup-button-next" ng-click="vm.advance = true">NEXT >></button>
       </div>
-    </div>
 
-      <div class="setting-menu" ng-show="vm.advance">
+      <div ng-switch-when="3">
         <p>What is the X-Factor that kicks your story up to Awesome Level 9000?</p>
 
         <p>The X-Factor is...</p>
@@ -73,99 +55,123 @@
         <button class='btn' ng-click="vm.choosexFactor('ninjas')">Ninjas</button>
         <button class='btn' ng-click="vm.choosexFactor('lovecraft')">Cthulhu</button>
 
-        <div class="modal-footer">
-          <button type="button" class="btn setup-button-prev" ng-click="vm.advance = false"><< PREV</button>
-          <ul class="progress-indicator">
-            <li class="progress-dot"></li>
-            <li class="progress-dot"></li>
-            <li class="progress-dot current-step"></li>
-          </ul>
-          <button type="button" class="btn setup-button-next" data-dismiss="modal" ng-click="vm.startSmashing()">NEXT >></button>
-        </div>
-        </div>
       </div>
-    </div>
-  </div>
-</div>
+
+      </div>
+      <div class="modal-footer">
+        <button class='btn menu-prev' ng-click="vm.menu.prev()">
+          <span class="glyphicon glyphicon-menu-left" aria-hidden="true">
+        </button>
+        <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 1}"></div>
+        <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 2}"></div>
+        <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 3}"></div>
+
+        <button class='btn menu-next' ng-click="vm.menu.next()">
+          <span class="glyphicon glyphicon-menu-right" aria-hidden="true">
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 <div class="row">
 
   <div class="col-md-8 col-md-offset-2 paper">
-    <p id="paragraph-1" ng-class="{focus: vm.current.paragraph == 1}" ng-bind-html="vm.paragraph1"></p>
-    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 1">
-      <button class='btn smash-prev' ng-click="vm.prevPara(vm.current.paragraph-1)">
-        <span class="glyphicon glyphicon-menu-up" aria-hidden="true">
+    <p id="paragraph-1" ng-class="{focus: vm.current.paragraph === 0 ||vm.current.paragraph === 1 }" ng-bind-html="vm.paragraph1"></p>
+    <div class="roller-popout text-center"  ng-show="vm.current.paragraph == 1 || vm.current.paragraph == 0">
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-menu-up" ng-hide="vm.current.paragraph === 0" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-ok" ng-show="vm.current.paragraph ===0" aria-hidden="true"></span>
       </button>
-      <button class='btn smash-button' ng-click="vm.rollPara(vm.current.paragraph)">SMASH IT AGAIN</button>
-      <button class='btn smash-next' ng-click="vm.currentPara(vm.current.paragraph+1)">
-        <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+      <span ng-switch="vm.current.paragraph">
+      <button class='btn smash-button' ng-switch-default ng-click="vm.rollPara()" ng-disabled="vm.current.paragraph === 0">
+        SMASH IT AGAIN
+      </button>
+      <button class='btn smash-button' ng-switch-when="0">
+        STAR OVER?
+      </button>
+    </span>
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-menu-down" ng-hide="vm.current.paragraph === 0" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-remove" ng-show="vm.current.paragraph ===0" aria-hidden="true"></span>
       </button>
     </div>
 
     <p id="paragraph-2" ng-class="{focus: vm.current.paragraph == 2}" ng-bind-html="vm.paragraph2"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 2">
-      <button class='btn smash-prev' ng-click="vm.prevPara(vm.current.paragraph-1)">
-        <span class="glyphicon glyphicon-menu-up" aria-hidden="true">
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
       </button>
-      <button class='btn smash-button' ng-click="vm.rollPara(vm.current.paragraph)">SMASH IT AGAIN</button>
-      <button class='btn smash-next' ng-click="vm.currentPara(vm.current.paragraph+1)">
-        <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN</button>
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
       </button>
     </div>
 
     <p id="paragraph-3" ng-class="{focus: vm.current.paragraph == 3}" ng-bind-html="vm.paragraph3"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 3">
-      <button class='btn smash-prev' ng-click="vm.prevPara(vm.current.paragraph-1)">
-        <span class="glyphicon glyphicon-menu-up" aria-hidden="true">
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
       </button>
-      <button class='btn smash-button' ng-click="vm.rollPara(vm.current.paragraph)">SMASH IT AGAIN</button>
-      <button class='btn smash-next' ng-click="vm.currentPara(vm.current.paragraph+1)">
-        <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN</button>
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
       </button>
     </div>
 
     <p id="paragraph-4" ng-class="{focus: vm.current.paragraph == 4}" ng-bind-html="vm.paragraph4"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 4">
-      <button class='btn smash-prev' ng-click="vm.prevPara(vm.current.paragraph-1)">
-        <span class="glyphicon glyphicon-menu-up" aria-hidden="true">
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
       </button>
-      <button class='btn smash-button' ng-click="vm.rollPara(vm.current.paragraph)">SMASH IT AGAIN</button>
-      <button class='btn smash-next' ng-click="vm.currentPara(vm.current.paragraph+1)">
-        <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN</button>
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
       </button>
     </div>
 
     <p id="paragraph-5" ng-class="{focus: vm.current.paragraph == 5}" ng-bind-html="vm.paragraph5"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 5">
-      <button class='btn smash-prev' ng-click="vm.prevPara(vm.current.paragraph-1)">
-        <span class="glyphicon glyphicon-menu-up" aria-hidden="true">
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
       </button>
-      <button class='btn smash-button' ng-click="vm.rollPara(vm.current.paragraph)">SMASH IT AGAIN</button>
-      <button class='btn smash-next' ng-click="vm.currentPara(vm.current.paragraph+1)">
-        <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN</button>
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
       </button>
     </div>
 
     <p id="paragraph-6" ng-class="{focus: vm.current.paragraph == 6}" ng-bind-html="vm.paragraph6"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 6">
-      <button class='btn smash-prev' ng-click="vm.prevPara(vm.current.paragraph-1)">
-        <span class="glyphicon glyphicon-menu-up" aria-hidden="true">
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
       </button>
-      <button class='btn smash-button' ng-click="vm.rollPara(vm.current.paragraph)">SMASH IT AGAIN</button>
-      <button class='btn smash-next' ng-click="vm.currentPara(vm.current.paragraph+1)">
-        <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN</button>
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
       </button>
     </div>
 
-    <p id="paragraph-7" ng-class="{focus: vm.current.paragraph == 7}" ng-bind-html="vm.paragraph7"></p>
-    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 7">
-      <button class='btn smash-prev' ng-click="vm.prevPara(vm.current.paragraph-1)">
-        <span class="glyphicon glyphicon-menu-up" aria-hidden="true">
+    <p id="paragraph-7" ng-class="{focus: vm.current.paragraph == 7 || vm.current.paragraph == 8}" ng-bind-html="vm.paragraph7"></p>
+    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 7 || vm.current.paragraph == 8" >
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-menu-up" ng-show="vm.current.paragraph ===7" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-remove" ng-show="vm.current.paragraph ===8" aria-hidden="true"></span>
+
       </button>
-      <button class='btn smash-button' ng-click="vm.rollPara(vm.current.paragraph)">SMASH IT AGAIN</button>
-      <button class='btn smash-next' ng-click="vm.currentPara(vm.current.paragraph+1)">
-        <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+      <span ng-switch="vm.current.paragraph">
+      <button class='btn smash-button' ng-switch-default ng-click="vm.rollPara()">
+        SMASH IT AGAIN
+      </button>
+      <button class='btn smash-button' ng-switch-when="8">
+        DONE SMASHING?
+      </button>
+    </span>
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-menu-down" ng-hide="vm.current.paragraph ===8" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-ok" ng-show="vm.current.paragraph ===8" aria-hidden="true"></span>
+
       </button>
     </div>
   </div>

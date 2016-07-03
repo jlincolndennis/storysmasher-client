@@ -1,86 +1,37 @@
-<div class="prompt prompt-1" ng-show="vm.prompt1">
-
-       <form class="form-inline">
-         <div class="form-group">
-             <select class="form-control" ng-init='vm.hero.pronoun' ng-model='vm.hero.pronoun'>
-               <option value="their">Their</option>
-               <option value="his">His</option>
-               <option value="her">Her</option>
-             </select>
-             name is
-             <input ng-model="vm.name" type="text">
-         </div>
-       </form>
-     </div>
-
-<div class="response prompt-1" ng-show="vm.prompt1">
-<form class="form-inline">
- <div class="form-group">
-     <select class="form-control" class="pronoun-dropdown" ng-init='vm.hero.pronoun' ng-model='vm.hero.pronoun'>
-       <option value="their">Their</option>
-       <option value="his">His</option>
-       <option value="her">Her</option>
-     </select>
-     <span class="ui-text"> name is </span>
-     <input class="name-input" ng-model="vm.name" type="text">
-     <button class='btn' ng-click="vm.prompt1 = false; vm.prompt2 = true">>></button>
- </div>
-</form>
-</div>
-
-<div class="prompt prompt-2 ng-hide" ng-show="vm.prompt2">
-<p class="ui-text">Where does your story take place?</p>
-</div>
-
-<div class="response prompt-2 ng-hide" ng-show="vm.prompt2">
- <p class="ui-text">It takes place...</p>
- <h2>Setting: {{vm.settingDisplay}}</h2>
- <button class='btn' ng-click="vm.chooseSetting('space')">Space</button>
- <button class='btn' ng-click="vm.chooseSetting('kingdom')">Kingdom</button>
- <button class='btn' ng-click="vm.chooseSetting('western')">Western</button>
- <button class='btn' ng-click="vm.prompt1 = true; vm.prompt2 = false"><<</button>
- <button class='btn' ng-click="vm.prompt2 = false; vm.prompt3 = true">>></button>
-
-</div>
-
-<div class="prompt prompt-3 ng-hide" ng-show="vm.prompt3">
-<p class="ui-text">What is the X-Factor that kicks your story up to Awesome Level 9000?</p>
-</div>
-<div class="response prompt-3 ng-hide" ng-show="vm.prompt3">
- <p class="ui-text">The X-Factor is...</p>
- <h2>xFactor: {{vm.xFactorDisplay}}</h2>
- <button class='btn' ng-click="vm.choosexFactor('dinosaurs')">Dinosaurs</button>
- <button class='btn' ng-click="vm.choosexFactor('ninjas')">Ninjas</button>
- <button class='btn' ng-click="vm.choosexFactor('lovecraft')">Cthulhu</button>
- <button class='btn' ng-click="vm.prompt2 = true; vm.prompt3 = false"><<</button>
- <button class='btn' ng-click="vm.prompt3 = false; vm.prompt4 = true">>></button>
-</div>
-
-<div class="response prompt-4 ng-hide" ng-show="vm.prompt4">
-
-<h6>Introduction!</h6>
-<button class='btn' ng-click="vm.rollPara1()">Roll Intro</button>
-
-<h6>Attack!</h6>
-<button class='btn' ng-click="vm.rollPara2()">Roll paragraph</button>
 
 
-<h6>The Call To Adventure!</h6>
-<button class='btn' ng-click="vm.rollPara3()">Roll paragraph</button>
+        <<div class="setting-menu" ng-hide="vm.advance">
 
 
-<h6>The Journey!</h6>
-<button class='btn' ng-click="vm.rollPara4()">Roll paragraph</button>
 
 
-<h6>Confrontation!</h6>
-<button class='btn' ng-click="vm.rollPara5()">Roll paragraph</button>
+      <div class="modal-footer">
+        <button type="button" class="btn setup-button-prev" data-dismiss="modal" data-toggle="modal" data-target="#storySetup"><< <span class="glyphicon glyphicon-align-left" aria-hidden="true"></button>
+        <ul class="progress-indicator">
+          <li class="progress-dot"></li>
+          <li class="progress-dot current-step"></li>
+          <li class="progress-dot"></li>
+        </ul>
+        <button type="button" class="btn setup-button-next" ng-click="vm.advance = true">NEXT >></button>
+      </div>
+    </div> -->
 
+      <!-- <div class="setting-menu" ng-show="vm.advance">
+        <p>What is the X-Factor that kicks your story up to Awesome Level 9000?</p>
 
-<h6>An Epic Battle!</h6>
-<button class='btn' ng-click="vm.rollPara6()">Roll paragraph</button>
+        <p>The X-Factor is...</p>
+        <h2>xFactor: {{vm.xFactorDisplay}}</h2>
+        <button class='btn' ng-click="vm.choosexFactor('dinosaurs')">Dinosaurs</button>
+        <button class='btn' ng-click="vm.choosexFactor('ninjas')">Ninjas</button>
+        <button class='btn' ng-click="vm.choosexFactor('lovecraft')">Cthulhu</button>
 
-
-<h6>The Dramatic Conclusion!</h6>
-<button class='btn' ng-click="vm.rollPara7()">Roll paragraph</button>
-</div>
+        <div class="modal-footer">
+          <button type="button" class="btn setup-button-prev" ng-click="vm.advance = false"><< PREV</button>
+          <ul class="progress-indicator">
+            <li class="progress-dot"></li>
+            <li class="progress-dot"></li>
+            <li class="progress-dot current-step"></li>
+          </ul>
+          <button type="button" class="btn setup-button-next" data-dismiss="modal" ng-click="vm.startSmashing()">NEXT >></button>
+        </div>
+        </div> -->

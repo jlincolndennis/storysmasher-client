@@ -9,10 +9,11 @@ body {
 header {
   background: #9100e6;
   position: fixed;
-  width: 100%;
+  width: 99%;
   height: 60px;
   z-index: 3;
-  border-bottom: 1px solid #d1d1d1; }
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px; }
   header h1 {
     display: inline-block;
     padding-top: 0;
@@ -27,7 +28,7 @@ header {
   font-weight: 300;
   float: right;
   margin-top: 12px;
-  margin-right: 25px;
+  margin-right: 20px;
   border-radius: 20px; }
 
 .btn:focus {
@@ -41,20 +42,48 @@ header {
   background-color: rgba(255, 255, 255, 0); }
 
 .modal-dialog {
-  margin-top: 30vh; }
+  margin-top: 20vh; }
 
 .modal-header {
-  background: #9100e6;
-  color: white;
+  color: #9100e6;
+  border: 0;
   font-weight: 300; }
 
 .modal-footer {
-  position: relative;
-  margin-top: 30px; }
+  margin-top: 30px;
+  text-align: center;
+  border: 0; }
+
+.progress-dot {
+  height: 10px;
+  width: 10px;
+  background: white;
+  border: 1px solid #9100e6;
+  border-radius: 10px;
+  margin: 12px 5px 0;
+  display: inline-block;
+  transition: .4s ease; }
+
+.current-step {
+  background: #9100e6;
+  transition: .4s ease; }
+
+.menu-next {
+  margin-left: 40px;
+  background: #9100e6;
+  color: white;
+  font-weight: 300;
+  border-radius: 20px; }
+
+.menu-prev {
+  margin-right: 40px;
+  background: #9100e6;
+  color: white;
+  font-weight: 300;
+  border-radius: 20px; }
 
 .paper {
   background: white;
-  color: #c8c8c8;
   margin-top: 100px;
   padding: 100px;
   min-height: 125vh;
@@ -66,47 +95,8 @@ header {
     font-size: 1.2em;
     font-family: serif; }
 
-.setup-button-next {
-  background: #9100e6;
-  color: white;
-  font-weight: 300;
-  border-radius: 20px;
-  position: absolute;
-  bottom: 0;
-  right: 0; }
-
-.setup-button-prev {
-  color: #9100e6;
-  border: 1px solid #9100e6;
-  background: white;
-  font-weight: 300;
-  border-radius: 20px;
-  position: absolute;
-  bottom: 0;
-  left: 0; }
-
-.progress-indicator {
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 10px;
-  width: 115px; }
-  .progress-indicator li {
-    font-size: 2em;
-    color: #9100e6;
-    width: 0px;
-    float: left;
-    margin-right: 10px;
-    margin-left: 10px;
-    list-style-type: circle; }
-    .progress-indicator li:first-child {
-      margin-left: 15px !important; }
-
-.progress-indicator li.current-step {
-  color: #9100e6;
-  list-style-type: disc; }
-
 .roller-popout {
-  width: 272px;
+  width: 284px;
   padding: 10px;
   margin-bottom: 15px;
   margin-top: 10px;
@@ -121,6 +111,7 @@ header {
     font-size: 1em; }
 
 .smash-button {
+  width: 144px;
   background: white;
   color: #9100e6;
   font-weight: 300;

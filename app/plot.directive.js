@@ -18,8 +18,10 @@
   plotController.$inject = ['$log', '$location','$anchorScroll', 'storyFactory']
   function plotController($log, $location, $anchorScroll, storyFactory) {
     var vm = this;
+    vm.user = {username: "William Swagspeare"}
+    vm.menu = {step: 1, next, prev}
     vm.current = {}
-    vm.current.paragraph = "";
+    vm.current.paragraph = -1;
     vm.setting = {};
     vm.xFactor = {};
     vm.hero = {};
@@ -31,12 +33,26 @@
     vm.choosexFactor = choosexFactor;
     vm.startSmashing = startSmashing;
     vm.prevPara = prevPara;
-    vm.currentPara = currentPara;
+    vm.nextPara = nextPara;
+    // vm.currentPara = currentPara;
     vm.rollPara = rollPara;
 
     $(document).ready(function(){
         $('#storySetup').modal('show');
     });
+
+    function prev() {
+      vm.menu.step--
+      if (vm.menu.step < 0) $('#storySetup').modal('hide');
+    }
+
+    function next() {
+      vm.menu.step++
+      if (vm.menu.step > 3){
+        $('#storySetup').modal('hide');
+        vm.startSmashing();
+      }
+    }
 
     function setPronouns() {
       // console.log(vm.hero.pronoun);
@@ -75,25 +91,33 @@
       vm.rollPara(1);
     }
 
-    function prevPara(num) {
-      var id = `paragraph-${num}`;
-      vm.current.paragraph = num
-      $location.hash(id);
-      $anchorScroll();
+    function prevPara() {
+      --vm.current.paragraph
+      console.log(vm.current.paragraph);
+      if (vm.current.paragraph < 0){
+        vm.paragraph1 = ""
+        vm.menu.step = 1;
+        $('#storySetup').modal('show');
+
+      }
+      // var id = `paragraph-${vm.current.paragraph}`;
+      // $location.hash(id);
+      // $anchorScroll();
     }
 
-    function currentPara(num) {
-      if (num === 0 || num == 8) return
-      var id = `paragraph-${num}`
-      vm.current.paragraph = num
-      $location.hash(id);
-      $anchorScroll();
-      rollPara(num)
+    function nextPara() {
+      ++vm.current.paragraph
+      console.log(vm.current.paragraph);
+
+      // var id = `paragraph-${vm.current.paragraph}`;
+      // $location.hash(id);
+      // $anchorScroll();
+      if (vm.current.paragraph > 1) rollPara()
 
 
     }
     function rollPara(para) {
-      switch (para) {
+      switch (vm.current.paragraph) {
         case 1:
         rollPara1();
         break;

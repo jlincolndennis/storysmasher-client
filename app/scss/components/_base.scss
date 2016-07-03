@@ -10,13 +10,13 @@ body {
 
 header {
   background: rgb(145, 0, 230);
-  // padding-top: 5px;
-  // padding-bottom: 100px;
   position: fixed;
-  width: 100%;
+  width: 99%;
   height: 60px;
   z-index: 3;
-  border-bottom: 1px solid rgba(209,209,209,1);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  // border-bottom: 1px solid rgba(209,209,209,1);
 
   h1 {
     display: inline-block;
@@ -34,7 +34,7 @@ header {
   font-weight: 300;
   float: right;
   margin-top: 12px;
-  margin-right: 25px;
+  margin-right: 20px;
   border-radius: 20px;
 }
 .btn:focus {
@@ -54,16 +54,50 @@ header {
 }
 
 .modal-dialog {
-  margin-top: 30vh;
+  margin-top: 20vh;
 }
 
 .modal-header {
-  background: rgb(145, 0, 230);
-  color: white;
+  color: rgb(145, 0, 230);
+  // color: white;
+  border: 0;
   font-weight: 300;
 }
 
 .modal-footer {
-  position: relative;
   margin-top: 30px;
+  text-align: center;
+  border: 0;
+}
+
+.progress-dot {
+  height: 10px;
+  width:10px;
+  background: white;
+  border: 1px solid rgb(145, 0, 230);
+  border-radius: 10px;
+  margin: 12px 5px 0;
+  display: inline-block;
+  transition: .4s ease;
+}
+
+.current-step {
+  background: rgb(145, 0, 230);
+  transition: .4s ease;
+}
+
+.menu-next {
+  margin-left: 40px;
+  background: rgb(145, 0, 230);
+  color: white;
+  font-weight: 300;
+  border-radius: 20px;
+}
+
+.menu-prev {
+  margin-right: 40px;
+  background: rgb(145, 0, 230);
+  color: white;
+  font-weight: 300;
+  border-radius: 20px;
 }
