@@ -30,6 +30,7 @@
     vm.chooseSetting = chooseSetting;
     vm.choosexFactor = choosexFactor;
     vm.startSmashing = startSmashing;
+    vm.prevPara = prevPara;
     vm.currentPara = currentPara;
     vm.rollPara = rollPara;
 
@@ -74,13 +75,21 @@
       vm.rollPara(1);
     }
 
-    function currentPara(num) {
-      var id = `paragraph-${num}`
+    function prevPara(num) {
+      var id = `paragraph-${num}`;
+      vm.current.paragraph = num
       $location.hash(id);
       $anchorScroll();
-      if (num === 0) return
-      if (!vm[`paragraph${num}`]) rollPara(num)
+    }
+
+    function currentPara(num) {
+      if (num === 0 || num == 8) return
+      var id = `paragraph-${num}`
       vm.current.paragraph = num
+      $location.hash(id);
+      $anchorScroll();
+      rollPara(num)
+
 
     }
     function rollPara(para) {
