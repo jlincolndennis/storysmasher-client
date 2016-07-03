@@ -1,8 +1,10 @@
 .paper {
   background: white;
+  color: rgb(200, 200, 200);
   margin-top: 100px;
   padding: 100px;
-  min-height: 90vh;
+  min-height: 125vh;
+  margin-bottom: 100px;
   p {
     font-size: 1.2em;
     font-family: serif;;
@@ -14,7 +16,6 @@
 }
 
 .setup-button-next {
-
     background: rgb(145, 0, 230);
     color: white;
     font-weight: 300;
@@ -59,5 +60,69 @@
 .progress-indicator li.current-step {
   color: rgb(145, 0, 230);
   list-style-type: disc;
-
 }
+
+.roller-popout {
+  width: 272px;
+  // display: inline-block;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+   background: rgb(145, 0, 230);
+  // border: 1px solid rgb(145, 0, 230);
+  border: 1px solid white;
+  border-radius: 30px;
+
+  p{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 1em;
+  }
+  // padding: 20px;
+  // background: white;
+  // z-index: 1;
+  // top: 200px;
+  // right: -50px;
+  // position: absolute;;
+}
+ .smash-button {
+  //  background: rgb(145, 0, 230);
+   background: white;
+   color: rgb(145, 0, 230);
+  //  color: white;
+   font-weight: 300;
+   border-radius: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+ }
+
+ .smash-prev {
+  //  width: 80px;
+  //  background: rgb(145, 0, 230);
+   background: white;
+   color: rgb(145, 0, 230);
+  //  color: white;
+   font-weight: 300;
+   border-radius: 20px;
+
+ }
+
+ .smash-next {
+  //  width: 80px;
+  //  background: rgb(145, 0, 230);
+   background: white;
+   color: rgb(145, 0, 230);
+  //  color: white;
+   font-weight: 300;
+   border-radius: 20px;
+
+ }
+
+ .focus {
+   padding: 5px;
+   background: rgba(145, 0, 230, 0.1);
+   color: black;
+ }

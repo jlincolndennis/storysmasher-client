@@ -8,6 +8,9 @@
   ]
 
   angular.module('app', dependencies)
+    .run(['$anchorScroll', function($anchorScroll) {
+      $anchorScroll.yOffset = 200;   
+    }])
     .config(setupStates)
 
   setupStates.$injet = [

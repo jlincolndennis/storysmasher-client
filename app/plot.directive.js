@@ -15,10 +15,11 @@
     }
   }
 
-  plotController.$inject = ['$log', 'storyFactory']
-  function plotController($log, storyFactory) {
+  plotController.$inject = ['$log', '$location','$anchorScroll', 'storyFactory']
+  function plotController($log, $location, $anchorScroll, storyFactory) {
     var vm = this;
-    vm.menu = false;
+    vm.current = {}
+    vm.current.paragraph = "";
     vm.setting = {};
     vm.xFactor = {};
     vm.hero = {};
@@ -28,13 +29,9 @@
     vm.setPronouns = setPronouns;
     vm.chooseSetting = chooseSetting;
     vm.choosexFactor = choosexFactor;
-    vm.rollPara1 = rollPara1;
-    vm.rollPara2 = rollPara2;
-    vm.rollPara3 = rollPara3;
-    vm.rollPara4 = rollPara4;
-    vm.rollPara5 = rollPara5;
-    vm.rollPara6 = rollPara6;
-    vm.rollPara7 = rollPara7;
+    vm.startSmashing = startSmashing;
+    vm.currentPara = currentPara;
+    vm.rollPara = rollPara;
 
     $(document).ready(function(){
         $('#storySetup').modal('show');
@@ -70,6 +67,50 @@
     function choosexFactor(xfactor) {
       vm.xFactorDisplay = xfactor
       vm.xFactor = storyFactory.getxFactor(xfactor)
+    }
+
+    function startSmashing() {
+      vm.current.paragraph = 1
+      vm.rollPara(1);
+    }
+
+    function currentPara(num) {
+      var id = `paragraph-${num}`
+      $location.hash(id);
+      $anchorScroll();
+      if (num === 0) return
+      if (!vm[`paragraph${num}`]) rollPara(num)
+      vm.current.paragraph = num
+
+    }
+    function rollPara(para) {
+      switch (para) {
+        case 1:
+        rollPara1();
+        break;
+        case 2:
+        rollPara2();
+        break;
+        case 3:
+        rollPara3();
+        break;
+        case 4:
+        rollPara4();
+        break;
+        case 5:
+        rollPara5();
+        break;
+        case 6:
+        rollPara6();
+        break;
+        case 7:
+        rollPara7();
+        break;
+        default:
+        console.log('Invalid Paragraph');
+
+      }
+
     }
 
     function rollPara1() {
@@ -257,9 +298,12 @@
         document.getElementsByClassName('pd-corrupt')[0]
       ;
       if(vm.plotDeets.corrupt) {
-        paragraph = storyFactory.getPara('para7good');
-      } else {
+        console.log(vm.plotDeets.corrupt, 'bad');
         paragraph = storyFactory.getPara('para7evil');
+      } else {
+        console.log(vm.plotDeets.corrupt, 'good');
+        paragraph = storyFactory.getPara('para7good');
+
       }
 
       var para7Gram = {
