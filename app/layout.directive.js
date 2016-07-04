@@ -15,16 +15,22 @@
     }
   }
 
-  layoutController.inject =['$log']
+  layoutController.inject =['$log','$location', '$state']
 
-  function layoutController($log) {
+  function layoutController($log, $location, $state) {
     var vm = this;
-    vm. smashLaunch = smashLaunch
-    $log.log('Hello form layout directive')
+    vm. smashLaunch = smashLaunch;
+    vm.signIn = signIn;
 
     function smashLaunch() {
+      console.log($location.$$path);
+      if ($location.$$path !== '/') $state.go('smash')
       $('#storySetup').modal('show');
+    }
 
+    function signIn() {
+      if ($location.$$path !== '/account') $state.go('account')
+      $('#signIn').modal('show');
     }
 
   }

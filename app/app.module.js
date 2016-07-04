@@ -38,6 +38,11 @@
         parent: 'app',
         template: '<ss-story></ss-story>'
       })
+      .state('account',{
+        url: '/account',
+        parent: 'app',
+        template: '<ss-account></ss-account>'
+      })
   }
 
 

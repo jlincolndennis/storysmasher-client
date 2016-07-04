@@ -8,7 +8,7 @@
 
     function accountFactory($log, $http) {
       return {
-        submitStory, getStory
+        submitStory, getStory, signIn
       }
 
       function submitStory(story) {
@@ -18,6 +18,10 @@
 
       function getStory(id) {
         return $http.get(`http://localhost:8000/api/v1/stories/${id}`)
+      }
+
+      function signIn(user) {
+        return $http.post('http://localhost:8000/api/v1/users', {user})
       }
 
     }

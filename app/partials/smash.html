@@ -17,6 +17,7 @@
               <div class="form-group">
                 <p class='setup-text'>My Pen Name is...</p>
                 <input class="name-field"ng-model="vm.user.username" type="text">
+                <p>Have an account? <a ui-sref="account">Sign In</a></p>
               </div>
             </form>
           </div>
@@ -38,7 +39,6 @@
       </div>
 
       <div ng-switch-when="2">
-        <!-- <p class="text-center setup-text"><span class="user-input">{{vm.user.username}}</span> is SMASHING a story about <span class="user-input">{{vm.setup.hero}}</span>, a hero!</p> -->
         <h3 class="sub-head text-center">Where does your story take place?</h3>
 
         <p class="text-center setup-text">It takes place in... <span class="user-input">{{vm.setup.settingDisplay}}</span></p>
@@ -66,7 +66,6 @@
     </div>
 
       <div ng-switch-when="3">
-        <!-- <p class="text-center setup-text"><span class="user-input">{{vm.user.username}}</span> is SMASHING a story about <span class="user-input">{{vm.setup.hero}}</span>, a hero, lives in <span class="user-input">{{vm.setup.settingDisplay}}</span>!</p> -->
         <h3 class="sub-head text-center">What is the X-Factor that kicks your story up to Awesome Level 9000?</h3>
 
         <p class="text-center setup-text">The X-Factor is... <span class="user-input">{{vm.setup.xFactorDisplay}}</span></p>
