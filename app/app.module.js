@@ -24,14 +24,18 @@
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-
-      .state('create',{
+      .state('app', {
+        abstract: true,
+        template: '<ss-app></ss-app>'
+      })
+      .state('smash',{
         url: '/',
+        parent: 'app',
         template: '<ss-smash></ss-smash>'
       })
       .state('story',{
-        // parent: 'app',
         url: '/stories',
+        parent: 'app',
         templateUrl: '/partials/story.html'
         // template: '<ss-story></ss-story>'
       })

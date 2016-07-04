@@ -17,6 +17,8 @@
 
   smashController.$inject = ['$log', '$location','$anchorScroll', 'storyFactory']
   function smashController($log, $location, $anchorScroll, storyFactory) {
+    $log.log('Hello form smash directive')
+
     var vm = this;
     vm.user = {username: "William Swagspeare"}
     vm.menu = {step: 1, next, prev}
