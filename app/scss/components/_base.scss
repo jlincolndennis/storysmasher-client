@@ -11,7 +11,7 @@ body {
 header {
   background: rgb(145, 0, 230);
   position: fixed;
-  width: 99%;
+  width: 98%;
   height: 60px;
   z-index: 3;
   border-top-right-radius: 30px;
@@ -31,7 +31,7 @@ header {
 .navbar-button {
   color: rgb(145, 0, 230);
   background: white;
-  font-weight: 300;
+  // font-weight: 300;
   float: right;
   margin-top: 12px;
   margin-right: 20px;

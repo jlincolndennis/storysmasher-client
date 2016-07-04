@@ -2,21 +2,21 @@
   'use strict';
 
   angular.module('app')
-  .directive('ssPlot', plotDirective)
+  .directive('ssSmash', smashDirective)
 
-  function plotDirective() {
+  function smashDirective() {
 
     return {
       restrict: 'E',
       scope: {},
-      templateUrl: '/partials/plot.html',
-      controller: plotController,
+      templateUrl: '/partials/smash.html',
+      controller: smashController,
       controllerAs: 'vm'
     }
   }
 
-  plotController.$inject = ['$log', '$location','$anchorScroll', 'storyFactory']
-  function plotController($log, $location, $anchorScroll, storyFactory) {
+  smashController.$inject = ['$log', '$location','$anchorScroll', 'storyFactory']
+  function smashController($log, $location, $anchorScroll, storyFactory) {
     var vm = this;
     vm.user = {username: "William Swagspeare"}
     vm.menu = {step: 1, next, prev}
@@ -92,6 +92,9 @@
     }
 
     function prevPara() {
+      if (vm.current.paragraph != 1){
+        vm[`paragraph${vm.current.paragraph}`] = ""
+      }
       --vm.current.paragraph
       console.log(vm.current.paragraph);
       if (vm.current.paragraph < 0){
@@ -100,7 +103,6 @@
         $('#storySetup').modal('show');
 
       }
-      // var id = `paragraph-${vm.current.paragraph}`;
       // $location.hash(id);
       // $anchorScroll();
     }

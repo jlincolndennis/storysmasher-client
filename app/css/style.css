@@ -9,7 +9,7 @@ body {
 header {
   background: #9100e6;
   position: fixed;
-  width: 99%;
+  width: 98%;
   height: 60px;
   z-index: 3;
   border-top-right-radius: 30px;
@@ -25,7 +25,6 @@ header {
 .navbar-button {
   color: #9100e6;
   background: white;
-  font-weight: 300;
   float: right;
   margin-top: 12px;
   margin-right: 20px;
@@ -114,7 +113,6 @@ header {
   width: 144px;
   background: white;
   color: #9100e6;
-  font-weight: 300;
   border-radius: 20px;
   margin-left: 15px;
   margin-right: 15px; }
@@ -122,13 +120,11 @@ header {
 .smash-prev {
   background: white;
   color: #9100e6;
-  font-weight: 300;
   border-radius: 20px; }
 
 .smash-next {
   background: white;
   color: #9100e6;
-  font-weight: 300;
   border-radius: 20px; }
 
 .focus {

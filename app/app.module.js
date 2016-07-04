@@ -9,7 +9,7 @@
 
   angular.module('app', dependencies)
     .run(['$anchorScroll', function($anchorScroll) {
-      $anchorScroll.yOffset = 200;   
+      $anchorScroll.yOffset = 200;
     }])
     .config(setupStates)
 
@@ -24,24 +24,16 @@
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      // .state('landing',{
-      //   url: '/',
-      //   templateUrl: '/partials/landing.html',
-      // })
-      .state('app',{
-        abstract: true,
-        templateUrl: '/partials/app.html',
-      })
-      .state('create',{
-        parent: 'app',
-        // url: '/create',
-        url: '/',
 
-        templateUrl: '/partials/create.html'
+      .state('create',{
+        url: '/',
+        template: '<ss-smash></ss-smash>'
       })
-      .state('review',{
-        parent: 'app',
-        url: 'stories/:id/review'
+      .state('story',{
+        // parent: 'app',
+        url: '/stories',
+        templateUrl: '/partials/story.html'
+        // template: '<ss-story></ss-story>'
       })
   }
 
