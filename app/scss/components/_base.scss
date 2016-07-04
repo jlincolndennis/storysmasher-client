@@ -64,6 +64,57 @@ header {
   font-weight: 300;
 }
 
+.byline {
+  color: black;
+  font-style: italic;
+}
+
+.sub-head {
+  margin-bottom: 20px;
+  color: rgb(145, 0, 230);
+}
+
+.name-field {
+  font-family: serif;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.5em;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 3px solid rgb(145, 0, 230);
+}
+
+.setup-text {
+  font-size: 1.2em;
+}
+
+.user-input {
+  font-family: serif;
+  font-size: 1.5em
+}
+.setup-selector {
+
+  padding: 20px;
+
+
+}
+
+.bubble {
+  border-radius: 50px;
+  background: rgba(145, 0, 230, 0.1);
+  text-align: center;
+  padding: 10px;
+}
+
+.selected {
+  background: rgb(145, 0, 230);
+  color: white;
+
+}
+
+
+
 .modal-footer {
   margin-top: 30px;
   text-align: center;

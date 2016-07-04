@@ -4,33 +4,33 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center">Welcome to StorySmash!</h4>
+        <h2 class="modal-title text-center">Welcome to StorySmash!</h2>
+        <h5 class=" byline text-center">STORIES SO GOOD, THEY WRITE THEMSELVES...</h5>
       </div>
       <div class="modal-body" ng-switch="vm.menu.step">
         <div ng-switch-default>
-        <h5 class="text-center">Unique Stories created by Tracery and YOU!</h5>
+
         <div class="row">
-          <div class="col-md-6">
-            <h3>Who Are You?</h3>
+          <div class="col-md-6 text-center">
+            <h3 class="sub-head">Who Are You?</h3>
             <form>
               <div class="form-group">
-                <p>My Pen Name is...
-                <input ng-model="vm.user.username" type="text">
-                </p>
+                <p class='setup-text'>My Pen Name is...</p>
+                <input class="name-field"ng-model="vm.user.username" type="text">
               </div>
             </form>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 text-center">
             <form class="form-inline">
               <div class="form-group">
-                <h3>Who Is The Hero Of The Story?</h3>
-                <select class="form-control" ng-init='vm.hero.pronoun' ng-model='vm.hero.pronoun'>
+                <h3 class="sub-head">Who Is The Hero Of The Story?</h3>
+                <p class='setup-text'><select class="form-control" ng-init='vm.hero.pronoun' ng-model='vm.setup.pronoun'>
                   <option value="their">Their</option>
                   <option value="her">Her</option>
                   <option value="his">His</option>
                 </select>
-                name is
-                <input ng-model="vm.name" type="text">
+                name is</p>
+                <input class="name-field"ng-model="vm.setup.hero" type="text">
               </div>
             </form>
           </div>
@@ -38,23 +38,59 @@
       </div>
 
       <div ng-switch-when="2">
-        <p class="">Where does your story take place?</p>
+        <!-- <p class="text-center setup-text"><span class="user-input">{{vm.user.username}}</span> is SMASHING a story about <span class="user-input">{{vm.setup.hero}}</span>, a hero!</p> -->
+        <h3 class="sub-head text-center">Where does your story take place?</h3>
 
-        <p class="ui-text">It takes place...</p>
-        <h2>Setting: {{vm.settingDisplay}}</h2>
-        <button class='btn' ng-click="vm.chooseSetting('space')">Space</button>
-        <button class='btn' ng-click="vm.chooseSetting('kingdom')">Kingdom</button>
-        <button class='btn' ng-click="vm.chooseSetting('western')">Western</button>
+        <p class="text-center setup-text">It takes place in... <span class="user-input">{{vm.setup.settingDisplay}}</span></p>
+        <div class="row">
+          <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('space')">
+              <div class="bubble" ng-class="{selected: vm.setup.setting =='space'}">
+                <h4>Space Station X-99</h4>
+              </div>
+          </div>
+        <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('kingdom')">
+
+            <div class="bubble" ng-class="{selected: vm.setup.setting =='kingdom'}">
+              <h4>The Kingdom of Magique</h4>
+            </div>
+        </div>
       </div>
+      <div class="row">
+        <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('western')">
+
+            <div class="bubble" ng-class="{selected: vm.setup.setting =='western'}">
+              <h4>Whiskey Gulch</h4>
+            </div>
+        </div>
+      </div>
+    </div>
 
       <div ng-switch-when="3">
-        <p>What is the X-Factor that kicks your story up to Awesome Level 9000?</p>
+        <!-- <p class="text-center setup-text"><span class="user-input">{{vm.user.username}}</span> is SMASHING a story about <span class="user-input">{{vm.setup.hero}}</span>, a hero, lives in <span class="user-input">{{vm.setup.settingDisplay}}</span>!</p> -->
+        <h3 class="sub-head text-center">What is the X-Factor that kicks your story up to Awesome Level 9000?</h3>
 
-        <p>The X-Factor is...</p>
-        <h2>xFactor: {{vm.xFactorDisplay}}</h2>
-        <button class='btn' ng-click="vm.choosexFactor('dinosaurs')">Dinosaurs</button>
-        <button class='btn' ng-click="vm.choosexFactor('ninjas')">Ninjas</button>
-        <button class='btn' ng-click="vm.choosexFactor('lovecraft')">Cthulhu</button>
+        <p class="text-center setup-text">The X-Factor is... <span class="user-input">{{vm.setup.xFactorDisplay}}</span></p>
+        <div class="row">
+          <div class="setup-selector col-md-6"  ng-click="vm.choosexFactor('dinosaurs')">
+              <div class="bubble" ng-class="{selected: vm.setup.xfactor =='dinosaurs'}">
+                <h4>Dinosaurs!</h4>
+              </div>
+          </div>
+        <div class="setup-selector col-md-6"  ng-click="vm.choosexFactor('ninjas')">
+
+            <div class="bubble" ng-class="{selected: vm.setup.xfactor =='ninjas'}">
+              <h4>Ninjas!</h4>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="setup-selector col-md-6" ng-click="vm.choosexFactor('lovecraft')">
+
+            <div class="bubble" ng-class="{selected: vm.setup.xfactor =='lovecraft'}">
+              <h4>Cosmic Horrors!</h4>
+            </div>
+        </div>
+      </div>
 
       </div>
 
@@ -169,11 +205,14 @@
         DONE SMASHING?
       </button>
     </span>
-      <button class='btn smash-next' ng-click="vm.nextPara()">
+      <button class='btn smash-next' ng-hide="vm.current.paragraph ===8" ng-click="vm.nextPara()">
         <span class="glyphicon glyphicon-chevron-down" ng-hide="vm.current.paragraph ===8" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-ok" ng-show="vm.current.paragraph ===8" aria-hidden="true"></span>
-
       </button>
+      <a class='btn smash-next' ng-show="vm.current.paragraph ===8" ui-sref="story">
+        <span class="glyphicon glyphicon-ok"  aria-hidden="true"></span>
+
+      </a>
+
     </div>
 
 

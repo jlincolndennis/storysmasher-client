@@ -26,8 +26,8 @@
     vm.current.paragraph = -1;
     vm.setting = {};
     vm.xFactor = {};
-    vm.hero = {};
-    vm.hero.pronoun = 'their'
+    vm.setup = {};
+    vm.setup.pronoun = 'their'
     vm.pronouns = {};
     vm.plotDeets = {};
     vm.setPronouns = setPronouns;
@@ -58,7 +58,7 @@
 
     function setPronouns() {
       // console.log(vm.hero.pronoun);
-      switch (vm.hero.pronoun) {
+      switch (vm.setup.pronoun) {
         case 'their':
           vm.pronouns.their = 'their';
           vm.pronouns.them = 'them';
@@ -79,13 +79,15 @@
     }
 
     function chooseSetting(setting) {
-      vm.settingDisplay = setting
       vm.setting = storyFactory.getSetting(setting)
+      vm.setup.setting  = setting;
+      vm.setup.settingDisplay = vm.setting.settingMaster[0]
     }
 
     function choosexFactor(xfactor) {
-      vm.xFactorDisplay = xfactor
       vm.xFactor = storyFactory.getxFactor(xfactor)
+      vm.setup.xfactor = xfactor
+      vm.setup.xFactorDisplay = `${vm.xFactor.xFactor[0]}s!`
     }
 
     function startSmashing() {
@@ -154,7 +156,7 @@
       var sugar = storyFactory.getSugar();
       setPronouns();
       var para1Gram = {
-        name: [vm.name],
+        name: [vm.setup.hero],
         pronounThey: [vm.pronouns.they],
         pronounTheir: [vm.pronouns.their],
         settingMaster: vm.setting.settingMaster,
@@ -183,7 +185,7 @@
         document.getElementsByClassName('pd-home')[0].innerHTML
       ]
       var para2Gram = {
-        name: [vm.name],
+        name: [vm.setup.hero],
         xFactor: vm.xFactor.xFactor,
         xFactorGroup: vm.xFactor.xFactorGroup,
         home: vm.plotDeets.home,
@@ -206,7 +208,7 @@
       ]
 
       var para3Gram = {
-        name: [vm.name],
+        name: [vm.setup.hero],
         xFactor: vm.xFactor.xFactor,
         pronounThem: [vm.pronouns.them],
         pronounThey: [vm.pronouns.they],
@@ -234,7 +236,7 @@
       var para4Gram = {
         pronounTheir: [vm.pronouns.their],
         coolWeapon: vm.plotDeets.weapon,
-        name: [vm.name],
+        name: [vm.setup.hero],
         sugarTraveled: sugar.sugarTraveled,
         settingTransport: vm.setting.settingTransport,
         xFactor: vm.xFactor.xFactor,
@@ -271,7 +273,7 @@
       var plot = storyFactory.getPlot();
 
       var para5Gram = {
-        name: [vm.name],
+        name: [vm.setup.hero],
         pronounTheir: [vm.pronouns.their],
         xFactor: vm.xFactor.xFactor,
         lair: vm.plotDeets.lair,
@@ -303,7 +305,7 @@
 
       var para6Gram = {
         evilLeader: vm.plotDeets.evilLeader,
-        name: [vm.name],
+        name: [vm.setup.hero],
         sugarCried: sugar.sugarCried,
         pronounTheir: [vm.pronouns.their],
         coolWeapon: vm.plotDeets.weapon,
@@ -354,7 +356,7 @@
         plotHeroLoses: plot.plotHeroLoses,
         plotTragicEnding: plot.plotTragicEnding,
         evilLeader: vm.plotDeets.evilLeader,
-        name: [vm.name],
+        name: [vm.setup.hero],
         coolWeapon: vm.plotDeets.weapon,
         xFactor: vm.xFactor.xFactor,
         paragraph: paragraph,
