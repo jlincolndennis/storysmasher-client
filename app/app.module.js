@@ -34,10 +34,9 @@
         template: '<ss-smash></ss-smash>'
       })
       .state('story',{
-        url: '/stories',
+        url: '/stories/:id',
         parent: 'app',
-        templateUrl: '/partials/story.html'
-        // template: '<ss-story></ss-story>'
+        template: '<ss-story></ss-story>'
       })
   }
 

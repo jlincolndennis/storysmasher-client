@@ -114,8 +114,9 @@
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2 paper">
+    <h1 class="story-title">{{vm.story.title}}</h1>
 
-    <p id="paragraph-1" ng-class="{focus: vm.current.paragraph === 0 ||vm.current.paragraph === 1 }" ng-bind-html="vm.paragraph1"></p>
+    <p id="paragraph-1" ng-class="{focus: vm.current.paragraph === 0 ||vm.current.paragraph === 1 }" ng-bind-html="vm.story.paragraph_1"></p>
     <div class="roller-popout text-center"  ng-show="vm.current.paragraph == 1 || vm.current.paragraph == 0">
       <button class='btn smash-prev' ng-click="vm.prevPara()">
         <span class="glyphicon glyphicon-chevron-up" ng-hide="vm.current.paragraph === 0" aria-hidden="true"></span>
@@ -135,7 +136,7 @@
       </button>
     </div>
 
-    <p id="paragraph-2" ng-class="{focus: vm.current.paragraph == 2}" ng-bind-html="vm.paragraph2"></p>
+    <p id="paragraph-2" ng-class="{focus: vm.current.paragraph == 2}" ng-bind-html="vm.story.paragraph_2"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 2">
       <button class='btn smash-prev' ng-click="vm.prevPara()">
         <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
@@ -146,7 +147,7 @@
       </button>
     </div>
 
-    <p id="paragraph-3" ng-class="{focus: vm.current.paragraph == 3}" ng-bind-html="vm.paragraph3"></p>
+    <p id="paragraph-3" ng-class="{focus: vm.current.paragraph == 3}" ng-bind-html="vm.story.paragraph_3"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 3">
       <button class='btn smash-prev' ng-click="vm.prevPara()">
         <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
@@ -157,7 +158,7 @@
       </button>
     </div>
 
-    <p id="paragraph-4" ng-class="{focus: vm.current.paragraph == 4}" ng-bind-html="vm.paragraph4"></p>
+    <p id="paragraph-4" ng-class="{focus: vm.current.paragraph == 4}" ng-bind-html="vm.story.paragraph_4"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 4">
       <button class='btn smash-prev' ng-click="vm.prevPara()">
         <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
@@ -168,7 +169,7 @@
       </button>
     </div>
 
-    <p id="paragraph-5" ng-class="{focus: vm.current.paragraph == 5}" ng-bind-html="vm.paragraph5"></p>
+    <p id="paragraph-5" ng-class="{focus: vm.current.paragraph == 5}" ng-bind-html="vm.story.paragraph_5"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 5">
       <button class='btn smash-prev' ng-click="vm.prevPara()">
         <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
@@ -179,7 +180,7 @@
       </button>
     </div>
 
-    <p id="paragraph-6" ng-class="{focus: vm.current.paragraph == 6}" ng-bind-html="vm.paragraph6"></p>
+    <p id="paragraph-6" ng-class="{focus: vm.current.paragraph == 6}" ng-bind-html="vm.story.paragraph_6"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 6">
       <button class='btn smash-prev' ng-click="vm.prevPara()">
         <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
@@ -190,7 +191,7 @@
       </button>
     </div>
 
-    <p id="paragraph-7" ng-class="{focus: vm.current.paragraph == 7 || vm.current.paragraph == 8}" ng-bind-html="vm.paragraph7"></p>
+    <p id="paragraph-7" ng-class="{focus: vm.current.paragraph == 7 || vm.current.paragraph == 8}" ng-bind-html="vm.story.paragraph_7"></p>
     <div class="roller-popout text-center" ng-show="vm.current.paragraph == 7 || vm.current.paragraph == 8" >
       <button class='btn smash-prev' ng-click="vm.prevPara()">
         <span class="glyphicon glyphicon-chevron-up" ng-show="vm.current.paragraph ===7" aria-hidden="true"></span>
@@ -208,7 +209,7 @@
       <button class='btn smash-next' ng-hide="vm.current.paragraph ===8" ng-click="vm.nextPara()">
         <span class="glyphicon glyphicon-chevron-down" ng-hide="vm.current.paragraph ===8" aria-hidden="true"></span>
       </button>
-      <a class='btn smash-next' ng-show="vm.current.paragraph ===8" ui-sref="story">
+      <a class='btn smash-next' ng-show="vm.current.paragraph ===8" ng-click="vm.submitStory()">
         <span class="glyphicon glyphicon-ok"  aria-hidden="true"></span>
 
       </a>

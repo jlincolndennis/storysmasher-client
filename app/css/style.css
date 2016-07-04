@@ -8,6 +8,7 @@ body {
 
 header {
   background: #9100e6;
+  top: 0;
   position: fixed;
   width: 98%;
   height: 60px;
@@ -119,10 +120,15 @@ header {
   font-weight: 300;
   border-radius: 20px; }
 
+.story-options {
+  text-align: center;
+  margin-top: 100px;
+  background: #9100e6; }
+
 .paper {
   background: white;
   margin-top: 100px;
-  padding: 100px;
+  padding: 50px 75px;
   min-height: 125vh;
   margin-bottom: 100px;
   -webkit-box-shadow: 0px 0px 2px 2px #d1d1d1;
@@ -131,6 +137,12 @@ header {
   .paper p {
     font-size: 1.2em;
     font-family: serif; }
+
+.story-title {
+  text-align: center;
+  font-family: serif;
+  font-size: 2em;
+  margin-bottom: 20px; }
 
 .roller-popout {
   width: 284px;
@@ -155,12 +167,7 @@ header {
   margin-left: 15px;
   margin-right: 15px; }
 
-.smash-prev {
-  background: white;
-  color: #9100e6;
-  border-radius: 20px; }
-
-.smash-next {
+.smash-prev, .smash-next {
   background: white;
   color: #9100e6;
   border-radius: 20px; }

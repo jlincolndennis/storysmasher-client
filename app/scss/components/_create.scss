@@ -1,7 +1,7 @@
 .paper {
   background: white;
   margin-top: 100px;
-  padding: 100px;
+  padding: 50px 75px;
   min-height: 125vh;
   margin-bottom: 100px;
   p {
@@ -14,7 +14,12 @@
   box-shadow: 0px 0px 2px 2px rgba(209,209,209,1);
 }
 
-
+.story-title {
+  text-align: center;
+  font-family: serif;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
 
 .roller-popout {
   width: 284px;
@@ -41,9 +46,9 @@
  .smash-button {
    width: 144px;
   //  background: rgb(145, 0, 230);
-   background: white;
-   color: rgb(145, 0, 230);
   //  color: white;
+   background: white;
+  color: rgb(145, 0, 230);
   //  font-weight: 300;
    border-radius: 20px;
   margin-left: 15px;
@@ -51,29 +56,23 @@
 
  }
 
- .smash-prev {
-  //  width: 80px;
+ .smash-prev, .smash-next {
   //  background: rgb(145, 0, 230);
+  //  color: white;
    background: white;
    color: rgb(145, 0, 230);
-  //  color: white;
-  //  font-weight: 300;
    border-radius: 20px;
 
  }
 
- .smash-next {
-  //  width: 80px;
-  //  background: rgb(145, 0, 230);
-   background: white;
-   color: rgb(145, 0, 230);
-  //  color: white;
-  //  font-weight: 300;
-   border-radius: 20px;
-
- }
-
- 
+ // .smash-next {
+ //  //  background: rgb(145, 0, 230);
+ //  //  color: white;
+ //   background: white;
+ //   color: rgb(145, 0, 230);
+ //   border-radius: 20px;
+ //
+ // }
 
  .focus {
    padding: 5px;

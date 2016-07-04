@@ -15,8 +15,8 @@
     }
   }
 
-  smashController.$inject = ['$log', '$location','$anchorScroll', 'storyFactory']
-  function smashController($log, $location, $anchorScroll, storyFactory) {
+  smashController.$inject = ['$log', '$location', '$state','$anchorScroll', 'storyFactory', 'accountFactory']
+  function smashController($log, $location, $state, $anchorScroll, storyFactory, accountFactory) {
     $log.log('Hello form smash directive')
 
     var vm = this;
@@ -34,10 +34,12 @@
     vm.chooseSetting = chooseSetting;
     vm.choosexFactor = choosexFactor;
     vm.startSmashing = startSmashing;
+    vm.story = {},
     vm.prevPara = prevPara;
     vm.nextPara = nextPara;
     // vm.currentPara = currentPara;
     vm.rollPara = rollPara;
+    vm.submitStory = submitStory
 
     $(document).ready(function(){
         $('#storySetup').modal('show');
@@ -91,6 +93,7 @@
     }
 
     function startSmashing() {
+      vm.story.title = `${vm.setup.hero} meets the ${vm.setup.xFactorDisplay}`
       vm.current.paragraph = 1
       vm.rollPara(1);
     }
@@ -172,7 +175,7 @@
       }
       var smashedPara1Grammar = tracery.createGrammar(para1Gram)
       var smashedPara1 = smashedPara1Grammar.flatten('#origin#')
-      vm.paragraph1 = smashedPara1
+      vm.story.paragraph_1 = smashedPara1
       return
     }
 
@@ -198,7 +201,7 @@
       }
       var smashedPara2Grammar = tracery.createGrammar(para2Gram)
       var smashedPara2 = smashedPara2Grammar.flatten('#origin#')
-      vm.paragraph2 = smashedPara2
+      vm.story.paragraph_2 = smashedPara2
     }
 
     function rollPara3() {
@@ -223,7 +226,7 @@
       }
       var smashedPara3Grammar = tracery.createGrammar(para3Gram)
       var smashedPara3 = smashedPara3Grammar.flatten('#origin#')
-      vm.paragraph3 = smashedPara3
+      vm.story.paragraph_3 = smashedPara3
     }
 
     function rollPara4() {
@@ -254,7 +257,7 @@
       }
       var smashedPara4Grammar = tracery.createGrammar(para4Gram)
       var smashedPara4 = smashedPara4Grammar.flatten('#origin#')
-      vm.paragraph4 = smashedPara4
+      vm.story.paragraph_4 = smashedPara4
     }
 
     function rollPara5() {
@@ -290,7 +293,7 @@
       }
       var smashedPara5Grammar = tracery.createGrammar(para5Gram)
       var smashedPara5 = smashedPara5Grammar.flatten('#origin#')
-      vm.paragraph5 = smashedPara5
+      vm.story.paragraph_5 = smashedPara5
     }
 
     function rollPara6() {
@@ -321,7 +324,7 @@
       }
       var smashedPara6Grammar = tracery.createGrammar(para6Gram)
       var smashedPara6 = smashedPara6Grammar.flatten('#origin#')
-      vm.paragraph6 = smashedPara6
+      vm.story.paragraph_6 = smashedPara6
     }
 
     function rollPara7() {
@@ -364,7 +367,18 @@
       }
       var smashedPara7Grammar = tracery.createGrammar(para7Gram)
       var smashedPara7 = smashedPara7Grammar.flatten('#origin#')
-      vm.paragraph7 = smashedPara7;
+      vm.story.paragraph_7 = smashedPara7;
+    }
+
+
+    function submitStory() {
+      console.log(vm.story);
+      accountFactory.submitStory(vm.story).then(function (res) {
+      console.log('SUCCESSSSSSSSSSS', res.data.story.id);
+      $state.go('story', {id: res.data.story.id})
+
+    })
+
     }
   }
 

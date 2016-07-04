@@ -1,6 +1,19 @@
 
+<div class="story-options">
+  <h3>You Smashed a story!</h3>
+  <button>SAVE MY STORY</button>
+</div>
+
+
 <div class="row">
   <div class="col-md-8 col-md-offset-2 paper">
-    <h1>Story TIMEZ</h1>
+    <h1 class="story-title">{{vm.story.title}}</h1>
+    <p ng-bind-html="vm.story.paragraph_1"></p>
+    <p ng-bind-html="vm.story.paragraph_2"></p>
+    <p ng-bind-html="vm.story.paragraph_3"></p>
+    <p ng-bind-html="vm.story.paragraph_4"></p>
+    <p ng-bind-html="vm.story.paragraph_5"></p>
+    <p ng-bind-html="vm.story.paragraph_6"></p>
+    <p ng-bind-html="vm.story.paragraph_7"></p>
   </div>
 </div>
