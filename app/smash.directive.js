@@ -15,13 +15,13 @@
     }
   }
 
-  smashController.$inject = ['$log', '$location', '$state','$anchorScroll', 'storyFactory', 'accountFactory']
-  function smashController($log, $location, $state, $anchorScroll, storyFactory, accountFactory) {
+  smashController.$inject = ['$log', '$location', '$state','$anchorScroll', 'storyFactory', 'accountFactory', 'currentUserService','$scope']
+  function smashController($log, $location, $state, $anchorScroll, storyFactory, accountFactory, currentUserService, $scope) {
     $log.log('Hello form smash directive')
 
     var vm = this;
     vm.signInInstead = signInInstead;
-    vm.user = {username: "William Swagspeare"}
+    vm.currentUser = currentUserService.getCurrentUser() || {id:1, username: 'William Swagspeare'}
     vm.menu = {step: 1, next, prev}
     vm.current = {}
     vm.current.paragraph = -1;
@@ -38,9 +38,15 @@
     vm.story = {},
     vm.prevPara = prevPara;
     vm.nextPara = nextPara;
-    // vm.currentPara = currentPara;
     vm.rollPara = rollPara;
     vm.submitStory = submitStory
+
+    // $scope.$watch(function(){
+    //   return currentUserService.getCurrentUser();
+    // }, function(value){
+    //   vm.currentUser = value;
+    //   console.log(value);
+    // }, true)
 
     $(document).ready(function(){
         $('#storySetup').modal('show');
@@ -101,7 +107,7 @@
 
     function startSmashing() {
       vm.story.title = `${vm.setup.hero} meets the ${vm.setup.xFactorDisplay}`
-      vm.user.display = `by ${vm.user.username}`
+      // vm.user.display = `by ${vm.currentUser.username}`
       vm.current.paragraph = 1
       vm.rollPara(1);
     }
@@ -383,8 +389,10 @@
 
     function submitStory() {
       console.log(vm.story);
-      accountFactory.submitStory(vm.story).then(function (res) {
-      console.log('SUCCESSSSSSSSSSS', res.data.story.id);
+      var story = vm.story;
+      story.user_id = vm.currentUser.id
+
+      accountFactory.submitStory(story).then(function (res) {
       $state.go('story', {id: res.data.story.id})
 
     })

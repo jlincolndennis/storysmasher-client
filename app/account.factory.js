@@ -4,16 +4,19 @@
   angular.module('app')
     .factory('accountFactory', accountFactory)
 
-    accountFactory.$inject = ['$log', '$http']
+    accountFactory.$inject = ['$log', '$http', 'currentUserService']
 
-    function accountFactory($log, $http) {
+    function accountFactory($log, $http, currentUserService) {
       return {
-        submitStory, getStory, signIn, getUser
+        submitStory, updateStory, getStory, signIn, signUp, getUser
       }
 
       function submitStory(story) {
-        story.user_id = 2;
         return $http.post('http://localhost:8000/api/v1/stories/', story)
+      }
+
+      function updateStory(story) {
+        return $http.put(`http://localhost:8000/api/v1/stories/${story.id}`, story)
       }
 
       function getStory(id) {
@@ -21,7 +24,11 @@
       }
 
       function signIn(user) {
-        return $http.post('http://localhost:8000/api/v1/users', {user})
+        return $http.post('http://localhost:8000/auth/signin', {user})
+      }
+
+      function signUp(user) {
+        return $http.post('http://localhost:8000/auth/signup', {user})
       }
 
       function getUser(id) {

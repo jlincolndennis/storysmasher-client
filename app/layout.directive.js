@@ -15,14 +15,19 @@
     }
   }
 
-  layoutController.inject =['$log','$location', '$state']
+  layoutController.inject =['$log','$location', '$state','accountFactory','currentUserService', '$rootScope']
 
-  function layoutController($log, $location, $state) {
+  function layoutController($log, $location, $state, accountFactory, currentUserService, $rootScope) {
     var vm = this;
     vm.smashLaunch = smashLaunch;
-    vm.signIn = signIn;
+    vm.signInLaunch = signInLaunch;
+    vm.currentUser = currentUserService.getCurrentUser();
+    vm.signIn = {}
+    vm.signInUser = signInUser;
     vm.saveLaunch = saveLaunch;
+    vm.signOut = signOut;
     vm.state = {name: $state.current.name}
+    console.log('vm.currentUser', vm.currentUser);
 
     function smashLaunch() {
 
@@ -39,17 +44,29 @@
       $('#storyReview').modal('show');
     }
 
+    function signOut() {
+      vm.currentUser = {}
+      localStorage.removeItem('jwt');
+    }
+
     function signInUser(form) {
       var user = angular.copy(vm.signIn)
       vm.signIn = {};
       form.$setUntouched();
-      console.log('testy test',user);
       return accountFactory.signIn(user).then(function (res) {
         console.log(res);
+        $('#signIn').modal('hide');
+        var currentUser = {
+          username: res.data.username,
+          id : res.data.id
+        }
+        vm.currentUser = currentUser;
+        currentUserService.setCurrentUser(currentUser)
+        localStorage.setItem('jwt', res.data.jwt)
       })
 
     }
-    function signIn() {
+    function signInLaunch() {
       $('#storyReview').modal('hide');
       $('#storySetup').modal('hide');
       $('#warning').modal('hide');

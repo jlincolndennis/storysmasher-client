@@ -1,15 +1,19 @@
 <header><h1>StorySmash</h1>
-  <!-- <button type="button" class="btn navbar-button">
-    SIGN IN
-  </button> -->
+
   <button type="button" class="btn navbar-button" ng-click="vm.smashLaunch()">
     SMASH A STORY
   </button>
   <button type="button" class="btn navbar-button" ng-click="vm.saveLaunch()">
     SAVE THIS STORY
   </button>
-  <button type="button" class="btn navbar-button" ng-click="vm.signIn()">
+  <button type="button" class="btn navbar-button" ng-click="vm.signInLaunch()" ng-hide="vm.currentUser.id">
     SIGN IN
+  </button>
+  <button type="button" class="btn navbar-button" ng-click="vm.signOut()" ng-show="vm.currentUser.id">
+    SIGN OUT
+  </button>
+  <button type="button" class="btn navbar-button" ng-show="vm.currentUser.id">
+    WELCOME, {{vm.currentUser.username}}
   </button>
 </header>
 

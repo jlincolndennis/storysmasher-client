@@ -11,6 +11,31 @@
     .run(['$anchorScroll', function($anchorScroll) {
       $anchorScroll.yOffset = 200;
     }])
+
+    .factory('authInterceptor', function ($location) {
+  return {
+    request: function (config) {
+      var token = localStorage.getItem('jwt')
+
+      if (token) {
+        config.headers.Authorization = localStorage.getItem('jwt');
+        return config
+      } else {
+
+        return config
+      }
+    },
+    responseError: function (response) {
+      if (response.status === 403){
+        localStorage.removeItem('jwt');
+      $location.path('/')
+      }
+      return response
+
+    }
+  }
+})
+
     .config(setupStates)
 
   setupStates.$injet = [
@@ -20,6 +45,7 @@
     '$httpProvider'];
 
   function setupStates($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    $httpProvider.interceptors.push('authInterceptor');
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/');
 
@@ -32,23 +58,37 @@
       .state('smash',{
         url: '/',
         parent: 'app',
-        template: '<ss-smash></ss-smash>'
+        template: '<ss-smash></ss-smash>',
+        resolve: {
+        currentUserResolve: currentUserResolve
+        },
       })
       .state('story',{
         url: '/story/:id',
         parent: 'app',
-        template: '<ss-story></ss-story>'
-      })
-      .state('account',{
-        url: '/account',
-        parent: 'app',
-        template: '<ss-account></ss-account>'
+        template: '<ss-story></ss-story>',
+        resolve: {
+        currentUserResolve: currentUserResolve
+        },
       })
       .state('user', {
         url: '/users/:id',
         parent: 'app',
         template: '<ss-user></ss-user>'
       })
+  }
+
+  function currentUserResolve ($http, currentUserService) {
+
+    return $http.get('http://localhost:8000/api/v1/users/me')
+      .then(function (response) {
+        console.log(response.data.user);
+        return currentUserService.setCurrentUser(response.data.user)
+      })
+      .catch(function () {
+        localStorage.clear();
+        return currentUserService.setCurrentUser(null)
+    })
   }
 
 

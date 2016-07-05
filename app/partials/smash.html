@@ -4,8 +4,22 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="modal-title text-center">Welcome to StorySmash!</h2>
-        <h5 class=" byline text-center">STORIES SO GOOD, THEY WRITE THEMSELVES...</h5>
+        <div ng-switch="vm.menu.step">
+        <div ng-switch-default>
+          <h2 class="modal-title text-center">Welcome to StorySmash!</h2>
+          <h5 class=" byline text-center">STORIES SO GOOD, THEY WRITE THEMSELVES...</h5>
+
+        </div>
+        <div ng-switch-when="2">
+          <h3 class="sub-head text-center">Where does your story take place?</h3>
+
+        </div>
+        <div ng-switch-when="3">
+          <h3 class="sub-head text-center">What is the X-Factor that kicks your story up to Awesome Level 9000?</h3>
+
+        </div>
+        </div>
+
       </div>
       <div class="modal-body" ng-switch="vm.menu.step">
         <div ng-switch-default>
@@ -13,11 +27,12 @@
         <div class="row">
           <div class="col-md-6 text-center">
             <h3 class="sub-head">Who Are You?</h3>
+            <p class='setup-text'>My Pen Name is...</p>
             <form>
               <div class="form-group">
-                <p class='setup-text'>My Pen Name is...</p>
-                <input class="name-field"ng-model="vm.user.username" type="text">
-                <p class="sign-in-link">Have an account? <a ng-click="vm.signInInstead()" href="/#" >Sign In</a></p>
+                  <input class="name-field" ng-model="vm.currentUser.username" type="text">
+                  <p class="sign-in-link">Have an account? <a ng-click="vm.signInInstead()" href="/#" >Sign In</a></p>
+
               </div>
             </form>
           </div>
@@ -39,7 +54,6 @@
       </div>
 
       <div ng-switch-when="2">
-        <h3 class="sub-head text-center">Where does your story take place?</h3>
         <div class="row">
           <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('space')">
               <div class="bubble" ng-class="{selected: vm.setup.setting =='space'}">
@@ -67,7 +81,6 @@
     </div>
 
       <div ng-switch-when="3">
-        <h3 class="sub-head text-center">What is the X-Factor that kicks your story up to Awesome Level 9000?</h3>
         <div class="row">
           <div class="setup-selector col-md-6"  ng-click="vm.choosexFactor('dinosaurs')">
               <div class="bubble" ng-class="{selected: vm.setup.xfactor =='dinosaurs'}">
@@ -116,7 +129,7 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2 paper">
     <h1 class="story-title">{{vm.story.title}}</h1>
-    <h4 class="story-author">{{vm.user.display}}</h4>
+    <!-- <h4 class="story-author">{{vm.user.display}}</h4> -->
 
     <p id="paragraph-1" ng-class="{focus: vm.current.paragraph === 0 ||vm.current.paragraph === 1 }" ng-bind-html="vm.story.paragraph_1"></p>
     <div class="roller-popout text-center"  ng-show="vm.current.paragraph == 1 || vm.current.paragraph == 0">
