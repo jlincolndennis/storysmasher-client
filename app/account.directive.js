@@ -25,16 +25,7 @@
           $('#signIn').modal('show');
       });
 
-      function signInUser(form) {
-        var user = angular.copy(vm.signIn)
-        vm.signIn = {};
-        form.$setUntouched();
-        console.log('testy test',user);
-        return accountFactory.signIn(user).then(function (res) {
-          console.log(res);
-        })
 
-      }
     }
 
 

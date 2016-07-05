@@ -100,12 +100,14 @@
 
     function prevPara() {
       if (vm.current.paragraph != 1){
-        vm[`paragraph${vm.current.paragraph}`] = ""
+        console.log(`paragraph_${vm.current.paragraph}`);
+        vm.story[`paragraph_${vm.current.paragraph}`] = "";
       }
       --vm.current.paragraph
       console.log(vm.current.paragraph);
       if (vm.current.paragraph < 0){
-        vm.paragraph1 = ""
+        vm.story.paragraph_1 = "";
+        vm.story.title = "";
         vm.menu.step = 1;
         $('#storySetup').modal('show');
 

@@ -1,8 +1,58 @@
 
-<div class="story-options">
-  <h3>You Smashed a story!</h3>
-  <button>SAVE MY STORY</button>
+<div class="modal fade" id="storyReview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2 class="modal-title text-center" id="myModalLabel">Sign Up</h2>
+        </div>
+        <div class="modal-body">
+          Create an account if you want to save your story
+          <form novalidate name="signUpForm">
+      <div class="form-group">
+      <label for="username">Pen Name:</label>
+      <input type="text" class="form-control" id="username" placeholder="Pen Name" ng-model="vm.signIn.username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.signIn.password" required="">
+    </div>
+
+    </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">NO THANKS</button>
+          <button type="submit" ng-disabled="signInForm.$invalid" class="btn btn-default" ng-click="vm.signInUser(signInForm)">SAVE</button>
+        </div>
+      </form>
+      </div>
+    </div>
+
 </div>
+
+<div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="warning">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title text-center" id="myModalLabel">Hang On!</h2>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to leave this story?</p>
+        <p>If your story is not yet saved, it will be lost!</p>
+
+
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a class="btn btn-default" data-dismiss="modal" ui-sref="smash">Continue</a>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
 
 
 <div class="row">

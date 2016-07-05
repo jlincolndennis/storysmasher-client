@@ -26,6 +26,7 @@
     $stateProvider
       .state('app', {
         abstract: true,
+        cache: false,
         template: '<ss-app></ss-app>'
       })
       .state('smash',{
