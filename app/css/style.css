@@ -75,13 +75,13 @@ header {
   font-size: 1.5em; }
 
 .setup-selector {
-  padding: 20px; }
+  padding: 20px 20px; }
 
 .bubble {
-  border-radius: 50px;
+  border-radius: 55px;
   background: rgba(145, 0, 230, 0.1);
   text-align: center;
-  padding: 10px; }
+  padding: 10px 20px; }
 
 .selected {
   background: #9100e6;
@@ -120,6 +120,20 @@ header {
   font-weight: 300;
   border-radius: 20px; }
 
+.modal-footer.tiny {
+  margin-top: 0px; }
+
+.account-button {
+  background: #9100e6;
+  border: 1px solid white;
+  border-radius: 48px;
+  color: white;
+  text-shadow: none; }
+  .account-button:hover {
+    background: #9100e6;
+    text-shadow: none;
+    color: white; }
+
 .story-options {
   text-align: center;
   margin-top: 100px;
@@ -135,6 +149,7 @@ header {
   -moz-box-shadow: 0px 0px 2px 2px #d1d1d1;
   box-shadow: 0px 0px 2px 2px #d1d1d1; }
   .paper p {
+    margin-top: 20px;
     font-size: 1.2em;
     font-family: serif; }
 

@@ -72,7 +72,7 @@
           vm.pronouns.they = 'he';
           break;
         case 'her':
-          vm.pronouns.their = 'hers';
+          vm.pronouns.their = 'her';
           vm.pronouns.them = 'her';
           vm.pronouns.they = 'she';
           break;

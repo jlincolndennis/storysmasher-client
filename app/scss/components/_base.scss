@@ -96,16 +96,16 @@ header {
 }
 .setup-selector {
 
-  padding: 20px;
+  padding: 20px 20px;
 
 
 }
 
 .bubble {
-  border-radius: 50px;
+  border-radius: 55px;
   background: rgba(145, 0, 230, 0.1);
   text-align: center;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .selected {
@@ -152,4 +152,21 @@ header {
   color: white;
   font-weight: 300;
   border-radius: 20px;
+}
+
+.modal-footer.tiny {
+  margin-top: 0px;
+}
+
+.account-button {
+  background: rgb(145, 0, 230);
+  border: 1px solid white;
+  border-radius: 48px;
+  color: white;
+  text-shadow: none;
+  &:hover {
+    background: rgb(145, 0, 230);
+    text-shadow: none;
+    color:white;
+  }
 }

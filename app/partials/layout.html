@@ -31,11 +31,14 @@
     <label for="password">Password:</label>
     <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.signIn.password" required="">
   </div>
-
   </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ui-sref="smash">Close</button>
-        <button type="submit" ng-disabled="signInForm.$invalid" class="btn btn-default" ng-click="vm.signInUser(signInForm)">Sign In</button>
+      <div class="modal-footer tiny">
+        <button type="button" class="btn btn-default account-button" data-dismiss="modal" ui-sref="smash">
+        <span class="glyphicon glyphicon-remove"  aria-hidden="true"></span> CANCEL
+        </button>
+        <button type="submit" ng-disabled="signInForm.$invalid" class="btn btn-default account-button" ng-click="vm.signInUser(signInForm)">
+          <span class="glyphicon glyphicon-ok"  aria-hidden="true"></span> SIGN IN
+        </button>
       </div>
     </form>
     </div>
