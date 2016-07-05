@@ -25,7 +25,8 @@
     vm.state = {name: $state.current.name}
 
     function smashLaunch() {
-      if (vm.state.name === 'story') {
+
+      if ($state.current.name === 'story') {
         $('#warning').modal('show');
       } else {
         if ($location.$$path !== '/') $state.go('smash')

@@ -18,6 +18,7 @@
 
   function storyController(accountFactory, $stateParams) {
     var vm = this;
+    vm.user ={}
     vm.saveStory = saveStory
 
     $(document).ready(function(){
@@ -26,7 +27,8 @@
 
     accountFactory.getStory($stateParams.id)
     .then(function (res) {
-      console.log(res);
+      console.log(res.data);
+      vm.user.display = `by ${res.data.author}`;
       vm.story = res.data.story
   })
 

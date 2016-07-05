@@ -43,14 +43,20 @@
         <h2 class="modal-title text-center" id="myModalLabel">Hang On!</h2>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to leave this story?</p>
         <p>If your story is not yet saved, it will be lost!</p>
+        <p>Are you sure you want to leave this story?</p>
 
 
   </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <a class="btn btn-default" data-dismiss="modal" ui-sref="smash">Continue</a>
+      <div class="modal-footer tiny">
+
+          <button type="button" class="btn btn-default account-button" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"  aria-hidden="true"></span> STAY
+
+        </button>
+        <a class="btn btn-default account-button" data-dismiss="modal" ui-sref="smash">
+          <span class="glyphicon glyphicon-ok"  aria-hidden="true"></span> LEAVE
+        </a>
       </div>
     </form>
     </div>
@@ -62,6 +68,8 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2 paper">
     <h1 class="story-title">{{vm.story.title}}</h1>
+    <h4 class="story-author">{{vm.user.display}}</h4>
+
     <p ng-bind-html="vm.story.paragraph_1"></p>
     <p ng-bind-html="vm.story.paragraph_2"></p>
     <p ng-bind-html="vm.story.paragraph_3"></p>

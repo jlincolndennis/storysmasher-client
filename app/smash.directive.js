@@ -20,6 +20,7 @@
     $log.log('Hello form smash directive')
 
     var vm = this;
+    vm.signInInstead = signInInstead;
     vm.user = {username: "William Swagspeare"}
     vm.menu = {step: 1, next, prev}
     vm.current = {}
@@ -44,6 +45,12 @@
     $(document).ready(function(){
         $('#storySetup').modal('show');
     });
+
+    function signInInstead() {
+      $('#storySetup').modal('hide');
+      $('#signIn').modal('show');
+
+    }
 
     function prev() {
       vm.menu.step--
@@ -94,6 +101,7 @@
 
     function startSmashing() {
       vm.story.title = `${vm.setup.hero} meets the ${vm.setup.xFactorDisplay}`
+      vm.user.display = `by ${vm.user.username}`
       vm.current.paragraph = 1
       vm.rollPara(1);
     }

@@ -35,7 +35,7 @@
         template: '<ss-smash></ss-smash>'
       })
       .state('story',{
-        url: '/stories/:id',
+        url: '/story/:id',
         parent: 'app',
         template: '<ss-story></ss-story>'
       })
@@ -43,6 +43,11 @@
         url: '/account',
         parent: 'app',
         template: '<ss-account></ss-account>'
+      })
+      .state('user', {
+        url: '/users/:id',
+        parent: 'app',
+        template: '<ss-user></ss-user>'
       })
   }
 
