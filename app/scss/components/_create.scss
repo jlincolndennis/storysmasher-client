@@ -1,3 +1,5 @@
+@import 'variables';
+
 .paper {
   background: white;
   margin-top: 100px;
@@ -38,7 +40,7 @@
   margin-top: 10px;
   margin-right: auto;
   margin-left: auto;
-   background: rgb(145, 0, 230);
+   background: $main;
   border: 1px solid white;
   border-radius: 30px;
 
@@ -54,10 +56,10 @@
 
  .smash-button {
    width: 144px;
-  //  background: rgb(145, 0, 230);
+  //  background: $main;
   //  color: white;
    background: white;
-  color: rgb(145, 0, 230);
+  color: $main;
   //  font-weight: 300;
    border-radius: 20px;
   margin-left: 15px;
@@ -66,10 +68,10 @@
  }
 
  .smash-prev, .smash-next {
-  //  background: rgb(145, 0, 230);
+  //  background: $main;
   //  color: white;
    background: white;
-   color: rgb(145, 0, 230);
+   color: $main;
    border-radius: 20px;
 
  }
@@ -77,6 +79,6 @@
 
  .focus {
    padding: 5px;
-   background: rgba(145, 0, 230, 0.1);
+   background: $highlight;
    color: black;
  }

@@ -1,5 +1,7 @@
-modal-backdrop {
-   background-color: rgba(255, 255, 255, 0)
+@import 'variables';
+
+.modal-backdrop {
+   background-color: rgba(255, 255, 255, 0);;
 }
 
 .modal-dialog {
@@ -7,7 +9,7 @@ modal-backdrop {
 }
 
 .modal-header {
-  color: rgb(145, 0, 230);
+  color: $main;
   // color: white;
   border: 0;
   font-weight: 300;
@@ -20,13 +22,13 @@ modal-backdrop {
 
 .sub-head {
   margin-bottom: 20px;
-  color: rgb(145, 0, 230);
+  color: $main;
 }
 
 .sign-in-link {
   margin-top: 10px;
   a{
-    color: rgb(145, 0, 230);
+    color: $main;
 
   }
 
@@ -40,7 +42,7 @@ modal-backdrop {
   border-top: 0;
   border-right: 0;
   border-left: 0;
-  border-bottom: 3px solid rgb(145, 0, 230);
+  border-bottom: 3px solid $main;
 }
 
 .setup-text {
@@ -53,21 +55,19 @@ modal-backdrop {
   font-size: 1.5em
 }
 .setup-selector {
-
   padding: 10px 10px;
-
 
 }
 
 .bubble {
   border-radius: 55px;
-  background: rgba(145, 0, 230, 0.1);
+  background: $highlight;
   text-align: center;
   padding: 10px 20px;
 }
 
 .selected {
-  background: rgb(145, 0, 230);
+  background: $main;
   color: white;
 
 }
@@ -82,7 +82,7 @@ modal-backdrop {
   height: 10px;
   width:10px;
   background: white;
-  border: 1px solid rgb(145, 0, 230);
+  border: 1px solid $main;
   border-radius: 10px;
   margin: 12px 5px 0;
   display: inline-block;
@@ -90,13 +90,13 @@ modal-backdrop {
 }
 
 .current-step {
-  background: rgb(145, 0, 230);
+  background: $main;
   transition: .4s ease;
 }
 
 .menu-next {
   margin-left: 40px;
-  background: rgb(145, 0, 230);
+  background: $main;
   color: white;
   font-weight: 300;
   border-radius: 20px;
@@ -104,7 +104,7 @@ modal-backdrop {
 
 .menu-prev {
   margin-right: 40px;
-  background: rgb(145, 0, 230);
+  background: $main;
   color: white;
   font-weight: 300;
   border-radius: 20px;
@@ -115,13 +115,13 @@ modal-backdrop {
 }
 
 .account-button {
-  background: rgb(145, 0, 230);
+  background: $main;
   border: 1px solid white;
   border-radius: 48px;
   color: white;
   text-shadow: none;
   &:hover {
-    background: rgb(145, 0, 230);
+    background: $main;
     text-shadow: none;
     color:white;
   }
