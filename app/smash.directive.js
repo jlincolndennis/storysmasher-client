@@ -44,6 +44,7 @@
     $(document).ready(function(){
       $location.hash();
       $('#storySetup').modal('show');
+
     });
 
     function signInInstead() {

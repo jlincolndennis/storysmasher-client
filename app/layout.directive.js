@@ -15,12 +15,13 @@
     }
   }
 
-  layoutController.inject =['$log','$location', '$state','accountFactory','currentUserService', '$rootScope']
+  layoutController.inject =['$log','$location', '$state','accountFactory','currentUserService', '$stateParams']
 
-  function layoutController($log, $location, $state, accountFactory, currentUserService, $rootScope) {
+  function layoutController($log, $location, $state, accountFactory, currentUserService, $stateParams) {
     var vm = this;
     vm.smashLaunch = smashLaunch;
     vm.signInLaunch = signInLaunch;
+    vm.listenLaunch = listenLaunch;
     vm.currentUser = currentUserService.getCurrentUser();
     vm.signIn = {}
     vm.signInUser = signInUser;
@@ -36,6 +37,11 @@
 
     function saveLaunch() {
       $('#storyReview').modal('show');
+    }
+
+    function listenLaunch() {
+      $state.go('listen', {id: $stateParams.id}, {reload:true})
+
     }
 
     function signOut() {

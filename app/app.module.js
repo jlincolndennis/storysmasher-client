@@ -70,6 +70,15 @@
         currentUserResolve: currentUserResolve
         },
       })
+      .state('listen',{
+        url: '/story/:id/listen',
+        parent: 'app',
+        template: '<ss-listen></ss-listen>',
+        // templateUrl: '/partials/listen.html',
+        resolve: {
+        currentUserResolve: currentUserResolve
+        },
+      })
       .state('user', {
         url: '/users/:id',
         parent: 'app',

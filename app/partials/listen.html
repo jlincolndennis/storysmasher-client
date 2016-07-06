@@ -1,0 +1,156 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 paper">
+    <div class="roller-popout-lg" ng-hide="vm.current.paragraph === 1">
+
+      <button class="btn smash-button-lg left-button" ng-show="vm.buttons.start" ng-click="vm.readStory()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> READ ENTIRE STORY</button>
+      <button class='btn smash-button-lg left-button' ng-click="vm.pauseRead()" ng-show="vm.buttons.pause">
+        <span class="glyphicon glyphicon-pause" aria-hidden="true"></span> PAUSE READING
+      </button>
+      <button class='btn smash-button-lg left-button' ng-click="vm.resumeRead()" ng-show="vm.buttons.resume">
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span> RESUME READING
+      </button>
+      <button class='btn smash-button-lg right-button' ng-click="vm.cancelRead()" ng-show="vm.buttons.cancel">
+        <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> CANCEL READING
+      </button>
+      <button class="btn smash-button-lg right-button" ng-click="vm.paragraphReader()" ng-show="vm.buttons.sections">READ EACH SECTION <span class="glyphicon glyphicon-chevron-down"  aria-hidden="true"></span>
+      </button>
+    </div>
+
+
+
+    <h1 class="story-title">{{vm.story.title}}</h1>
+    <h4 class="story-author">{{vm.user.display}}</h4>
+
+    <p id="paragraph-1" ng-class="{focus: vm.current.paragraph === 1 }" ng-bind-html="vm.story.paragraph_1"></p>
+    <div class="roller-popout text-center"  ng-show="vm.current.paragraph == 1">
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-step-backward"  aria-hidden="true"></span>
+      </button>
+
+        <button class='btn smash-button' ng-click="vm.readPara()" ng-hide="vm.reading.active">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span> READ TO ME!
+        </button>
+        <button class='btn smash-button' ng-click="vm.cancelRead()" ng-show="vm.reading.active">
+          <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> STOP READING
+        </button>
+
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <p id="paragraph-2" ng-class="{focus: vm.current.paragraph == 2}" ng-bind-html="vm.story.paragraph_2"></p>
+    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 2">
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-step-backward"  aria-hidden="true"></span>
+      </button>
+
+        <button class='btn smash-button' ng-click="vm.readPara()" ng-hide="vm.reading.active">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span> READ TO ME!
+        </button>
+        <button class='btn smash-button' ng-click="vm.cancelRead()" ng-show="vm.reading.active">
+          <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> STOP READING
+        </button>
+
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <p id="paragraph-3" ng-class="{focus: vm.current.paragraph == 3}" ng-bind-html="vm.story.paragraph_3"></p>
+    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 3">
+      <button class='btn smash-prev' ng-click="vm.prevPara()">
+        <span class="glyphicon glyphicon-step-backward"  aria-hidden="true"></span>
+      </button>
+
+        <button class='btn smash-button' ng-click="vm.readPara()" ng-hide="vm.reading.active">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span> READ TO ME!
+        </button>
+        <button class='btn smash-button' ng-click="vm.cancelRead()" ng-show="vm.reading.active">
+          <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> STOP READING
+        </button>
+
+      <button class='btn smash-next' ng-click="vm.nextPara()">
+        <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+      </button>
+    </div>
+
+  <p id="paragraph-4" ng-class="{focus: vm.current.paragraph == 4}" ng-bind-html="vm.story.paragraph_4"></p>
+  <div class="roller-popout text-center" ng-show="vm.current.paragraph == 4">
+    <button class='btn smash-prev' ng-click="vm.prevPara()">
+      <span class="glyphicon glyphicon-step-backward"  aria-hidden="true"></span>
+    </button>
+
+      <button class='btn smash-button' ng-click="vm.readPara()" ng-hide="vm.reading.active">
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span> READ TO ME!
+      </button>
+      <button class='btn smash-button' ng-click="vm.cancelRead()" ng-show="vm.reading.active">
+        <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> STOP READING
+      </button>
+
+    <button class='btn smash-next' ng-click="vm.nextPara()">
+      <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <p id="paragraph-5" ng-class="{focus: vm.current.paragraph == 5}" ng-bind-html="vm.story.paragraph_5"></p>
+  <div class="roller-popout text-center" ng-show="vm.current.paragraph == 5">
+    <button class='btn smash-prev' ng-click="vm.prevPara()">
+      <span class="glyphicon glyphicon-step-backward"  aria-hidden="true"></span>
+    </button>
+
+      <button class='btn smash-button' ng-click="vm.readPara()" ng-hide="vm.reading.active">
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span> READ TO ME!
+      </button>
+      <button class='btn smash-button' ng-click="vm.cancelRead()" ng-show="vm.reading.active">
+        <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> STOP READING
+      </button>
+
+    <button class='btn smash-next' ng-click="vm.nextPara()">
+      <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <p id="paragraph-6" ng-class="{focus: vm.current.paragraph == 6}" ng-bind-html="vm.story.paragraph_6"></p>
+  <div class="roller-popout text-center" ng-show="vm.current.paragraph == 6">
+    <button class='btn smash-prev' ng-click="vm.prevPara()">
+      <span class="glyphicon glyphicon-step-backward"  aria-hidden="true"></span>
+    </button>
+
+      <button class='btn smash-button' ng-click="vm.readPara()" ng-hide="vm.reading.active">
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span> READ TO ME!
+      </button>
+      <button class='btn smash-button' ng-click="vm.cancelRead()" ng-show="vm.reading.active">
+        <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> STOP READING
+      </button>
+
+    <button class='btn smash-next' ng-click="vm.nextPara()">
+      <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <p id="paragraph-7" ng-class="{focus: vm.current.paragraph == 7 || vm.current.paragraph == 8}" ng-bind-html="vm.story.paragraph_7"></p>
+  <div class="roller-popout text-center" ng-show="vm.current.paragraph == 7 || vm.current.paragraph == 8" >
+    <button class='btn smash-prev' ng-click="vm.prevPara()">
+      <span class="glyphicon glyphicon-step-backward"  aria-hidden="true"></span>
+    </button>
+
+      <button class='btn smash-button' ng-click="vm.readPara()" ng-hide="vm.reading.active">
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span> READ TO ME!
+      </button>
+      <button class='btn smash-button' ng-click="vm.cancelRead()" ng-show="vm.reading.active">
+        <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> STOP READING
+      </button>
+
+    <button class='btn smash-next' ng-click="vm.nextPara()">
+      <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+    </button>
+  </div>
+
+
+
+
+
+
+  </div>
+</div>
