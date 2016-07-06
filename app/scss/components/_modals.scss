@@ -103,17 +103,17 @@
 
 .menu-next {
   margin-left: 40px;
-  background: $main;
-  color: white;
-  font-weight: 300;
+  color: $main;
+  background: white;
+  border: 4px solid $main;
   border-radius: 20px;
 }
 
 .menu-prev {
   margin-right: 40px;
-  background: $main;
-  color: white;
-  font-weight: 300;
+  color: $main;
+  background: white;
+  border: 4px solid $main;
   border-radius: 20px;
 }
 
