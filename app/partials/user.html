@@ -4,7 +4,7 @@
 
 
     <div ng-repeat="story in vm.stories">
-      <h4 class="title-list"><a ui-sref="story({id: {{story.id}}})">{{story.title}}</a></h4>
+      <h4 class="title-list"><a ui-sref="story({id: {{story.id}}})" data-ui-sref-opts="{reload: true}">{{story.title}}</a></h4>
       <p class="date-list">Smashed on: {{story.created_at | date : 'medium'}}</p>
     </div>
 

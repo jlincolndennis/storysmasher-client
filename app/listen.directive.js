@@ -85,6 +85,7 @@
     vm.buttons.pause = false;
     vm.buttons.resume = false;
     vm.buttons.cancel = false;
+    vm.reading.active = false;
     window.speechSynthesis.cancel()
   }
 
@@ -114,6 +115,7 @@
 
   function prevPara() {
     if (vm.current.paragraph < 1) return
+    vm.reading.active = false;
     --vm.current.paragraph
     var id = `paragraph-${vm.current.paragraph}`;
     $location.hash(id);
@@ -122,6 +124,7 @@
 
   function nextPara() {
     if (vm.current.paragraph > 7) return
+    vm.reading.active = false;
     ++vm.current.paragraph
     var id = `paragraph-${vm.current.paragraph}`;
     $location.hash(id);

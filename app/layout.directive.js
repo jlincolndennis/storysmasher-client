@@ -25,18 +25,45 @@
     vm.currentUser = currentUserService.getCurrentUser();
     vm.signIn = {}
     vm.signInUser = signInUser;
-    vm.saveLaunch = saveLaunch;
+    vm.readLaunch = readLaunch;
+    vm.launchUser = launchUser;
     vm.signOut = signOut;
+    vm.show = {}
     vm.state = {name: $state.current.name}
-    console.log('vm.currentUser', vm.currentUser);
+
+    setButtons()
+
+    function setButtons() {
+      switch (vm.state.name) {
+        case 'listen':
+        vm.show.read = true;
+        vm.show.listen = false;
+        break;
+        case 'story':
+        vm.show.read = false;
+        vm.show.listen = true;
+        break;
+
+        default:
+        vm.show.read = false;
+        vm.show.listen = false;
+
+      }
+    }
 
     function smashLaunch() {
-      if ($location.$$path !== '/') $state.go('smash')
+      if ($location.$$path !== '/') $state.go('smash', {}, {reload:true})
       $('#storySetup').modal('show');
     }
 
-    function saveLaunch() {
-      $('#storyReview').modal('show');
+    function readLaunch() {
+      $state.go('story', {id: $stateParams.id}, {reload:true})
+    }
+
+    function launchUser(){
+      console.log(vm.currentUser.id);
+      $state.go('user', {id: vm.currentUser.id}, {reload:true})
+
     }
 
     function listenLaunch() {
