@@ -30,9 +30,10 @@ header {
       color: white;
       text-decoration: none;
     }
-    a:hover, a:active {
+    a:hover, a:active, a:focus {
       color: white;
       text-decoration: none;
+      outline: 0;
     }
   }
 }
