@@ -19,6 +19,8 @@
 
   function layoutController($log, $location, $state, accountFactory, currentUserService, $stateParams) {
     var vm = this;
+    vm.menuLaunch = menuLaunch;
+    vm.mobile = {menu: false}
     vm.smashLaunch = smashLaunch;
     vm.signInLaunch = signInLaunch;
     vm.listenLaunch = listenLaunch;
@@ -52,31 +54,40 @@
       }
     }
 
+    function menuLaunch() {
+      vm.mobile.menu = !vm.mobile.menu;
+    }
+
     function smashLaunch() {
+      vm.mobile.menu = false;
       if ($location.$$path !== '/') $state.go('smash', {}, {reload:true})
       $('#storySetup').modal('show');
     }
 
     function readLaunch() {
+      vm.mobile.menu = false;
       $state.go('story', {id: $stateParams.id}, {reload:true})
     }
 
     function launchUser(){
-      console.log(vm.currentUser.id);
+      vm.mobile.menu = false;
       $state.go('user', {id: vm.currentUser.id}, {reload:true})
     }
 
     function listenLaunch() {
+      vm.mobile.menu = false;
       $state.go('listen', {id: $stateParams.id}, {reload:true})
     }
 
     function signOut() {
+      vm.mobile.menu = false;
       vm.currentUser = {}
       currentUserService.setCurrentUser(null);
       localStorage.removeItem('jwt');
     }
 
     function signInUser(form) {
+      vm.mobile.menu = false;
       var user = angular.copy(vm.signIn)
       vm.signIn = {};
       form.$setUntouched();
@@ -94,6 +105,7 @@
 
     }
     function signInLaunch() {
+      vm.mobile.menu = false;
       $('#storyReview').modal('hide');
       $('#storySetup').modal('hide');
       $('#signIn').modal('show');

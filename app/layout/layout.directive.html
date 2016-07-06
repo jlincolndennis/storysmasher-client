@@ -1,24 +1,62 @@
 <header><h1><a ui-sref="smash">StorySmasher</a></h1>
 
-  <button type="button" class="btn navbar-button" ng-click="vm.smashLaunch()">
+  <button type="button" class="btn navbar-button" id="mobile-menu-gear" ng-click="vm.menuLaunch()">
+    <span class="glyphicon glyphicon-menu-hamburger"  aria-hidden="true"></span>
+
+  </button>
+  <button type="button" class="btn navbar-button full-screen-nav" ng-click="vm.smashLaunch()">
     SMASH A STORY
   </button>
-  <button type="button" class="btn navbar-button" ng-show="vm.show.listen" ng-click="vm.listenLaunch()">
+  <button type="button" class="btn navbar-button full-screen-nav" ng-show="vm.show.listen" ng-click="vm.listenLaunch()">
     LISTEN
   </button>
-  <button type="button" class="btn navbar-button" ng-show="vm.show.read" ng-click="vm.readLaunch()">
+  <button type="button" class="btn navbar-button full-screen-nav" ng-show="vm.show.read" ng-click="vm.readLaunch()">
     READ
   </button>
-  <button type="button" class="btn navbar-button" ng-click="vm.signInLaunch()" ng-hide="vm.currentUser.id">
+  <button type="button" class="btn navbar-button full-screen-nav" ng-click="vm.signInLaunch()" ng-hide="vm.currentUser.id">
     SIGN IN
   </button>
-  <button type="button" class="btn navbar-button" ng-click="vm.signOut()" ng-show="vm.currentUser.id">
+  <button type="button" class="btn navbar-button full-screen-nav" ng-click="vm.signOut()" ng-show="vm.currentUser.id">
     SIGN OUT
   </button>
-  <button type="button" class="btn navbar-button" ng-click="vm.launchUser()" ng-show="vm.currentUser.id">
+  <button type="button" class="btn navbar-button full-screen-nav" ng-click="vm.launchUser()" ng-show="vm.currentUser.id">
     MY SMASHES
   </button>
 </header>
+
+<ul class="mobile-menu text-right" ng-show="vm.mobile.menu">
+  <li>
+    <button type="button" class="btn navbar-menu-button" ng-click="vm.smashLaunch()">
+      SMASH A STORY
+    </button>
+  </li>
+  <li ng-show="vm.show.listen">
+    <button type="button" class="btn navbar-menu-button" ng-click="vm.listenLaunch()">
+      LISTEN
+    </button>
+  </li>
+  <li ng-show="vm.show.read" >
+    <button type="button" class="btn navbar-menu-button" ng-click="vm.readLaunch()">
+      READ
+    </button>
+  </li>
+  <li ng-hide="vm.currentUser.id">
+    <button type="button" class="btn navbar-menu-button" ng-click="vm.signInLaunch()" >
+      SIGN IN
+    </button>
+  </li>
+  <li ng-show="vm.currentUser.id">
+    <button type="button" class="btn navbar-menu-button" ng-click="vm.signOut()" >
+      SIGN OUT
+    </button>
+  </li>
+  <li ng-show="vm.currentUser.id">
+    <button type="button" class="btn navbar-menu-button" ng-click="vm.launchUser()" >
+      MY SMASHES
+    </button>
+  </li>
+</ul>
+
 
 <div class="modal" id="signIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-sm" role="document">

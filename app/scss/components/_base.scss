@@ -38,6 +38,46 @@ header {
   }
 }
 
+#mobile-menu-gear, .mobile-menu {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .full-screen-nav {
+    display: none;
+  }
+  #mobile-menu-gear {
+    display: inline-block;
+  }
+  .mobile-menu {
+    display: block;
+  }
+
+}
+.mobile-menu {
+  margin-top: 60px;
+  list-style-type: none;
+}
+
+.mobile-menu.ng-hide {
+  animation-name: fadeOut;
+  animation-duration: .3s;
+  animation-timing-function: ease;
+}
+.mobile-menu.ng-hide-remove {
+  animation-name: fadeIn;
+  animation-duration: .3s;
+  animation-timing-function: ease;
+}
+
+.navbar-menu-button {
+  color: $main;
+  background: white;
+  margin-top: 12px;
+  margin-right: 35px;
+  border-radius: 20px;
+}
+
 .navbar-button {
   color: $main;
   background: white;
