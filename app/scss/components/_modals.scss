@@ -13,6 +13,7 @@
   // color: white;
   border: 0;
   font-weight: 300;
+  padding-bottom: 0;
 }
 
 .byline {
@@ -26,7 +27,7 @@
 }
 
 .sign-in-link {
-  margin-top: 10px;
+  // margin: 0px;
   a{
     color: $main;
 

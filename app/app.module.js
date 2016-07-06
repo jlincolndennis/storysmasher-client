@@ -52,8 +52,10 @@
     $stateProvider
       .state('app', {
         abstract: true,
-        cache: false,
-        template: '<ss-app></ss-app>'
+        template: '<ss-app></ss-app>',
+        // resolve: {
+        // currentUserResolve: currentUserResolve
+        // },
       })
       .state('smash',{
         url: '/',

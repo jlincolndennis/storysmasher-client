@@ -1,42 +1,27 @@
 
-    <div class="modal fade" id="storySetup" aria-labelledby="storySetup" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="storySetup" aria-labelledby="storySetup" tabindex="-1" role="dialog">
+  <div class="modal-dialog" ng-class="{'modal-lg': vm.menu.step >1}">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <div ng-switch="vm.menu.step">
-        <div ng-switch-default>
-          <h2 class="modal-title text-center">Welcome to StorySmash!</h2>
-          <h5 class=" byline text-center">STORIES SO GOOD, THEY WRITE THEMSELVES...</h5>
-
+          <div ng-switch-default>
+            <h2 class="modal-title text-center">Welcome to StorySmash!</h2>
+            <h5 class=" byline text-center">STORIES SO GOOD, THEY WRITE THEMSELVES...</h5>
+          </div>
+          <div ng-switch-when="2">
+            <h3 class="sub-head text-center">Where does your story take place?</h3>
+          </div>
+          <div ng-switch-when="3">
+            <h3 class="sub-head text-center">What is the X-Factor that kicks your story up to Awesome Level 9000?</h3>
+          </div>
         </div>
-        <div ng-switch-when="2">
-          <h3 class="sub-head text-center">Where does your story take place?</h3>
-
-        </div>
-        <div ng-switch-when="3">
-          <h3 class="sub-head text-center">What is the X-Factor that kicks your story up to Awesome Level 9000?</h3>
-
-        </div>
-        </div>
-
       </div>
       <div class="modal-body" ng-switch="vm.menu.step">
         <div ng-switch-default>
+          <div class="text-center">
+            <p class="sign-in-link">Have an account? <a ng-click="vm.signInInstead()" href="/#" >Sign In</a></p>
 
-        <div class="row">
-          <div class="col-md-6 text-center">
-            <h3 class="sub-head">Who Are You?</h3>
-            <p class='setup-text'>My Pen Name is...</p>
-            <form>
-              <div class="form-group">
-                  <input class="name-field" ng-model="vm.currentUser.username" type="text">
-                  <p class="sign-in-link">Have an account? <a ng-click="vm.signInInstead()" href="/#" >Sign In</a></p>
-
-              </div>
-            </form>
-          </div>
-          <div class="col-md-6 text-center">
             <form class="form-inline">
               <div class="form-group">
                 <h3 class="sub-head">Who Is The Hero Of The Story?</h3>
@@ -51,186 +36,223 @@
             </form>
           </div>
         </div>
-      </div>
 
-      <div ng-switch-when="2">
-        <div class="row">
-          <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('space')">
+        <div ng-switch-when="2">
+          <div class="row">
+            <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('space')">
               <div class="bubble" ng-class="{selected: vm.setup.setting =='space'}">
                 <h4>Space Station X-99</h4>
                 <p>In the future, the government will actually fund space travel, and those lucky peeps will live IN SPACE!</p>
               </div>
+            </div>
+            <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('kingdom')">
+
+              <div class="bubble" ng-class="{selected: vm.setup.setting =='kingdom'}">
+                <h4>The Kingdom of Magik</h4>
+                <p>A incredibly uniquely named fantasy kingdom filled to the gills with magic biz.</p>
+              </div>
+            </div>
           </div>
-        <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('kingdom')">
+          <div class="row">
+            <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('western')">
 
-            <div class="bubble" ng-class="{selected: vm.setup.setting =='kingdom'}">
-              <h4>The Kingdom of Magik</h4>
-              <p>A incredibly uniquely named fantasy kingdom filled to the gills with magic biz.</p>
+              <div class="bubble" ng-class="{selected: vm.setup.setting =='western'}">
+                <h4>Whiskey Gulch</h4>
+                <p>A Frontier town way out West where the sun is hot, the booze strong and all that hats are all 10 gallons or more.</p>
+              </div>
             </div>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('western')">
 
-            <div class="bubble" ng-class="{selected: vm.setup.setting =='western'}">
-              <h4>Whiskey Gulch</h4>
-              <p>A Frontier town way out West where the sun is hot, the booze strong and all that hats are all 10 gallons or more.</p>
-            </div>
-        </div>
-      </div>
-    </div>
-
-      <div ng-switch-when="3">
-        <div class="row">
-          <div class="setup-selector col-md-6"  ng-click="vm.choosexFactor('dinosaurs')">
+        <div ng-switch-when="3">
+          <div class="row">
+            <div class="setup-selector col-md-6"  ng-click="vm.choosexFactor('dinosaurs')">
               <div class="bubble" ng-class="{selected: vm.setup.xfactor =='dinosaurs'}">
                 <h4>Dinosaurs!</h4>
                 <p>Their name means 'Terrible Lizard', but they are more like Super Rad Bird Monsters!</p>
               </div>
+            </div>
+            <div class="setup-selector col-md-6"  ng-click="vm.choosexFactor('ninjas')">
+
+              <div class="bubble" ng-class="{selected: vm.setup.xfactor =='ninjas'}">
+                <h4>Ninjas!</h4>
+                <p>What is under their sinister masks? Hopefully not insensitive racial stereotypes!
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="setup-selector col-md-6" ng-click="vm.choosexFactor('lovecraft')">
+
+                <div class="bubble" ng-class="{selected: vm.setup.xfactor =='lovecraft'}">
+                  <h4>The Old Ones!</h4>
+                  <p>HP Lovecrat's Eldritch Horros are coming up from depths to harsh your jams.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-        <div class="setup-selector col-md-6"  ng-click="vm.choosexFactor('ninjas')">
 
-            <div class="bubble" ng-class="{selected: vm.setup.xfactor =='ninjas'}">
-              <h4>Ninjas!</h4>
-              <p>What is under their sinister masks? Hopefully not insensitive racial stereotypes!
-            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="setup-selector col-md-6" ng-click="vm.choosexFactor('lovecraft')">
+        <div class="modal-footer">
+          <button class='btn menu-prev' ng-click="vm.menu.prev()">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">
+            </button>
+            <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 1}"></div>
+            <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 2}"></div>
+            <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 3}"></div>
 
-            <div class="bubble" ng-class="{selected: vm.setup.xfactor =='lovecraft'}">
-              <h4>The Old Ones!</h4>
-              <p>HP Lovecrat's Eldritch Horros are coming up from depths to harsh your jams.</p>
+            <button class='btn menu-next' ng-click="vm.menu.next()">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">
+              </button>
             </div>
-        </div>
-      </div>
-
-      </div>
-
-      </div>
-      <div class="modal-footer">
-        <button class='btn menu-prev' ng-click="vm.menu.prev()">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">
-        </button>
-        <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 1}"></div>
-        <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 2}"></div>
-        <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 3}"></div>
-
-        <button class='btn menu-next' ng-click="vm.menu.next()">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">
-        </button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2 paper">
-    <h1 class="story-title">{{vm.story.title}}</h1>
-    <!-- <h4 class="story-author">{{vm.user.display}}</h4> -->
+<div class="modal fade" id="storyReview" tabindex="-1" role="dialog" aria-labelledby="storyReview">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2 class="modal-title text-center" id="myModalLabel">Sign Up</h2>
+        </div>
+        <div class="modal-body">
+          <p class="sign-in-link text-center">Have an account? <a ng-click="vm.signInInstead()" href="/#" >Sign In</a></p>
+          <p class="text-center">To save your story, create an account:</p>
 
-    <p id="paragraph-1" ng-class="{focus: vm.current.paragraph === 0 ||vm.current.paragraph === 1 }" ng-bind-html="vm.story.paragraph_1"></p>
-    <div class="roller-popout text-center"  ng-show="vm.current.paragraph == 1 || vm.current.paragraph == 0">
-      <button class='btn smash-prev' ng-click="vm.prevPara()">
-        <span class="glyphicon glyphicon-chevron-up" ng-hide="vm.current.paragraph === 0" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-ok" ng-show="vm.current.paragraph ===0" aria-hidden="true"></span>
-      </button>
-      <span ng-switch="vm.current.paragraph">
-      <button class='btn smash-button' ng-switch-default ng-click="vm.rollPara()" ng-disabled="vm.current.paragraph === 0">
-        SMASH IT AGAIN!
-      </button>
-      <button class='btn smash-button' ng-switch-when="0">
-        STAR OVER?
-      </button>
-    </span>
-      <button class='btn smash-next' ng-click="vm.nextPara()">
-        <span class="glyphicon glyphicon-chevron-down" ng-hide="vm.current.paragraph === 0" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-remove" ng-show="vm.current.paragraph ===0" aria-hidden="true"></span>
-      </button>
+          <form novalidate name="signUpForm">
+      <div class="form-group">
+      <label for="username">Pen Name:</label>
+      <input type="text" class="form-control" id="username" placeholder="Pen Name" ng-model="vm.signup.username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.signup.password" required="">
     </div>
 
-    <p id="paragraph-2" ng-class="{focus: vm.current.paragraph == 2}" ng-bind-html="vm.story.paragraph_2"></p>
-    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 2">
-      <button class='btn smash-prev' ng-click="vm.prevPara()">
-        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-      </button>
-      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
-      <button class='btn smash-next' ng-click="vm.nextPara()">
-        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-      </button>
     </div>
-
-    <p id="paragraph-3" ng-class="{focus: vm.current.paragraph == 3}" ng-bind-html="vm.story.paragraph_3"></p>
-    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 3">
-      <button class='btn smash-prev' ng-click="vm.prevPara()">
-        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-      </button>
-      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
-      <button class='btn smash-next' ng-click="vm.nextPara()">
-        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-      </button>
+        <div class="modal-footer tiny">
+          <button type="button" class="btn btn-default account-button" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"  aria-hidden="true"></span> DON'T SAVE
+          </button>
+          <button type="submit" ng-disabled="signUpForm.$invalid" class="btn btn-default account-button" ng-click="vm.signUpUser(signUpForm)">
+            <span class="glyphicon glyphicon-ok"  aria-hidden="true"></span>  SAVE
+          </button>
+        </div>
+      </form>
+      </div>
     </div>
-
-    <p id="paragraph-4" ng-class="{focus: vm.current.paragraph == 4}" ng-bind-html="vm.story.paragraph_4"></p>
-    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 4">
-      <button class='btn smash-prev' ng-click="vm.prevPara()">
-        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-      </button>
-      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
-      <button class='btn smash-next' ng-click="vm.nextPara()">
-        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-      </button>
-    </div>
-
-    <p id="paragraph-5" ng-class="{focus: vm.current.paragraph == 5}" ng-bind-html="vm.story.paragraph_5"></p>
-    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 5">
-      <button class='btn smash-prev' ng-click="vm.prevPara()">
-        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-      </button>
-      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
-      <button class='btn smash-next' ng-click="vm.nextPara()">
-        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-      </button>
-    </div>
-
-    <p id="paragraph-6" ng-class="{focus: vm.current.paragraph == 6}" ng-bind-html="vm.story.paragraph_6"></p>
-    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 6">
-      <button class='btn smash-prev' ng-click="vm.prevPara()">
-        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-      </button>
-      <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
-      <button class='btn smash-next' ng-click="vm.nextPara()">
-        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-      </button>
-    </div>
-
-    <p id="paragraph-7" ng-class="{focus: vm.current.paragraph == 7 || vm.current.paragraph == 8}" ng-bind-html="vm.story.paragraph_7"></p>
-    <div class="roller-popout text-center" ng-show="vm.current.paragraph == 7 || vm.current.paragraph == 8" >
-      <button class='btn smash-prev' ng-click="vm.prevPara()">
-        <span class="glyphicon glyphicon-chevron-up" ng-show="vm.current.paragraph ===7" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-remove" ng-show="vm.current.paragraph ===8" aria-hidden="true"></span>
-
-      </button>
-      <span ng-switch="vm.current.paragraph">
-      <button class='btn smash-button' ng-switch-default ng-click="vm.rollPara()">
-        SMASH IT AGAIN!
-      </button>
-      <button class='btn smash-button' ng-switch-when="8">
-        DONE SMASHING?
-      </button>
-    </span>
-      <button class='btn smash-next' ng-hide="vm.current.paragraph ===8" ng-click="vm.nextPara()">
-        <span class="glyphicon glyphicon-chevron-down" ng-hide="vm.current.paragraph ===8" aria-hidden="true"></span>
-      </button>
-      <a class='btn smash-next' ng-show="vm.current.paragraph ===8" ng-click="vm.submitStory()">
-        <span class="glyphicon glyphicon-ok"  aria-hidden="true"></span>
-
-      </a>
-
-    </div>
+</div>
 
 
-  </div>
-  </div>
+
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 paper">
+          <h1 class="story-title">{{vm.story.title}}</h1>
+          <!-- <h4 class="story-author">{{vm.user.display}}</h4> -->
+
+          <p id="paragraph-1" ng-class="{focus: vm.current.paragraph === 0 ||vm.current.paragraph === 1 }" ng-bind-html="vm.story.paragraph_1"></p>
+          <div class="roller-popout text-center"  ng-show="vm.current.paragraph == 1 || vm.current.paragraph == 0">
+            <button class='btn smash-prev' ng-click="vm.prevPara()">
+              <span class="glyphicon glyphicon-chevron-up" ng-hide="vm.current.paragraph === 0" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-ok" ng-show="vm.current.paragraph ===0" aria-hidden="true"></span>
+            </button>
+            <span ng-switch="vm.current.paragraph">
+              <button class='btn smash-button' ng-switch-default ng-click="vm.rollPara()" ng-disabled="vm.current.paragraph === 0">
+                SMASH IT AGAIN!
+              </button>
+              <button class='btn smash-button' ng-switch-when="0">
+                STAR OVER?
+              </button>
+            </span>
+            <button class='btn smash-next' ng-click="vm.nextPara()">
+              <span class="glyphicon glyphicon-chevron-down" ng-hide="vm.current.paragraph === 0" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-remove" ng-show="vm.current.paragraph ===0" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p id="paragraph-2" ng-class="{focus: vm.current.paragraph == 2}" ng-bind-html="vm.story.paragraph_2"></p>
+          <div class="roller-popout text-center" ng-show="vm.current.paragraph == 2">
+            <button class='btn smash-prev' ng-click="vm.prevPara()">
+              <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            </button>
+            <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
+            <button class='btn smash-next' ng-click="vm.nextPara()">
+              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p id="paragraph-3" ng-class="{focus: vm.current.paragraph == 3}" ng-bind-html="vm.story.paragraph_3"></p>
+          <div class="roller-popout text-center" ng-show="vm.current.paragraph == 3">
+            <button class='btn smash-prev' ng-click="vm.prevPara()">
+              <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            </button>
+            <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
+            <button class='btn smash-next' ng-click="vm.nextPara()">
+              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p id="paragraph-4" ng-class="{focus: vm.current.paragraph == 4}" ng-bind-html="vm.story.paragraph_4"></p>
+          <div class="roller-popout text-center" ng-show="vm.current.paragraph == 4">
+            <button class='btn smash-prev' ng-click="vm.prevPara()">
+              <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            </button>
+            <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
+            <button class='btn smash-next' ng-click="vm.nextPara()">
+              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p id="paragraph-5" ng-class="{focus: vm.current.paragraph == 5}" ng-bind-html="vm.story.paragraph_5"></p>
+          <div class="roller-popout text-center" ng-show="vm.current.paragraph == 5">
+            <button class='btn smash-prev' ng-click="vm.prevPara()">
+              <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            </button>
+            <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
+            <button class='btn smash-next' ng-click="vm.nextPara()">
+              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p id="paragraph-6" ng-class="{focus: vm.current.paragraph == 6}" ng-bind-html="vm.story.paragraph_6"></p>
+          <div class="roller-popout text-center" ng-show="vm.current.paragraph == 6">
+            <button class='btn smash-prev' ng-click="vm.prevPara()">
+              <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            </button>
+            <button class='btn smash-button' ng-click="vm.rollPara()">SMASH IT AGAIN!</button>
+            <button class='btn smash-next' ng-click="vm.nextPara()">
+              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p id="paragraph-7" ng-class="{focus: vm.current.paragraph == 7 || vm.current.paragraph == 8}" ng-bind-html="vm.story.paragraph_7"></p>
+          <div class="roller-popout text-center" ng-show="vm.current.paragraph == 7 || vm.current.paragraph == 8" >
+            <button class='btn smash-prev' ng-click="vm.prevPara()">
+              <span class="glyphicon glyphicon-chevron-up" ng-show="vm.current.paragraph ===7" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-remove" ng-show="vm.current.paragraph ===8" aria-hidden="true"></span>
+
+            </button>
+            <span ng-switch="vm.current.paragraph">
+              <button class='btn smash-button' ng-switch-default ng-click="vm.rollPara()">
+                SMASH IT AGAIN!
+              </button>
+              <button class='btn smash-button' ng-switch-when="8">
+                DONE SMASHING?
+              </button>
+            </span>
+            <button class='btn smash-next' ng-hide="vm.current.paragraph ===8" ng-click="vm.nextPara()">
+              <span class="glyphicon glyphicon-chevron-down" ng-hide="vm.current.paragraph ===8" aria-hidden="true"></span>
+            </button>
+            <a class='btn smash-next' ng-show="vm.current.paragraph ===8" ng-click="vm.savePrompt()">
+              <span class="glyphicon glyphicon-ok"  aria-hidden="true"></span>
+
+            </a>
+
+          </div>
+
+
+        </div>
+      </div>

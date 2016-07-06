@@ -17,11 +17,9 @@
 
   smashController.$inject = ['$log', '$location', '$state','$anchorScroll', 'storyFactory', 'accountFactory', 'currentUserService','$scope']
   function smashController($log, $location, $state, $anchorScroll, storyFactory, accountFactory, currentUserService, $scope) {
-    $log.log('Hello form smash directive')
 
     var vm = this;
     vm.signInInstead = signInInstead;
-    vm.currentUser = currentUserService.getCurrentUser() || {id:1, username: 'William Swagspeare'}
     vm.menu = {step: 1, next, prev}
     vm.current = {}
     vm.current.paragraph = -1;
@@ -39,7 +37,9 @@
     vm.prevPara = prevPara;
     vm.nextPara = nextPara;
     vm.rollPara = rollPara;
-    vm.submitStory = submitStory
+    vm.savePrompt = savePrompt;
+    vm.signUpUser = signUpUser;
+    vm.submitStory = submitStory;
 
     // $scope.$watch(function(){
     //   return currentUserService.getCurrentUser();
@@ -49,11 +49,13 @@
     // }, true)
 
     $(document).ready(function(){
-        $('#storySetup').modal('show');
+      $location.hash();
+      $('#storySetup').modal('show');
     });
 
     function signInInstead() {
       $('#storySetup').modal('hide');
+      $('#storyReview').modal('hide');
       $('#signIn').modal('show');
 
     }
@@ -126,21 +128,19 @@
         $('#storySetup').modal('show');
 
       }
-      // $location.hash(id);
-      // $anchorScroll();
+      var id = `paragraph-${vm.current.paragraph}`;
+      $location.hash(id);
+      $anchorScroll();
     }
 
     function nextPara() {
       ++vm.current.paragraph
-      console.log(vm.current.paragraph);
-
-      // var id = `paragraph-${vm.current.paragraph}`;
-      // $location.hash(id);
-      // $anchorScroll();
+      var id = `paragraph-${vm.current.paragraph}`;
+      $location.hash(id);
+      $anchorScroll();
       if (vm.current.paragraph > 1) rollPara()
-
-
     }
+
     function rollPara(para) {
       switch (vm.current.paragraph) {
         case 1:
@@ -385,19 +385,47 @@
       var smashedPara7 = smashedPara7Grammar.flatten('#origin#')
       vm.story.paragraph_7 = smashedPara7;
     }
+    function savePrompt() {
+      var currentUser = currentUserService.getCurrentUser()
+      if (!currentUser) {
+        $('#storyReview').modal('show');
+      } else {
+        console.log('There is a current user!');
+        vm.submitStory()
+      }
+    }
 
+    function signUpUser(form) {
+      var user = angular.copy(vm.signup)
+      vm.signup = {};
+      form.$setUntouched();
+      return accountFactory.signUp(user).then(function (res) {
+        var currentUser = {
+          username: res.data.username,
+          id : res.data.id
+        }
+        console.log('signup success', currentUser);
+        currentUserService.setCurrentUser(currentUser)
+        localStorage.setItem('jwt', res.data.jwt)
+        var story = vm.story
+        story.user_id = currentUser.id
+        return accountFactory.submitStory(story).then(function (res) {
+          console.log('SAVED SUCCESSFULLY');
+          $state.go('story', {id: res.data.story.id}, {reload:true})
+
+        })
+      })
+    }
 
     function submitStory() {
-      console.log(vm.story);
+      var currentUser = currentUserService.getCurrentUser() || {id:1, username: 'William Swagspeare'}
       var story = vm.story;
-      story.user_id = vm.currentUser.id
+      story.user_id = currentUser.id
 
       accountFactory.submitStory(story).then(function (res) {
-      $state.go('story', {id: res.data.story.id})
-
+      $state.go('story', {id: res.data.story.id}, {reload:true})
     })
-
-    }
   }
+}
 
 }());

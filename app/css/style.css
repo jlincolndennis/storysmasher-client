@@ -126,7 +126,8 @@ header {
 .modal-header {
   color: #662C91;
   border: 0;
-  font-weight: 300; }
+  font-weight: 300;
+  padding-bottom: 0; }
 
 .byline {
   color: black;
@@ -136,10 +137,8 @@ header {
   margin-bottom: 20px;
   color: #662C91; }
 
-.sign-in-link {
-  margin-top: 10px; }
-  .sign-in-link a {
-    color: #662C91; }
+.sign-in-link a {
+  color: #662C91; }
 
 .name-field {
   font-family: serif;

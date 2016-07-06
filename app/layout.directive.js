@@ -30,14 +30,8 @@
     console.log('vm.currentUser', vm.currentUser);
 
     function smashLaunch() {
-
-      if ($state.current.name === 'story') {
-        $('#warning').modal('show');
-      } else {
-        if ($location.$$path !== '/') $state.go('smash')
-        $('#storySetup').modal('show');
-
-      }
+      if ($location.$$path !== '/') $state.go('smash')
+      $('#storySetup').modal('show');
     }
 
     function saveLaunch() {
@@ -46,6 +40,7 @@
 
     function signOut() {
       vm.currentUser = {}
+      currentUserService.setCurrentUser(null);
       localStorage.removeItem('jwt');
     }
 
@@ -69,7 +64,6 @@
     function signInLaunch() {
       $('#storyReview').modal('hide');
       $('#storySetup').modal('hide');
-      $('#warning').modal('hide');
       $('#signIn').modal('show');
     }
 
