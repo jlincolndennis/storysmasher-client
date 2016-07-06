@@ -15,6 +15,9 @@
           <div ng-switch-when="3">
             <h3 class="sub-head text-center">What is the X-Factor that kicks your story up to Awesome Level 9000?</h3>
           </div>
+          <div ng-switch-when="4">
+            <h3 class="sub-head text-center">What kind of Ending should your story have?</h3>
+          </div>
         </div>
       </div>
       <div class="modal-body" ng-switch="vm.menu.step">
@@ -54,7 +57,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="setup-selector col-md-6"  ng-click="vm.chooseSetting('western')">
+            <div class="setup-selector col-md-6 col-md-offset-3"  ng-click="vm.chooseSetting('western')">
 
               <div class="bubble" ng-class="{selected: vm.setup.setting =='western'}">
                 <h4>Whiskey Gulch</h4>
@@ -76,12 +79,12 @@
 
               <div class="bubble" ng-class="{selected: vm.setup.xfactor =='ninjas'}">
                 <h4>Ninjas!</h4>
-                <p>What is under their sinister masks? Hopefully not insensitive racial stereotypes!
+                <p>What is under their sinister masks? Hopefully not insensitive racial stereotypes!</p>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="setup-selector col-md-6" ng-click="vm.choosexFactor('lovecraft')">
+              <div class="setup-selector col-md-offset-3 col-md-6" ng-click="vm.choosexFactor('lovecraft')">
 
                 <div class="bubble" ng-class="{selected: vm.setup.xfactor =='lovecraft'}">
                   <h4>The Old Ones!</h4>
@@ -89,8 +92,38 @@
                 </div>
               </div>
             </div>
-
           </div>
+
+          <div ng-switch-when="4">
+            <div class="row">
+              <div class="setup-selector col-md-6"  ng-click="vm.chooseEnding('happy')">
+                <div class="bubble" ng-class="{selected: vm.setup.ending =='happy'}">
+                  <h4>Happy!</h4>
+                  <br>
+
+                  <p>"And they all lived happily ever after!"</p>
+                </div>
+              </div>
+              <div class="setup-selector col-md-6"  ng-click="vm.chooseEnding('sad')">
+
+                <div class="bubble" ng-class="{selected: vm.setup.ending =='sad'}">
+                  <h4>Tragic!</h4>
+                  <br>
+                  <p>"The 45th President of the USA, Donald Trump!"</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="setup-selector col-md-offset-3 col-md-6" ng-click="vm.chooseEnding('random')">
+
+                  <div class="bubble" ng-class="{selected: vm.setup.ending =='random'}">
+                    <h4>Surprise Me!</h4>
+                    <br>
+                    <p>Let the Fates decide!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
         </div>
         <div class="modal-footer">
@@ -100,6 +133,7 @@
             <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 1}"></div>
             <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 2}"></div>
             <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 3}"></div>
+            <div class="progress-dot" ng-class="{'current-step': vm.menu.step == 4}"></div>
 
             <button class='btn menu-next' ng-click="vm.menu.next()">
               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">

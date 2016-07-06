@@ -32,6 +32,7 @@
     vm.setPronouns = setPronouns;
     vm.chooseSetting = chooseSetting;
     vm.choosexFactor = choosexFactor;
+    vm.chooseEnding = chooseEnding;
     vm.startSmashing = startSmashing;
     vm.story = {},
     vm.prevPara = prevPara;
@@ -59,7 +60,7 @@
 
     function next() {
       vm.menu.step++
-      if (vm.menu.step > 3){
+      if (vm.menu.step > 4){
         $('#storySetup').modal('hide');
         vm.startSmashing();
       }
@@ -96,6 +97,11 @@
       vm.xFactor = storyFactory.getxFactor(xfactor)
       vm.setup.xfactor = xfactor
       vm.setup.xFactorDisplay = `${vm.xFactor.xFactor[0]}s!`
+    }
+    function chooseEnding(ending) {
+      // vm.xFactor = storyFactory.getxFactor(xfactor)
+      vm.setup.ending = ending
+      // vm.setup.xFactorDisplay = `${vm.xFactor.xFactor[0]}s!`
     }
 
     function startSmashing() {
