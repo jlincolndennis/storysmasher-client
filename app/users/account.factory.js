@@ -28,7 +28,6 @@
       return $http.post(`${path}/api/v1/stories/`, story)
     }
 
-
     function getStory(id) {
       var path = hostId();
       return $http.get(`${path}/api/v1/stories/${id}`)

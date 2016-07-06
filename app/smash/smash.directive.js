@@ -396,7 +396,6 @@
         var story = vm.story
         story.user_id = currentUser.id
         return accountFactory.submitStory(story).then(function (res) {
-          console.log('SAVED SUCCESSFULLY');
           $('.modal').modal('hide');
           $state.go('story', {id: res.data.story.id}, {reload:true})
         })

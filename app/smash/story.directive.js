@@ -22,6 +22,8 @@
     vm.currentUser = currentUserService.getCurrentUser();
 
     $('.modal').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
 
     accountFactory.getStory($stateParams.id)
     .then(function (res) {
