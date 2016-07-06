@@ -12,27 +12,27 @@
     }
 
     function submitStory(story) {
-      return $http.post('http://localhost:8000/api/v1/stories/', story)
+      return $http.post('https://localhost:8000/api/v1/stories/', story)
     }
 
     function updateStory(story) {
-      return $http.put(`http://localhost:8000/api/v1/stories/${story.id}`, story)
+      return $http.put(`https://localhost:8000/api/v1/stories/${story.id}`, story)
     }
 
     function getStory(id) {
-      return $http.get(`http://localhost:8000/api/v1/stories/${id}`)
+      return $http.get(`https://localhost:8000/api/v1/stories/${id}`)
     }
 
     function signIn(user) {
-      return $http.post('http://localhost:8000/auth/signin', {user})
+      return $http.post('https://localhost:8000/auth/signin', {user})
     }
 
     function signUp(user) {
-      return $http.post('http://localhost:8000/auth/signup', {user})
+      return $http.post('https://localhost:8000/auth/signup', {user})
     }
 
     function getUser(id) {
-      return $http.get(`http://localhost:8000/api/v1/users/${id}`)
+      return $http.get(`https://localhost:8000/api/v1/users/${id}`)
     }
 
   }

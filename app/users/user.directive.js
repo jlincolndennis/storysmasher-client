@@ -8,7 +8,7 @@
     return {
       restrict: 'E',
       scope: {},
-      templateUrl: '/partials/user.html',
+      templateUrl: '/users/user.directive.html',
       controller: userController,
       controllerAs: 'vm'
     }
