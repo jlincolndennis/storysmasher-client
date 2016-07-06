@@ -11,29 +11,42 @@
       submitStory, getStory, signIn, signUp, getUser
     }
 
-    function submitStory(story) {
-      return $http.post('http://localhost:8000/api/v1/stories/', story)
+    function hostId() {
+      var url = "https://storysmasher-api.herokuapp.com"
+      if ($location.$$host === 'localhost') {
+        console.log('LOCAL');
+        return url = 'http://localhost:8000'
+
+      } else {
+        console.log('NOT LOCAL');
+        return url = "https://storysmasher-api.herokuapp.com"
+      }
     }
 
-    // function updateStory(story) {
-    //   return $http.put(`http://localhost:8000/api/v1/stories/${story.id}`, story)
-    // }
+    function submitStory(story) {
+      var path = hostId();
+      return $http.post(`${path}/api/v1/stories/`, story)
+    }
+
 
     function getStory(id) {
-      console.log($location);
-      return $http.get(`http://localhost:8000/api/v1/stories/${id}`)
+      var path = hostId();
+      return $http.get(`${path}/api/v1/stories/${id}`)
     }
 
     function signIn(user) {
-      return $http.post('http://localhost:8000/auth/signin', {user})
+      var path = hostId();
+      return $http.post(`${path}/auth/signin`, {user})
     }
 
     function signUp(user) {
-      return $http.post('http://localhost:8000/auth/signup', {user})
+      var path = hostId();
+      return $http.post(`${path}/auth/signup`, {user})
     }
 
     function getUser(id) {
-      return $http.get(`http://localhost:8000/api/v1/users/${id}`)
+      var path = hostId();
+      return $http.get(`${path}/api/v1/users/${id}`)
     }
 
   }
