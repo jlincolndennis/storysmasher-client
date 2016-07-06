@@ -23,6 +23,7 @@
 
     accountFactory.getStory($stateParams.id)
     .then(function (res) {
+      $('.modal').modal('hide');
       vm.user.display = `by ${res.data.author}`;
       vm.story = res.data.story
   })

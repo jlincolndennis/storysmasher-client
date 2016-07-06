@@ -133,11 +133,11 @@
 
     </div>
         <div class="modal-footer tiny">
-          <button type="button" class="btn btn-default account-button" data-dismiss="modal">
+          <button type="button" class="btn btn-default account-button" ng-click="vm.submitStory()" data-dismiss="modal">
             <span class="glyphicon glyphicon-remove"  aria-hidden="true"></span> DON'T SAVE
           </button>
-          <button type="submit" ng-disabled="signUpForm.$invalid" class="btn btn-default account-button" ng-click="vm.signUpUser(signUpForm)">
-            <span class="glyphicon glyphicon-ok"  aria-hidden="true"></span>  SAVE
+          <button type="submit" ng-disabled="signUpForm.$invalid" class="btn btn-default account-button" ng-click="vm.signUpUser(signUpForm)" data-dismiss="modal">
+            <span class="glyphicon glyphicon-ok"   aria-hidden="true"></span>  SAVE
           </button>
         </div>
       </form>
@@ -151,7 +151,6 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2 paper">
           <h1 class="story-title">{{vm.story.title}}</h1>
-          <!-- <h4 class="story-author">{{vm.user.display}}</h4> -->
 
           <p id="paragraph-1" ng-class="{focus: vm.current.paragraph === 0 ||vm.current.paragraph === 1 }" ng-bind-html="vm.story.paragraph_1"></p>
           <div class="roller-popout text-center"  ng-show="vm.current.paragraph == 1 || vm.current.paragraph == 0">
@@ -164,7 +163,7 @@
                 SMASH IT AGAIN!
               </button>
               <button class='btn smash-button' ng-switch-when="0">
-                STAR OVER?
+                START OVER?
               </button>
             </span>
             <button class='btn smash-next' ng-click="vm.nextPara()">

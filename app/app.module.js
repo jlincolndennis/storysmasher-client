@@ -53,9 +53,6 @@
       .state('app', {
         abstract: true,
         template: '<ss-app></ss-app>',
-        // resolve: {
-        // currentUserResolve: currentUserResolve
-        // },
       })
       .state('smash',{
         url: '/',

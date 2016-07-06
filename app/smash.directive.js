@@ -41,13 +41,6 @@
     vm.signUpUser = signUpUser;
     vm.submitStory = submitStory;
 
-    // $scope.$watch(function(){
-    //   return currentUserService.getCurrentUser();
-    // }, function(value){
-    //   vm.currentUser = value;
-    //   console.log(value);
-    // }, true)
-
     $(document).ready(function(){
       $location.hash();
       $('#storySetup').modal('show');
@@ -411,6 +404,7 @@
         story.user_id = currentUser.id
         return accountFactory.submitStory(story).then(function (res) {
           console.log('SAVED SUCCESSFULLY');
+          $('.modal').modal('hide');
           $state.go('story', {id: res.data.story.id}, {reload:true})
 
         })
@@ -423,6 +417,7 @@
       story.user_id = currentUser.id
 
       accountFactory.submitStory(story).then(function (res) {
+      $('.modal').modal('hide');
       $state.go('story', {id: res.data.story.id}, {reload:true})
     })
   }
