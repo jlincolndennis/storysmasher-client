@@ -19,7 +19,6 @@
 
   function userController(accountFactory, $stateParams) {
     var vm = this;
-    vm.goToStory = goToStory
 
     accountFactory.getUser($stateParams.id)
     .then(function (res) {
@@ -27,11 +26,6 @@
       vm.user = res.data.user
       vm.stories = res.data.stories
     })
-
-    function goToStory(id) {
-      console.log(id);
-
-    }
   }
 
 

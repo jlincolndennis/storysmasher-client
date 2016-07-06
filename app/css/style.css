@@ -40,19 +40,6 @@ header {
   color: #662C91;
   outline: none; }
 
-.title-list {
-  font-family: serif;
-  margin-top: 25px; }
-  .title-list a {
-    color: black;
-    text-decoration: none; }
-  .title-list a:hover {
-    color: #662C91; }
-
-.date-list {
-  margin-left: 50px;
-  margin-bottom: 50px; }
-
 .story-options {
   text-align: center;
   margin-top: 100px;
@@ -80,6 +67,19 @@ header {
 
 .right-button {
   width: 205px; }
+
+.title-list {
+  font-family: serif;
+  margin-top: 25px; }
+  .title-list a {
+    color: black;
+    text-decoration: none; }
+  .title-list a:hover {
+    color: #662C91; }
+
+.date-list {
+  margin-left: 50px;
+  margin-bottom: 50px; }
 
 .paper {
   background: white;

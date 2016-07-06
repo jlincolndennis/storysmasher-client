@@ -8,7 +8,7 @@
     return {
       restrict: 'E',
       scope: {},
-      templateUrl: '/partials/story.html',
+      templateUrl: '/smash/story.directive.html',
       controller: storyController,
       controllerAs: 'vm'
     }
@@ -26,7 +26,7 @@
       $('.modal').modal('hide');
       vm.user.display = `by ${res.data.author}`;
       vm.story = res.data.story
-  })
+    })
 
 
 

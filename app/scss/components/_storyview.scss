@@ -19,12 +19,14 @@
   border-radius: 30px;
 
 }
+
 .smash-button-lg {
   background: white;
   color: $main;
   border-radius: 20px;
 
 }
+
 .left-button {
   width: 205px;
   margin-right: 15px;
@@ -32,4 +34,21 @@
 
 .right-button {
   width: 205px;
+}
+
+.title-list {
+  font-family: serif;
+  margin-top: 25px;
+  a{
+    color: black;
+    text-decoration:none;
+  }
+  a:hover {
+    color: $main
+  }
+}
+
+.date-list {
+  margin-left: 50px;
+  margin-bottom: 50px;
 }

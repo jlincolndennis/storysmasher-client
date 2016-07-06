@@ -8,35 +8,34 @@
   ]
 
   angular.module('app', dependencies)
-    .run(['$anchorScroll', function($anchorScroll) {
-      $anchorScroll.yOffset = 200;
-    }])
+  .run(['$anchorScroll', function($anchorScroll) {
+    $anchorScroll.yOffset = 200;
+  }])
 
-    .factory('authInterceptor', function ($location) {
-  return {
-    request: function (config) {
-      var token = localStorage.getItem('jwt')
+  .factory('authInterceptor', function ($location) {
+    return {
+      request: function (config) {
+        var token = localStorage.getItem('jwt')
 
-      if (token) {
-        config.headers.Authorization = localStorage.getItem('jwt');
-        return config
-      } else {
+        if (token) {
+          config.headers.Authorization = localStorage.getItem('jwt');
+          return config
+        } else {
+          return config
+        }
+      },
+      responseError: function (response) {
+        if (response.status === 403){
+          localStorage.removeItem('jwt');
+          $location.path('/')
+        }
+        return response
 
-        return config
       }
-    },
-    responseError: function (response) {
-      if (response.status === 403){
-        localStorage.removeItem('jwt');
-      $location.path('/')
-      }
-      return response
-
     }
-  }
-})
+  })
 
-    .config(setupStates)
+  .config(setupStates)
 
   setupStates.$injet = [
     '$stateProvider',
@@ -44,12 +43,12 @@
     '$locationProvider',
     '$httpProvider'];
 
-  function setupStates($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-    $httpProvider.interceptors.push('authInterceptor');
-    $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/');
+    function setupStates($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+      $httpProvider.interceptors.push('authInterceptor');
+      $locationProvider.html5Mode(true);
+      $urlRouterProvider.otherwise('/');
 
-    $stateProvider
+      $stateProvider
       .state('app', {
         abstract: true,
         template: '<ss-app></ss-app>',
@@ -59,7 +58,7 @@
         parent: 'app',
         template: '<ss-smash></ss-smash>',
         resolve: {
-        currentUserResolve: currentUserResolve
+          currentUserResolve: currentUserResolve
         },
       })
       .state('story',{
@@ -67,7 +66,7 @@
         parent: 'app',
         template: '<ss-story></ss-story>',
         resolve: {
-        currentUserResolve: currentUserResolve
+          currentUserResolve: currentUserResolve
         },
       })
       .state('listen',{
@@ -76,7 +75,7 @@
         template: '<ss-listen></ss-listen>',
         // templateUrl: '/partials/listen.html',
         resolve: {
-        currentUserResolve: currentUserResolve
+          currentUserResolve: currentUserResolve
         },
       })
       .state('user', {
@@ -84,11 +83,11 @@
         parent: 'app',
         template: '<ss-user></ss-user>'
       })
-  }
+    }
 
-  function currentUserResolve ($http, currentUserService) {
+    function currentUserResolve ($http, currentUserService) {
 
-    return $http.get('http://localhost:8000/api/v1/users/me')
+      return $http.get('http://localhost:8000/api/v1/users/me')
       .then(function (response) {
         console.log(response.data.user);
         return currentUserService.setCurrentUser(response.data.user)
@@ -96,8 +95,7 @@
       .catch(function () {
         localStorage.clear();
         return currentUserService.setCurrentUser(null)
-    })
-  }
+      })
+    }
 
-
-}());
+  }());

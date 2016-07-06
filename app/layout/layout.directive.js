@@ -9,7 +9,7 @@
     return {
       restrict: 'E',
       scope: {},
-      templateUrl: '/partials/layout.html',
+      templateUrl: '/layout/layout.directive.html',
       controller: layoutController,
       controllerAs: 'vm'
     }
@@ -39,6 +39,7 @@
         vm.show.read = true;
         vm.show.listen = false;
         break;
+
         case 'story':
         vm.show.read = false;
         vm.show.listen = true;
@@ -63,12 +64,10 @@
     function launchUser(){
       console.log(vm.currentUser.id);
       $state.go('user', {id: vm.currentUser.id}, {reload:true})
-
     }
 
     function listenLaunch() {
       $state.go('listen', {id: $stateParams.id}, {reload:true})
-
     }
 
     function signOut() {

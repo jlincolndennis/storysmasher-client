@@ -9,7 +9,7 @@
     return {
       restrict: 'E',
       scope: {},
-      templateUrl: '/partials/smash.html',
+      templateUrl: '/smash/smash.directive.html',
       controller: smashController,
       controllerAs: 'vm'
     }
@@ -44,14 +44,12 @@
     $(document).ready(function(){
       $location.hash();
       $('#storySetup').modal('show');
-
     });
 
     function signInInstead() {
       $('#storySetup').modal('hide');
       $('#storyReview').modal('hide');
       $('#signIn').modal('show');
-
     }
 
     function prev() {
@@ -68,23 +66,22 @@
     }
 
     function setPronouns() {
-      // console.log(vm.hero.pronoun);
       switch (vm.setup.pronoun) {
         case 'their':
-          vm.pronouns.their = 'their';
-          vm.pronouns.them = 'them';
-          vm.pronouns.they = 'they';
-          break;
+        vm.pronouns.their = 'their';
+        vm.pronouns.them = 'them';
+        vm.pronouns.they = 'they';
+        break;
         case 'his':
-          vm.pronouns.their = 'his';
-          vm.pronouns.them = 'him';
-          vm.pronouns.they = 'he';
-          break;
+        vm.pronouns.their = 'his';
+        vm.pronouns.them = 'him';
+        vm.pronouns.they = 'he';
+        break;
         case 'her':
-          vm.pronouns.their = 'her';
-          vm.pronouns.them = 'her';
-          vm.pronouns.they = 'she';
-          break;
+        vm.pronouns.their = 'her';
+        vm.pronouns.them = 'her';
+        vm.pronouns.they = 'she';
+        break;
         default:
       }
     }
@@ -103,7 +100,6 @@
 
     function startSmashing() {
       vm.story.title = `${vm.setup.hero} meets the ${vm.setup.xFactorDisplay}`
-      // vm.user.display = `by ${vm.currentUser.username}`
       vm.current.paragraph = 1
       vm.rollPara(1);
     }
@@ -160,9 +156,7 @@
         break;
         default:
         console.log('Invalid Paragraph');
-
       }
-
     }
 
     function rollPara1() {
@@ -347,7 +341,7 @@
         document.getElementsByClassName('pd-coolweapon')[0].innerHTML
       ];
       vm.plotDeets.corrupt =
-        document.getElementsByClassName('pd-corrupt')[0]
+      document.getElementsByClassName('pd-corrupt')[0]
       ;
       if(vm.plotDeets.corrupt) {
         console.log(vm.plotDeets.corrupt, 'bad');
@@ -355,7 +349,6 @@
       } else {
         console.log(vm.plotDeets.corrupt, 'good');
         paragraph = storyFactory.getPara('para7good');
-
       }
 
       var para7Gram = {
@@ -398,7 +391,6 @@
           username: res.data.username,
           id : res.data.id
         }
-        console.log('signup success', currentUser);
         currentUserService.setCurrentUser(currentUser)
         localStorage.setItem('jwt', res.data.jwt)
         var story = vm.story
@@ -407,7 +399,6 @@
           console.log('SAVED SUCCESSFULLY');
           $('.modal').modal('hide');
           $state.go('story', {id: res.data.story.id}, {reload:true})
-
         })
       })
     }
@@ -418,10 +409,10 @@
       story.user_id = currentUser.id
 
       accountFactory.submitStory(story).then(function (res) {
-      $('.modal').modal('hide');
-      $state.go('story', {id: res.data.story.id}, {reload:true})
-    })
+        $('.modal').modal('hide');
+        $state.go('story', {id: res.data.story.id}, {reload:true})
+      })
+    }
   }
-}
 
 }());
