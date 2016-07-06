@@ -86,8 +86,19 @@
     }
 
     function currentUserResolve ($http, currentUserService) {
+      function hostId() {
+        var url = "https://storysmasher-api.herokuapp.com"
+        if ($location.$$host === 'localhost') {
+          console.log('LOCAL');
+          return url = 'http://localhost:8000'
 
-      return $http.get('http://localhost:8000/api/v1/users/me')
+        } else {
+          console.log('NOT LOCAL');
+          return url = "https://storysmasher-api.herokuapp.com"
+        }
+      }
+      var path = hostId();
+      return $http.get(`${path}/api/v1/users/me`)
       .then(function (response) {
         console.log(response.data.user);
         return currentUserService.setCurrentUser(response.data.user)
