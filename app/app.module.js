@@ -85,7 +85,7 @@
       })
     }
 
-    function currentUserResolve ($http, currentUserService) {
+    function currentUserResolve ($http, currentUserService, $location) {
       function hostId() {
         var url = "https://storysmasher-api.herokuapp.com"
         if ($location.$$host === 'localhost') {
