@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2 paper">
-    <div class="roller-popout-lg" ng-hide="vm.current.paragraph === 1">
 
+    <div class="audio-controls text-center">
+    <div class="roller-popout-lg" ng-hide="vm.current.paragraph === 1">
       <button class="btn smash-button-lg left-button" ng-show="vm.buttons.start" ng-click="vm.readStory()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> READ ENTIRE STORY</button>
       <button class='btn smash-button-lg left-button' ng-click="vm.pauseRead()" ng-show="vm.buttons.pause">
         <span class="glyphicon glyphicon-pause" aria-hidden="true"></span> PAUSE READING
@@ -9,13 +10,16 @@
       <button class='btn smash-button-lg left-button' ng-click="vm.resumeRead()" ng-show="vm.buttons.resume">
         <span class="glyphicon glyphicon-play" aria-hidden="true"></span> RESUME READING
       </button>
+    </div>
+    <div class="roller-popout-lg" ng-hide="vm.current.paragraph === 1">
+
       <button class='btn smash-button-lg right-button' ng-click="vm.cancelRead()" ng-show="vm.buttons.cancel">
         <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> CANCEL READING
       </button>
       <button class="btn smash-button-lg right-button" ng-click="vm.paragraphReader()" ng-show="vm.buttons.sections">READ EACH SECTION <span class="glyphicon glyphicon-chevron-down"  aria-hidden="true"></span>
       </button>
     </div>
-
+    </div>
 
 
     <h1 class="story-title">{{vm.story.title}}</h1>

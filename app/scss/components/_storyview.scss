@@ -7,13 +7,13 @@
 }
 
 .roller-popout-lg {
-  width: 451px;
-  // display: inline-block;
+  // width: 451px;
+  display: inline-block;
   padding: 10px;
   margin-bottom: 15px;
   margin-top: 10px;
-  margin-right: auto;
-  margin-left: auto;
+  // margin-right: auto;
+  // margin-left: auto;
    background: $main;
   border: 1px solid white;
   border-radius: 30px;
@@ -27,9 +27,12 @@
 
 }
 
+.audio-controls {
+  // margin-top: 70px; 
+}
+
 .left-button {
   width: 205px;
-  margin-right: 15px;
 }
 
 .right-button {
