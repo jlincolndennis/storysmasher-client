@@ -167,7 +167,7 @@ header {
 
 .focus {
   padding: 5px;
-  background: rgba(145, 0, 230, 0.1);
+  background: rgba(102, 44, 145, 0.25);
   color: black; }
 
 .modal-backdrop {
@@ -221,9 +221,10 @@ header {
 
 .bubble {
   border-radius: 55px;
-  background: rgba(145, 0, 230, 0.1);
+  background: rgba(102, 44, 145, 0.25);
   text-align: center;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  cursor: pointer; }
 
 .selected {
   background: #662C91;
