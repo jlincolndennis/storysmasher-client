@@ -43,6 +43,11 @@
       vm.story = res.data.story
     })
 
+    // var voices = window.speechSynthesis.getVoices()
+    // var voices = window.speechSynthesis.getVoices();
+    // console.log('voices', voices);
+
+
     function readStory() {
       vm.buttons.start = false
       vm.buttons.sections = false
